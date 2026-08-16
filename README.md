@@ -1,7 +1,9 @@
 # DeHaat Honest Farms — Category Creation & Scale Acceleration
 
-An interactive web version of the DHF Business Leadership Challenge deck
-(ISB CGMO Cohort II, Team 1), rebuilt in the Honest Farms brand system.
+A long-form strategy website built from the DHF Business Leadership Challenge
+deck (ISB CGMO Cohort II, Team 1), rebuilt in the Honest Farms brand system.
+Not a slide deck — one continuous scrolling page with six chapters, a sticky
+chapter nav, parallax photo bands and live charts.
 
 **Deploy target:** Cloudflare Workers · project name `sabika-dhf-project`
 
@@ -11,11 +13,12 @@ An interactive web version of the DHF Business Leadership Challenge deck
 
 ```
 site/
-  index.html      28 slides, one <section> each
+  index.html      the page — hero, TL;DR, six chapters, close
   styles.css      brand system + layout (self-contained)
-  app.js          navigation, reveal, counters, interactions, SVG charts
-  fonts/          Fraunces + Inter + Noto Serif Devanagari (self-hosted woff2)
-  assets/         logo, pack shots, field photography, certification marks
+  app.js          scroll spy, parallax, reveals, counters, SVG charts
+  fonts/          Archivo Black + Nunito Sans + Noto Sans Devanagari (woff2)
+  assets/         logo, competitor packs, field photography, press, marks
+tools/bundle.mjs  single-file export
 wrangler.toml     Cloudflare Workers static-asset config
 ```
 
@@ -33,27 +36,29 @@ from the same origin, so the deck works offline and on a conference wifi.
 | Harvest gold | `#C8922E` | The empty price corridor, opportunity |
 | Clay | `#A63E28` | Risk, tension, "what we never say" |
 
-Type: **Fraunces** (display) + **Inter** (UI/body) + **Noto Serif Devanagari**
-(the धन्यवाद sign-off).
+Type is taken straight off the logo. **Archivo Black** for display — it matches
+the heavy, slightly condensed HONEST FARMS wordmark on the blue banner.
+**Nunito Sans** for everything else — it echoes the rounded warmth of the
+DeHaat wordmark and holds up at long reading lengths. **Noto Sans Devanagari**
+carries the धन्यवाद sign-off.
 
-Structure: light content slides sandwiched between dark slides at the title,
-the manifesto, the North Star, the Part V divider and the close.
+Structure: paper-toned content sections alternating with a warm sand tint,
+broken by full-bleed dark photo bands that open each of the six chapters, plus
+dark sections for the manifesto, the North Star and the close.
 
 ## Interactions
 
-| Control | Behaviour |
-|---|---|
-| `→` `↓` `Space` / `←` `↑` | Next / previous slide |
-| `G` | Slide overview grid — jump to any of the 28 |
-| `Home` / `End` | First / last slide |
-| `?` | Keyboard help |
-| `Esc` | Close overlays |
-| Swipe | Horizontal swipe navigates on touch |
-
-Plus, in-slide: expandable phase cards, a TAM/SAM/SOM selector, a quote
-carousel, a four-persona explorer, selectable brand values, a clickable moat
-ladder, an FY27/FY31 chart toggle, animated stat counters, and hover tooltips
-on every chart.
+- Sticky header that rides transparent over the hero and solidifies on scroll,
+  with a read-progress bar and a scroll-spy chapter nav
+- Parallax on every full-bleed photo band and the hero
+- Reveal-on-scroll for every block, staggered within a group
+- Animated stat counters
+- A TL;DR at the top: the whole argument in six linked cards
+- Accordion phase cards, a TAM/SAM/SOM selector, a quote carousel, a
+  four-persona explorer, a clickable moat ladder, an FY27/FY31 chart toggle
+- Hover tooltips on every chart
+- Mobile drawer nav, back-to-top, and `prefers-reduced-motion` respected
+  throughout
 
 ## Charts
 
@@ -114,9 +119,9 @@ node tools/bundle.mjs honest-farms-deck.html
 ```
 
 Inlines the CSS, JS, fonts and images as data URIs and escapes every
-non-ASCII character, producing one ~4 MB HTML file that renders identically
+non-ASCII character, producing one ~5 MB HTML file that renders identically
 from a file:// path, an email attachment, or a host with a strict CSP. Useful
-as a presenting fallback when there's no wifi in the room.
+as a fallback when there's no wifi in the room.
 
 ## Source
 

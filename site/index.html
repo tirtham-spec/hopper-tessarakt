@@ -4,413 +4,427 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>DeHaat Honest Farms — Category Creation &amp; Scale Acceleration</title>
-<meta name="description" content="ISB CGMO Cohort II · Business Leadership Challenge. Scaling DeHaat Honest Farms from ₹53 Cr to ₹300+ Cr by creating and owning the pesticide-free category.">
+<meta name="description" content="How DeHaat Honest Farms creates and owns the pesticide-free category in India, and scales from ₹53 Cr to ₹748 Cr. ISB CGMO Cohort II, Business Leadership Challenge.">
 <meta property="og:title" content="DeHaat Honest Farms — Category Creation &amp; Scale Acceleration">
-<meta property="og:description" content="Verified in the fields. Honest on the shelves. The strategy deck.">
+<meta property="og:description" content="Verified in the fields. Honest on the shelves.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/Inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/Fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/NunitoSans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ArchivoBlack-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ══════════ CHROME ══════════ -->
-<header class="topbar" id="topbar">
-  <div class="topbar__left">
-    <img src="assets/logo.png" alt="DeHaat Honest Farms" class="topbar__logo">
-  </div>
-  <div class="topbar__mid">
-    <span class="topbar__chapter" id="chapterLabel">The Mandate</span>
-  </div>
-  <div class="topbar__right">
-    <span class="topbar__count"><b id="slideNum">01</b><i>/</i><span id="slideTotal">28</span></span>
-    <button class="iconbtn" id="btnGrid" aria-label="Slide overview" title="Overview (G)">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="hdr" id="hdr">
+  <div class="hdr__in">
+    <a class="hdr__brand" href="#top" aria-label="DeHaat Honest Farms — back to top">
+      <img src="assets/logo.png" alt="DeHaat Honest Farms">
+    </a>
+    <nav class="hdr__nav" id="nav" aria-label="Sections">
+      <a href="#mandate"><i>01</i>Mandate</a>
+      <a href="#category"><i>02</i>Category</a>
+      <a href="#consumer"><i>03</i>Consumer</a>
+      <a href="#brand"><i>04</i>Brand</a>
+      <a href="#growth"><i>05</i>Growth</a>
+      <a href="#moat"><i>06</i>Moat &amp; Ask</a>
+    </nav>
+    <button class="hdr__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-    <button class="iconbtn" id="btnHelp" aria-label="Keyboard help" title="Help (?)">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.2 2.4c-.7.25-.9.8-.9 1.4v.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="11.9" cy="16.4" r="1.05" stroke="none"/></svg>
-    </button>
   </div>
-  <div class="topbar__progress"><span id="progressFill"></span></div>
+  <div class="hdr__prog"><span id="prog"></span></div>
 </header>
 
-<nav class="rail" id="rail" aria-label="Chapters"></nav>
-
-<div class="navarrows">
-  <button class="navarrow" id="btnPrev" aria-label="Previous slide">&#8249;</button>
-  <button class="navarrow" id="btnNext" aria-label="Next slide">&#8250;</button>
+<div class="drawer" id="drawer" hidden>
+  <a href="#mandate"><i>01</i>The Mandate</a>
+  <a href="#category"><i>02</i>The Category</a>
+  <a href="#consumer"><i>03</i>The Consumer</a>
+  <a href="#brand"><i>04</i>Brand &amp; Proof</a>
+  <a href="#growth"><i>05</i>The Growth Engine</a>
+  <a href="#moat"><i>06</i>The Moat &amp; The Ask</a>
 </div>
 
-<!-- ══════════ DECK ══════════ -->
-<main id="deck">
+<main id="main">
+<span id="top"></span>
 
-<!-- 01 · TITLE -->
-<section class="slide slide--hero dark" data-chapter="The Mandate" data-title="Title">
-  <div class="hero__bg" style="background-image:url('assets/makhana-farm.jpg')"></div>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero__media"><div class="hero__img" data-para="0.22" style="background-image:url('assets/makhana-farm.jpg')"></div></div>
   <div class="hero__veil"></div>
-  <div class="slide__inner hero__inner">
-    <div class="hero__eyebrow reveal">ISB CGMO Cohort II <em>·</em> Business Leadership Challenge</div>
-    <img src="assets/logo.png" alt="DeHaat Honest Farms" class="hero__logo reveal" style="--d:.08s">
-    <h1 class="hero__title reveal" style="--d:.16s">Category Creation<br><span>&amp; Scale Acceleration</span></h1>
-    <p class="hero__sub reveal" style="--d:.24s">Verified in the fields. Honest on the shelves.</p>
-    <div class="hero__team reveal" style="--d:.32s">
-      <span class="hero__teamtag">Team 1</span>
-      <span class="hero__names">Sabika Mirza · Sharon Batliwalla · Syed Kashif Ali · Sonu Adarsh · Abhishek Nandan</span>
+  <div class="hero__in wrap">
+    <p class="hero__kicker rv">ISB CGMO Cohort II <span>·</span> Business Leadership Challenge</p>
+    <img class="hero__logo rv" style="--d:.06s" src="assets/logo.png" alt="DeHaat Honest Farms">
+    <h1 class="hero__h1 rv" style="--d:.12s">Category Creation<br><em>&amp; Scale Acceleration</em></h1>
+    <p class="hero__sub rv" style="--d:.2s">Verified in the fields. Honest on the shelves.</p>
+    <p class="hero__team rv" style="--d:.28s"><b>Team 1</b> Sabika Mirza · Sharon Batliwalla · Syed Kashif Ali · Sonu Adarsh · Abhishek Nandan</p>
+  </div>
+  <div class="hero__strip">
+    <div class="wrap hero__strip-in">
+      <div class="hstat hstat--first rv"><b>₹53 Cr <span>→</span> ₹748 Cr</b><span>the FY26 base to the FY31 ambition</span></div>
+      <div class="hstat rv" style="--d:.06s"><b>₹48,000 Cr</b><span>a category with no definition, standard or owner</span></div>
+      <div class="hstat rv" style="--d:.12s"><b>305 + 31</b><span>respondents behind every claim in this document</span></div>
+      <a class="hstat hstat--cta rv" style="--d:.18s" href="#tldr">Read the argument <i>↓</i></a>
     </div>
-    <div class="hero__scroll reveal" style="--d:.42s"><span>Scroll or press <kbd>→</kbd></span><i></i></div>
   </div>
 </section>
 
-<!-- 02 · THE MANDATE -->
-<section class="slide" data-chapter="The Mandate" data-title="The Mandate">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The Mandate</div>
-    <h2 class="h2 reveal" style="--d:.05s">Scale DHF from <b class="hl">₹53 Cr</b> to <b class="hl">₹300+ Cr</b> in three years.</h2>
-    <p class="lede reveal" style="--d:.1s">Not by outspending organic, but by creating and owning a category that does not yet formally exist.</p>
+<!-- ═══════════ TL;DR ═══════════ -->
+<section class="sec sec--tldr" id="tldr">
+  <div class="wrap">
+    <p class="eyebrow">Start here</p>
+    <h2 class="h2">The whole argument, in six moves.</h2>
+    <p class="lead">Every section that follows is evidence for one of these six steps. If you read nothing else, read this.</p>
+
+    <ol class="moves">
+      <li class="rv"><span class="moves__n">1</span><b>There is a ₹48,000 Cr category that nobody has defined.</b><p>"Pesticide-free" is not a regulated term in India. Demand is real — 84% of consumers are worried about food safety — but no brand has codified the standard, so the words commoditise before they mean anything.</p><a href="#category">See the evidence &rarr;</a></li>
+      <li class="rv" style="--d:.05s"><span class="moves__n">2</span><b>The shelf has an empty corridor, and DHF should own it.</b><p>Mainstream dal sits at ₹136–157/kg. Certified organic sits at ₹255–306. Between them is an accessible-premium corridor at ₹150–250 with no trust code attached to it — and it is already being squeezed from below.</p><a href="#ladder">See the price ladder &rarr;</a></li>
+      <li class="rv" style="--d:.1s"><span class="moves__n">3</span><b>The barrier is belief, not budget.</b><p>Half of buyers say they'd pay nothing extra — and say why: they don't trust the claims. But 60% would pay 20–30% more if someone they trusted had independently verified it. That is a proof problem wearing a price mask.</p><a href="#segments">Meet the four segments &rarr;</a></li>
+      <li class="rv" style="--d:.15s"><span class="moves__n">4</span><b>DHF already generates the proof. It just never shows it.</b><p>230+ pesticide checks per batch, batch-level testing, failing lots rejected — all invisible to the shopper. Competitors lead with logos; DHF can lead with data, and put the farmer's name and face on it.</p><a href="#proof">See the proof benchmark &rarr;</a></li>
+      <li class="rv" style="--d:.2s"><span class="moves__n">5</span><b>So the brand becomes the one you verify, not the one you trust.</b><p>Positioning, promise and every communication delivery hang off a single measurable metric — Verified Purchase Rate. Revenue is the outcome; verification is the lever.</p><a href="#northstar">See the North Star &rarr;</a></li>
+      <li class="rv" style="--d:.25s"><span class="moves__n">6</span><b>₹105 Cr buys breakeven at ₹274 Cr, and a moat worth defending.</b><p>Spices carry the margin, quick commerce carries the reach, and DeHaat's control of the farm input — not the harvest test — is the only asset a competitor cannot buy inside five years.</p><a href="#moat">See the ask &rarr;</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ PART 01 — THE MANDATE ══════════ -->
+<section class="band" id="mandate">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/wheat.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 01</p>
+    <h2 class="band__t">The Mandate</h2>
+    <p class="band__s">What we were asked to do, and the evidence we built to answer it.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">The brief</p>
+    <h2 class="h2">Scale DHF from <b>₹53 Cr</b> to <b>₹300+ Cr</b> in three years.</h2>
+    <p class="lead">Not by outspending organic, but by creating and owning a category that does not yet formally exist. We broke that into four phases.</p>
 
     <div class="phases" id="phases">
-      <button class="phase reveal is-active" data-phase="1" style="--d:.14s">
-        <span class="phase__n">01</span>
-        <span class="phase__t">Diagnose &amp; Decode</span>
-        <span class="phase__d">Build a shared, fact-based understanding of category, competition &amp; consumer</span>
-        <ul class="phase__out">
-          <li>Category &amp; consumer insight base</li><li>Trust tension map + segmentation</li>
-          <li>Imitation risk heatmap</li><li>Internal diagnosis snapshot</li>
-        </ul>
-      </button>
-      <button class="phase reveal" data-phase="2" style="--d:.19s">
-        <span class="phase__n">02</span>
-        <span class="phase__t">Category &amp; Brand Strategy</span>
-        <span class="phase__d">Define what DHF must own in the mind of the consumer</span>
-        <ul class="phase__out">
-          <li>Category creation framework</li><li>Positioning &amp; brand architecture</li>
-          <li>Proof hierarchy</li><li>Codified Pesticide-Free standard</li>
-        </ul>
-      </button>
-      <button class="phase reveal" data-phase="3" style="--d:.24s">
-        <span class="phase__n">03</span>
-        <span class="phase__t">Growth Engine Design</span>
-        <span class="phase__d">Decide where to play and how to win — the moat</span>
-        <ul class="phase__out">
-          <li>Top growth drivers</li><li>Hero SKU list (10–15 SKUs)</li>
-          <li>Channel role matrix</li><li>Competitive defense playbook</li>
-        </ul>
-      </button>
-      <button class="phase reveal" data-phase="4" style="--d:.29s">
-        <span class="phase__n">04</span>
-        <span class="phase__t">Scale Blueprint</span>
-        <span class="phase__d">Build a sustainable, funded path to growth</span>
-        <ul class="phase__out">
-          <li>5-year growth ambition</li><li>Investment &amp; capital roadmap</li>
-          <li>Category Rulebook &amp; governance</li><li>Operating model + KPI framework</li>
-        </ul>
-      </button>
+      <article class="phase rv is-open">
+        <button class="phase__hd" aria-expanded="true"><span class="phase__n">01</span><span class="phase__t">Diagnose &amp; Decode</span><span class="phase__x" aria-hidden="true"></span></button>
+        <div class="phase__bd"><p>Build a shared, fact-based understanding of category, competition and consumer.</p>
+          <ul><li>Category &amp; consumer insight base</li><li>Trust tension map + segmentation</li><li>Imitation risk heatmap</li><li>Internal diagnosis snapshot</li></ul></div>
+      </article>
+      <article class="phase rv" style="--d:.05s">
+        <button class="phase__hd" aria-expanded="false"><span class="phase__n">02</span><span class="phase__t">Category &amp; Brand Strategy</span><span class="phase__x" aria-hidden="true"></span></button>
+        <div class="phase__bd"><p>Define what DHF must own in the mind of the consumer.</p>
+          <ul><li>Category creation framework</li><li>Positioning &amp; brand architecture</li><li>Proof hierarchy</li><li>Codified Pesticide-Free standard</li></ul></div>
+      </article>
+      <article class="phase rv" style="--d:.1s">
+        <button class="phase__hd" aria-expanded="false"><span class="phase__n">03</span><span class="phase__t">Growth Engine Design</span><span class="phase__x" aria-hidden="true"></span></button>
+        <div class="phase__bd"><p>Decide where to play and how to win — the moat.</p>
+          <ul><li>Top growth drivers</li><li>Hero SKU list (10–15 SKUs)</li><li>Channel role matrix</li><li>Competitive defense playbook</li></ul></div>
+      </article>
+      <article class="phase rv" style="--d:.15s">
+        <button class="phase__hd" aria-expanded="false"><span class="phase__n">04</span><span class="phase__t">Scale Blueprint</span><span class="phase__x" aria-hidden="true"></span></button>
+        <div class="phase__bd"><p>Build a sustainable, funded path to growth.</p>
+          <ul><li>5-year growth ambition</li><li>Investment &amp; capital roadmap</li><li>Category Rulebook &amp; governance</li><li>Operating model + KPI framework</li></ul></div>
+      </article>
     </div>
 
-    <div class="evidence reveal" style="--d:.34s">
-      <div class="evidence__label">The evidence base</div>
-      <div class="evidence__grid">
-        <div class="ev"><b class="num" data-count="305">305</b><span>Respondents, quantitative survey · 5 metros · fielded 28–29 May 2026 by 1Lattice</span></div>
-        <div class="ev"><b class="num" data-count="31" data-suffix="+">31+</b><span>Qualitative respondents · 6 cities · intercepts, IDIs, ethnography</span></div>
-        <div class="ev"><b class="num" data-count="90.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹90.9 Cr</b><span>Internal revenue audited · 4,365 MT · 8 half-years · 8 channels</span></div>
-        <div class="ev"><b class="num" data-count="4">4</b><span>Competitors benchmarked · 11 DHF advantages stress-tested</span></div>
-      </div>
+    <h3 class="h3">The evidence base</h3>
+    <p class="note">Nothing in this document is asserted without one of these four sources behind it.</p>
+    <div class="grid grid--4">
+      <div class="ev rv"><b class="num" data-count="305">305</b><span>Respondents to the quantitative survey. Five metros, fielded 28–29 May 2026 by 1Lattice.</span></div>
+      <div class="ev rv" style="--d:.05s"><b class="num" data-count="31" data-suffix="+">31+</b><span>Qualitative respondents across six cities — in-market intercepts, IDIs and ethnography.</span></div>
+      <div class="ev rv" style="--d:.1s"><b class="num" data-count="90.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹90.9 Cr</b><span>Internal revenue audited: 4,365 MT across eight half-years and eight channels.</span></div>
+      <div class="ev rv" style="--d:.15s"><b class="num" data-count="4">4</b><span>Competitors benchmarked, with 11 DHF advantages stress-tested for imitability.</span></div>
     </div>
   </div>
 </section>
 
-<!-- 03 · THE CATEGORY -->
-<section class="slide" data-chapter="Category &amp; Competition" data-title="The Whitespace">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Category &amp; Competition</div>
-    <h2 class="h2 reveal" style="--d:.05s">A <b class="hl">₹48,000 Cr</b> category with no definition, no standard, and no owner.</h2>
-    <p class="lede reveal" style="--d:.1s">The whitespace is regulatory and semantic, not just commercial.</p>
-
-    <div class="statrow reveal" style="--d:.14s">
-      <div class="stat"><b class="num" data-count="84" data-suffix="%">84%</b><span>of Indian consumers are extremely or very concerned about food safety <cite>PwC Voice of the Consumer 2025</cite></span></div>
-      <div class="stat"><b class="num" data-count="35.9" data-suffix="%" data-dec="1">35.9%</b><span>of monitored samples show detectable residues — up from 22.6% in 2018–19</span></div>
-      <div class="stat"><b class="num" data-count="2.8" data-suffix="%" data-dec="1">2.8%</b><span>of 86,401 FSSAI samples tested 2022–25 breached maximum residue limits</span></div>
-      <div class="stat"><b class="numplain">$8.6B → $22B</b><span>India organic food, 2024 → 2033 (CAGR ≈ 11%)</span></div>
-    </div>
-
-    <div class="split split--60 gap-lg">
-      <div class="reveal" style="--d:.18s">
-        <div class="kicker">Sizing the pesticide-free opportunity</div>
-        <div class="tamgrid" id="tamGrid">
-          <button class="tam is-active" data-tam="0">
-            <span class="tam__tag">TAM</span><b class="tam__v">₹48,000 Cr</b>
-            <span class="tam__bar"><i style="--w:100%"></i></span>
-          </button>
-          <button class="tam" data-tam="1">
-            <span class="tam__tag">SAM</span><b class="tam__v">₹13,500 Cr</b>
-            <span class="tam__bar"><i style="--w:28%"></i></span>
-          </button>
-          <button class="tam" data-tam="2">
-            <span class="tam__tag">SOM</span><b class="tam__v">₹300–350 Cr</b>
-            <span class="tam__bar"><i style="--w:2.4%"></i></span>
-          </button>
-        </div>
-        <div class="tamnote" id="tamNote">
-          <p data-tam="0">Pesticide-free food across the top 300 cities. Anchored to Technopak's 5–6% organic-of-packaged-food potential (₹35,000 Cr), uplifted 1.3–1.5× because pesticide-free prices below organic.</p>
-          <p data-tam="1" hidden>A 28% serviceability factor: staples, pulses, rice, spices and select value-added, sold through quick commerce, e-commerce and modern trade to ≈25 Mn health-conscious households.</p>
-          <p data-tam="2" hidden>The three-year ambition — 2.2–2.6% of SAM, 0.6–0.7% of TAM. Five-year aspiration ₹700–800 Cr.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--d:.22s">
-        <div class="kicker">Why the category has not formed yet</div>
-        <ol class="reasons">
-          <li><b>No standard definition.</b> "Pesticide-free" is not a regulated term in India.</li>
-          <li><b>Harder to prove than to claim.</b> Proof lives in back-end systems, not on pack.</li>
-          <li><b>Awkward economics.</b> A trust-led cost structure at a mass-premium price.</li>
-          <li><b>No player has codified or defended it.</b> The term commoditises before standards exist.</li>
-        </ol>
-        <div class="callout callout--green">
-          <b>Demand is real. Belief is the bottleneck.</b>
-          Indian shoppers will pay ≈20% more for low-impact products — the highest of 11 countries surveyed; yet ≈60% fear greenwashing and only ≈29% trust corporate environmental claims.
-        </div>
-      </div>
-    </div>
-    <p class="src">Source: Technopak Report 2022–23; PwC Voice of the Consumer 2025; FSSAI surveillance data.</p>
+<!-- ══════════ PART 02 — THE CATEGORY ══════════ -->
+<section class="band" id="category">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/pulses.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 02</p>
+    <h2 class="band__t">The Category</h2>
+    <p class="band__s">A market with real demand, real money, and nobody holding the definition.</p>
   </div>
 </section>
 
-<!-- 04 · PRICE LADDER -->
-<section class="slide" data-chapter="Category &amp; Competition" data-title="The Price Ladder">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Category structure</div>
-    <h2 class="h2 reveal" style="--d:.05s">Laddering on pricing and claims — and the corridor nobody owns.</h2>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">The whitespace</p>
+    <h2 class="h2">A <b>₹48,000 Cr</b> category with no definition, no standard, and no owner.</h2>
+    <p class="lead">The gap here is regulatory and semantic before it is commercial. Indian consumers are worried about what is on their food and willing to pay to avoid it — but there is no agreed meaning of "pesticide-free", so the willingness has nowhere to land.</p>
 
-    <div class="split split--55 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">The price ladder · Toor dal, ₹ / kg</div>
-        <figure class="chartbox"><div id="chartPrice" class="chart" role="img" aria-label="Bar chart of toor dal prices per kilogram across seven brands, showing an empty corridor between ₹157 and ₹255"></div></figure>
-        <div class="legendrow">
-          <span class="lg"><i class="sw sw--blue"></i>Mainstream &amp; value</span>
-          <span class="lg"><i class="sw sw--gold"></i>The empty corridor · ₹150–250</span>
-          <span class="lg"><i class="sw sw--green"></i>Certified organic</span>
-        </div>
-      </div>
-      <div class="reveal" style="--d:.15s">
-        <div class="kicker">Five archetypes on the shelf</div>
-        <div class="tiers">
-          <div class="tier"><b>Conventional national packaged</b><span>Factory &amp; FSSAI process credibility. Trust story shallow, easily copied.</span></div>
-          <div class="tier"><b>Retailer &amp; regional private label</b><span>Retailer QA and lab testing. No ownable narrative.</span></div>
-          <div class="tier"><b>Natural or nutrition-led</b><span>Process + nutrition + brand legacy. "Natural" reads wholesome, not safer.</span></div>
-          <div class="tier"><b>Clean-label / provenance challengers</b><span>Sourcing stories. Premium, fragmented, no mass trust code.</span></div>
-          <div class="tier"><b>Certified organic specialists</b><span>NPOP / NOP certification + traceability. Structurally higher price ladder; scale friction.</span></div>
-        </div>
-        <div class="callout callout--gold">
-          <b>The corridor between them is empty of trust codes.</b>
-          Value and mainstream sit at ₹136–157; certified organic at ₹255–306. DHF should be priced accessible-premium at ₹150–250/kg — and that corridor is already being squeezed from below by BB Royal Organic at ₹157.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 · PROOF BENCHMARK -->
-<section class="slide" data-chapter="Category &amp; Competition" data-title="Proof Benchmark">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Proof &amp; claims benchmarking</div>
-    <h2 class="h2 reveal" style="--d:.05s">Who can actually show their work?</h2>
-
-    <div class="proofgrid">
-      <article class="pcard reveal" style="--d:.08s"><header><b>Organic Tattva</b><span class="chip chip--yes">QR · Yes</span></header><p>250-parameter farm-level residue test, QR on every pack to the batch report. The category benchmark.</p></article>
-      <article class="pcard reveal" style="--d:.12s"><header><b>24 Mantra <i>(ITC)</i></b><span class="chip chip--no">QR · No</span></header><p>EU + USDA + NPOP certification, 1.4 lakh acres, 27,500 farmers. Logos are the proof — no consumer-facing test report.</p></article>
-      <article class="pcard reveal" style="--d:.16s"><header><b>Tata Sampann</b><span class="chip chip--no">QR · No</span></header><p>Brand trust plus an "unpolished" visual cue and a celebrity anchor. No public batch-level residue disclosure.</p></article>
-      <article class="pcard reveal" style="--d:.2s"><header><b>Organic India <i>(Tata)</i></b><span class="chip chip--no">QR · No</span></header><p>Certification-heavy — USDA, EU, NPOP, Kosher — across 35+ export markets. Logos, not data.</p></article>
-      <article class="pcard pcard--dhf reveal" style="--d:.24s"><header><b>DeHaat Honest Farms</b><span class="chip chip--gap">QR · Gap</span></header><p>230+ pesticide checks, batch-level testing, failing lots rejected. <b>All of it invisible to the shopper.</b></p></article>
+    <div class="grid grid--4 stats">
+      <div class="stat rv"><b class="num" data-count="84" data-suffix="%">84%</b><span>of Indian consumers are extremely or very concerned about food safety</span><cite>PwC Voice of the Consumer 2025</cite></div>
+      <div class="stat rv" style="--d:.05s"><b class="num" data-count="35.9" data-suffix="%" data-dec="1">35.9%</b><span>of monitored samples show detectable residues — up from 22.6% in 2018–19</span></div>
+      <div class="stat rv" style="--d:.1s"><b class="num" data-count="2.8" data-suffix="%" data-dec="1">2.8%</b><span>of 86,401 FSSAI samples tested 2022–25 breached maximum residue limits</span></div>
+      <div class="stat rv" style="--d:.15s"><b class="plain">$8.6B → $22B</b><span>India's organic food market, 2024 → 2033, a CAGR of roughly 11%</span></div>
     </div>
 
-    <div class="split split--38 gap-lg">
-      <div class="reveal" style="--d:.28s">
-        <div class="kicker">Messaging consistency, scored</div>
-        <ul class="scorelist">
-          <li><span>Tata Sampann</span><b>9<i>/10</i></b></li>
-          <li><span>Organic Tattva</span><b>8<i>/10</i></b></li>
-          <li><span>Organic India</span><b>7<i>/10</i></b></li>
-          <li><span>24 Mantra</span><b>6<i>/10</i></b></li>
-        </ul>
-        <p class="fine">24 Mantra is expected to reach 9/10 within 12–18 months of ITC integration.</p>
-      </div>
-      <div class="reveal" style="--d:.32s">
-        <div class="kicker">Imitation risk · months to copy <span class="hint">hover a bar</span></div>
-        <div id="chartImitation" class="chart chart--imitation" role="img" aria-label="Timeline of how long each DHF advantage takes a competitor to copy"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 · THE CHALLENGER -->
-<section class="slide" data-chapter="Category &amp; Competition" data-title="System-led Challenger">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Untapped opportunity</div>
-    <h2 class="h2 reveal" style="--d:.05s">DeHaat Honest Farms: a pesticide-free, <b class="hl">system-led</b> challenger.</h2>
-    <p class="lede reveal" style="--d:.1s">Proof comes from controlling procurement and processing, not from holding a certificate. No brand occupies that position today.</p>
-
-    <div class="split split--58 gap-lg">
+    <div class="cols cols--6040">
       <div>
-        <div class="advantages">
-          <article class="adv reveal" style="--d:.14s">
-            <span class="adv__ico">01</span>
-            <b>AgriTech-embedded input control</b>
-            <p>We prevent pesticide use at source, rather than testing for it afterward.</p>
-            <span class="adv__use">Current use in brand communication: <b>near zero</b></span>
-          </article>
-          <article class="adv reveal" style="--d:.18s">
-            <span class="adv__ico">02</span>
-            <b>Continuous quality intelligence across 2M farms</b>
-            <p>Quality trajectory is known before harvest, not after rejection.</p>
-            <span class="adv__use">Current use in brand communication: <b>zero</b></span>
-          </article>
-          <article class="adv reveal" style="--d:.22s">
-            <span class="adv__ico">03</span>
-            <b>Farmer economic ecosystem</b>
-            <p>Supply exclusivity earned through 30–50% better farmer returns.</p>
-            <span class="adv__use">Current use in brand communication: <b>minimal</b></span>
-          </article>
+        <h3 class="h3">Sizing the opportunity</h3>
+        <p class="note">Three nested numbers. Select each to see how it was built.</p>
+        <div class="tam" id="tam">
+          <button class="tam__b is-on" data-tam="0"><span class="tam__tag">TAM</span><b>₹48,000 Cr</b><i style="--w:100%"></i></button>
+          <button class="tam__b" data-tam="1"><span class="tam__tag">SAM</span><b>₹13,500 Cr</b><i style="--w:28%"></i></button>
+          <button class="tam__b" data-tam="2"><span class="tam__tag">SOM</span><b>₹300–350 Cr</b><i style="--w:2.6%"></i></button>
+        </div>
+        <div class="tam__note" id="tamNote">
+          <p data-tam="0">Pesticide-free food across India's top 300 cities. Anchored to Technopak's 5–6% organic-of-packaged-food potential (₹35,000 Cr), then uplifted 1.3–1.5× because pesticide-free prices below organic and therefore reaches further down the income curve.</p>
+          <p data-tam="1" hidden>A 28% serviceability factor. Staples, pulses, rice, spices and select value-added lines, sold through quick commerce, e-commerce and modern trade, to roughly 25 million health-conscious households.</p>
+          <p data-tam="2" hidden>The three-year ambition: 2.2–2.6% of SAM and 0.6–0.7% of TAM. The five-year aspiration is ₹700–800 Cr. Small enough to be credible, large enough to define the category.</p>
         </div>
       </div>
-      <div class="reveal" style="--d:.26s">
-        <figure class="figure figure--pack">
-          <img src="assets/pack-toordal.jpg" alt="DeHaat Honest Farms unpolished toor dal pack with Know Your Farmer QR and 230+ pesticide checks callout" loading="lazy">
-          <figcaption>The asset already exists on pack — and is under-worked. <b>Know Your Farmer</b> QR, <b>230+ pesticide checks</b>, pesticide-free call-out.</figcaption>
-        </figure>
-        <div class="callout callout--clay">
-          <b>DHF's shelf price is inconsistent across platforms.</b>
-          The accessible-premium corridor is defensible only if the price is coherent everywhere the shopper looks.
+      <div>
+        <h3 class="h3">Why the category hasn't formed</h3>
+        <ol class="reasons">
+          <li class="rv"><b>No standard definition.</b> "Pesticide-free" is not a regulated term in India, so it means whatever the pack says it means.</li>
+          <li class="rv" style="--d:.05s"><b>Harder to prove than to claim.</b> The proof lives in back-end sourcing and testing systems, not on the front of pack.</li>
+          <li class="rv" style="--d:.1s"><b>Awkward economics.</b> A trust-led cost structure has to survive at a mass-premium price point.</li>
+          <li class="rv" style="--d:.15s"><b>Nobody has codified or defended it.</b> Without a standard, the term commoditises before it can carry value.</li>
+        </ol>
+        <div class="box box--green rv">
+          <b>Demand is real. Belief is the bottleneck.</b>
+          <p>Indian shoppers will pay around 20% more for low-impact products — the highest of eleven countries surveyed. Yet roughly 60% fear greenwashing and only about 29% trust corporate environmental claims.</p>
+        </div>
+      </div>
+    </div>
+    <p class="src">Sources: Technopak Report 2022–23 · PwC Voice of the Consumer 2025 · FSSAI surveillance data.</p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="ladder">
+  <div class="wrap">
+    <p class="eyebrow">Category structure</p>
+    <h2 class="h2">Laddering on price and claims — and the corridor nobody owns.</h2>
+    <p class="lead">Every brand on the shelf sits on a rung defined by what it claims and what it charges. Plotting toor dal by the kilo makes the gap obvious: there is nothing credible between value pulses and certified organic.</p>
+
+    <figure class="chartfig rv">
+      <figcaption class="chartfig__cap">Toor dal, ₹ per kg <span class="tag">hover a bar for detail</span></figcaption>
+      <div id="chartPrice" class="chart" role="img" aria-label="Bar chart of toor dal prices per kilogram across seven brands, showing an empty corridor between 157 and 255 rupees"></div>
+      <div class="legend">
+        <span><i class="sw sw--blue"></i>Mainstream &amp; value</span>
+        <span><i class="sw sw--gold"></i>The empty corridor · ₹150–250</span>
+        <span><i class="sw sw--green"></i>Certified organic</span>
+      </div>
+    </figure>
+
+    <h3 class="h3">Who is actually on the shelf</h3>
+    <p class="note">Five archetypes, each with a different trust story — and each with a hole in it.</p>
+    <div class="packs">
+      <figure class="pack rv"><img src="assets/pk-fortune.jpg" alt="Fortune packaged staples" loading="lazy"><figcaption><b>Conventional national packaged</b><span>Factory and FSSAI process credibility. The trust story is shallow and easily copied.</span></figcaption></figure>
+      <figure class="pack rv" style="--d:.05s"><img src="assets/pk-vedaka.jpg" alt="Vedaka organic black chana private label" loading="lazy"><figcaption><b>Retailer &amp; regional private label</b><span>Retailer QA and lab testing behind it, but no ownable narrative in front of it.</span></figcaption></figure>
+      <figure class="pack rv" style="--d:.1s"><img src="assets/pk-tatasampann.jpg" alt="Tata Sampann unpolished toor dal" loading="lazy"><figcaption><b>Natural or nutrition-led</b><span>Process, nutrition and brand legacy. "Natural" reads wholesome — it does not read safer.</span></figcaption></figure>
+      <figure class="pack rv" style="--d:.15s"><img src="assets/pk-conscious.jpg" alt="Conscious Food raw sugar" loading="lazy"><figcaption><b>Clean-label / provenance challengers</b><span>Sourcing stories, premium prices, fragmented. No mass trust code.</span></figcaption></figure>
+      <figure class="pack rv" style="--d:.2s"><img src="assets/pk-24mantra.jpg" alt="24 Mantra Organic masoor whole" loading="lazy"><figcaption><b>Certified organic specialists</b><span>NPOP / NOP certification and traceability, on a structurally higher price ladder. Scale friction.</span></figcaption></figure>
+    </div>
+
+    <div class="box box--gold rv">
+      <b>The corridor between them is empty of trust codes.</b>
+      <p>Value and mainstream sit at ₹136–157. Certified organic sits at ₹255–306. DHF belongs in the accessible-premium corridor at ₹150–250 per kg — and that corridor is already being squeezed from below by BB Royal Organic at ₹157. The window is open, but it is closing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="wrap">
+    <p class="eyebrow">Proof &amp; claims benchmarking</p>
+    <h2 class="h2">Who can actually show their work?</h2>
+    <p class="lead">We took the four most credible players in the category and asked one question of each: if a shopper wanted to check the claim, could they? Only one brand passes — and DHF, which does the most testing, shows the least.</p>
+
+    <div class="grid grid--5 proofcards">
+      <article class="pc rv"><img src="assets/pk-tattva.jpg" alt="Organic Tattva pack" loading="lazy"><div class="pc__b"><b>Organic Tattva</b><span class="chip chip--yes">QR · Yes</span><p>250-parameter farm-level residue test, with a QR on every pack leading to that batch's report. The category benchmark.</p></div></article>
+      <article class="pc rv" style="--d:.05s"><img src="assets/pk-24mantra.jpg" alt="24 Mantra Organic pack" loading="lazy"><div class="pc__b"><b>24 Mantra <i>(ITC)</i></b><span class="chip chip--no">QR · No</span><p>EU, USDA and NPOP certification across 1.4 lakh acres and 27,500 farmers. The logos are the proof — there is no consumer-facing test report.</p></div></article>
+      <article class="pc rv" style="--d:.1s"><img src="assets/pk-tatasampann.jpg" alt="Tata Sampann pack" loading="lazy"><div class="pc__b"><b>Tata Sampann</b><span class="chip chip--no">QR · No</span><p>Brand trust, an "unpolished" visual cue and a celebrity anchor. No public batch-level residue disclosure.</p></div></article>
+      <article class="pc rv" style="--d:.15s"><img src="assets/pk-catch.jpg" alt="Catch spices pack" loading="lazy"><div class="pc__b"><b>Organic India <i>(Tata)</i></b><span class="chip chip--no">QR · No</span><p>Certification-heavy — USDA, EU, NPOP, Kosher — across 35+ export markets. Logos, not data.</p></div></article>
+      <article class="pc pc--dhf rv" style="--d:.2s"><img src="assets/pack-toordal.jpg" alt="DeHaat Honest Farms toor dal pack" loading="lazy"><div class="pc__b"><b>DeHaat Honest Farms</b><span class="chip chip--gap">QR · Gap</span><p>230+ pesticide checks, batch-level testing, failing lots rejected. <b class="in">All of it invisible to the shopper.</b></p></div></article>
+    </div>
+
+    <div class="cols cols--3565">
+      <div>
+        <h3 class="h3">Messaging consistency</h3>
+        <p class="note">Scored out of 10 on how coherently the brand says one thing across pack, app and advertising.</p>
+        <ul class="scores">
+          <li class="rv"><span>Tata Sampann</span><b>9<i>/10</i></b></li>
+          <li class="rv" style="--d:.04s"><span>Organic Tattva</span><b>8<i>/10</i></b></li>
+          <li class="rv" style="--d:.08s"><span>Organic India</span><b>7<i>/10</i></b></li>
+          <li class="rv" style="--d:.12s"><span>24 Mantra</span><b>6<i>/10</i></b></li>
+        </ul>
+        <p class="note">24 Mantra is expected to reach 9/10 within 12–18 months of ITC integration. The clock on differentiation is already running.</p>
+      </div>
+      <div>
+        <h3 class="h3">How long each advantage survives</h3>
+        <p class="note">We stress-tested eleven DHF advantages against how quickly a well-funded competitor could replicate them. The pattern is stark: everything cheap to copy is already copied.</p>
+        <div id="chartImitation" class="chart" role="img" aria-label="Timeline of how long each DHF advantage takes a competitor to copy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">Untapped opportunity</p>
+    <h2 class="h2">DeHaat Honest Farms is a <b>system-led</b> challenger.</h2>
+    <p class="lead">Every other player proves safety by testing the harvest or buying a certificate. DHF is the only one that can prevent the problem at the input — because it already runs the agritech network the farmer plants with. No brand occupies that position today.</p>
+
+    <div class="cols cols--5842">
+      <div class="advs">
+        <article class="adv rv"><span class="adv__n">01</span><b>AgriTech-embedded input control</b><p>We prevent pesticide use at source, rather than testing for it afterward.</p><span class="adv__use">Current use in brand communication <em>near zero</em></span></article>
+        <article class="adv rv" style="--d:.06s"><span class="adv__n">02</span><b>Continuous quality intelligence across 2M farms</b><p>The quality trajectory is known before harvest, not discovered after rejection.</p><span class="adv__use">Current use in brand communication <em>zero</em></span></article>
+        <article class="adv rv" style="--d:.12s"><span class="adv__n">03</span><b>Farmer economic ecosystem</b><p>Supply exclusivity earned through 30–50% better farmer returns.</p><span class="adv__use">Current use in brand communication <em>minimal</em></span></article>
+      </div>
+      <div>
+        <figure class="fig fig--pack rv"><img src="assets/pack-toordal.jpg" alt="DeHaat Honest Farms unpolished toor dal pack with Know Your Farmer QR and 230+ pesticide checks callout" loading="lazy"><figcaption>The asset is already on pack and under-worked: a <b>Know Your Farmer</b> QR, <b>230+ pesticide checks</b>, and a pesticide-free call-out.</figcaption></figure>
+        <div class="box box--clay rv">
+          <b>One thing to fix first.</b>
+          <p>DHF's shelf price is inconsistent across platforms. The accessible-premium corridor is only defensible if the price is coherent everywhere the shopper looks.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07 · QUALITATIVE -->
-<section class="slide" data-chapter="The Consumer" data-title="Qualitative Research">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Qualitative research by the team · 31 respondents across 6 cities</div>
-    <h2 class="h2 reveal" style="--d:.05s">There is enormous scope to educate on the pesticide-free category.</h2>
+<!-- ══════════ PART 03 — THE CONSUMER ══════════ -->
+<section class="band" id="consumer">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/store.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 03</p>
+    <h2 class="band__t">The Consumer</h2>
+    <p class="band__s">Thirty-one conversations and 305 surveys, turned into four people you can sell to.</p>
+  </div>
+</section>
 
-    <div class="statrow statrow--3 reveal" style="--d:.1s">
-      <div class="stat stat--clay"><b class="num" data-count="70" data-suffix="%">70%</b><span>of in-market shoppers could not distinguish "organic" from "pesticide-free"</span></div>
-      <div class="stat stat--green"><b class="num" data-count="100" data-suffix="%">100%</b><span>cited health of self &amp; family as their primary food purchase driver</span></div>
-      <div class="stat stat--blue"><b class="num" data-count="0" data-suffix="%">0%</b><span>connected the word "pure" to pesticide residue — a language gap, not an interest gap</span></div>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Qualitative research · 31 respondents across 6 cities</p>
+    <h2 class="h2">Shoppers care enormously. They just don't know what the words mean.</h2>
+    <p class="lead">We ran in-market intercepts, in-depth interviews and ethnography before writing a single survey question. What came back was not apathy — it was confusion held with total confidence.</p>
+
+    <div class="grid grid--3 stats">
+      <div class="stat stat--clay rv"><b class="num" data-count="70" data-suffix="%">70%</b><span>of in-market shoppers could not distinguish "organic" from "pesticide-free"</span></div>
+      <div class="stat stat--green rv" style="--d:.06s"><b class="num" data-count="100" data-suffix="%">100%</b><span>cited the health of self and family as their primary food purchase driver</span></div>
+      <div class="stat stat--blue rv" style="--d:.12s"><b class="num" data-count="0" data-suffix="%">0%</b><span>connected the word "pure" to pesticide residue — a language gap, not an interest gap</span></div>
     </div>
 
-    <div class="split split--50 gap-lg">
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">Four tensions beneath the category</div>
+    <div class="cols cols--5050">
+      <div>
+        <h3 class="h3">Four tensions beneath the category</h3>
         <div class="tensions">
-          <div class="tension"><b>01 · Conceptual fog, not an information gap</b><p>Consumers do not merely lack information — they hold incorrect information that feels correct.</p></div>
-          <div class="tension"><b>02 · Adulteration fatalism</b><p>73% agree some adulteration is unavoidable. The risk is known and quietly accepted — highest in chilli.</p></div>
-          <div class="tension"><b>03 · Bodily proof beats label proof</b><p>Confidence comes from energy, weight and blood work of self and family members.</p></div>
-          <div class="tension"><b>04 · Assumed safety in makhana</b><p>Believed to be "grown from lotus stems" and "processed like popcorn". Neither is accurate — and it is the only category with no residue conversation.</p></div>
+          <div class="tn rv"><b><i>01</i>Conceptual fog, not an information gap</b><p>Consumers do not merely lack information — they hold incorrect information that feels correct. You cannot fill a gap the shopper does not believe exists.</p></div>
+          <div class="tn rv" style="--d:.05s"><b><i>02</i>Adulteration fatalism</b><p>73% agree some adulteration is unavoidable. The risk is known and quietly accepted — highest of all in chilli.</p></div>
+          <div class="tn rv" style="--d:.1s"><b><i>03</i>Bodily proof beats label proof</b><p>Confidence comes from energy levels, weight and blood work of self and family — not from anything printed on a pack.</p></div>
+          <div class="tn rv" style="--d:.15s"><b><i>04</i>Assumed safety in makhana</b><p>Believed to be "grown from lotus stems" and "processed like popcorn". Neither is accurate, and it is the only category with no residue conversation at all.</p></div>
         </div>
       </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="kicker">In their own words <span class="hint">click to advance</span></div>
+      <div>
+        <h3 class="h3">In their own words</h3>
+        <p class="note">Four verbatims that between them explain the whole problem.</p>
         <div class="quotes" id="quotes">
-          <blockquote class="quote is-active" data-q="0"><p>Pesticides are sometimes put in soil, not on fruits. This makes them pesticide-free.</p><cite>In-market intercept, Bengaluru</cite></blockquote>
-          <blockquote class="quote" data-q="1"><p>There is no such thing as Pesticide-Free. We have done enough research.</p><cite>In-market intercept, Bengaluru</cite></blockquote>
-          <blockquote class="quote" data-q="2"><p>Pesticide-free means no use of pesticides at any stage of the lifecycle of the produce.</p><cite>Organic farmer, Hyderabad — the most accurate definition in the sample</cite></blockquote>
-          <blockquote class="quote" data-q="3"><p>Testing information plays a very important role. Knowing the source and certifications matters most in rice and dal — they are staples.</p><cite>Benifer Lewis, 45, Mumbai</cite></blockquote>
-          <div class="quotes__dots" id="quoteDots"></div>
+          <blockquote class="q is-on" data-q="0"><p>Pesticides are sometimes put in soil, not on fruits. This makes them pesticide-free.</p><cite>In-market intercept, Bengaluru</cite></blockquote>
+          <blockquote class="q" data-q="1"><p>There is no such thing as Pesticide-Free. We have done enough research.</p><cite>In-market intercept, Bengaluru</cite></blockquote>
+          <blockquote class="q" data-q="2"><p>Pesticide-free means no use of pesticides at any stage of the lifecycle of the produce.</p><cite>Organic farmer, Hyderabad — the most accurate definition in the sample</cite></blockquote>
+          <blockquote class="q" data-q="3"><p>Testing information plays a very important role. Knowing the source and certifications matters most in rice and dal — they are staples.</p><cite>Benifer Lewis, 45, Mumbai</cite></blockquote>
+          <div class="quotes__nav"><button id="qPrev" aria-label="Previous quote">&#8249;</button><div class="quotes__dots" id="qDots"></div><button id="qNext" aria-label="Next quote">&#8250;</button></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 08 · METHODOLOGY -->
-<section class="slide" data-chapter="The Consumer" data-title="Survey Methodology">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Quantitative research by 1Lattice — commissioned by DHF</div>
-    <h2 class="h2 reveal" style="--d:.05s">How the survey was built, and who answered it.</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">Quantitative research by 1Lattice, commissioned by DHF</p>
+    <h2 class="h2">How the survey was built, and who answered it.</h2>
+    <p class="lead">The qualitative work told us what to ask. The survey was then designed backwards from the analysis we intended to run — a 15-item attitude battery written specifically so factors could be extracted from it afterwards.</p>
 
-    <div class="split split--46 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">Research methodology</div>
-        <div class="methodgrid">
-          <div class="method"><b>≈18 min</b><span>50 questions across 10 topics and 4 food categories</span></div>
-          <div class="method"><b>4 screens</b><span>Decision-maker role, purchase frequency, ≥2 of 4 categories, income — SEC D/E and sub-monthly buyers terminated</span></div>
-          <div class="method"><b>15-item battery</b><span>Five-point Likert attitude statements, written for post-survey factor extraction</span></div>
-          <div class="method"><b>2 trust grids</b><span>Six claims tested twice — once bare, once with an independent certificate attached</span></div>
+    <div class="cols cols--4654">
+      <div>
+        <h3 class="h3">Instrument design</h3>
+        <div class="grid grid--2">
+          <div class="mth rv"><b>≈18 min</b><span>50 questions across 10 topics and 4 food categories</span></div>
+          <div class="mth rv" style="--d:.05s"><b>4 screens</b><span>Decision-maker role, purchase frequency, ≥2 of 4 categories, income. SEC D/E and sub-monthly buyers terminated.</span></div>
+          <div class="mth rv" style="--d:.1s"><b>15-item battery</b><span>Five-point Likert attitude statements, written for post-survey factor extraction</span></div>
+          <div class="mth rv" style="--d:.15s"><b>2 trust grids</b><span>Six claims tested twice — once bare, once with an independent certificate attached</span></div>
         </div>
-        <div class="govbox">
+        <div class="gov rv">
           <b>Fieldwork &amp; governance</b>
-          <p>Online panel, fielded by 1Lattice, 28–29 May 2026. n = 305 after quality screening; report dated 12 June 2026.</p>
-          <p>Five metros — Delhi NCR 31% · Bengaluru 21% · Mumbai 17% · Ahmedabad 15% · Pune 15%.</p>
-          <p>Category bases — rice n=253 · tur dal n=241 · red chilli n=164 · makhana n=58. Makhana is reported as directional only. Every segment claim rests on the full n=305 base.</p>
+          <p>Online panel, fielded by 1Lattice on 28–29 May 2026. n = 305 after quality screening; report dated 12 June 2026.</p>
+          <p>Five metros — Delhi NCR 31%, Bengaluru 21%, Mumbai 17%, Ahmedabad 15%, Pune 15%.</p>
+          <p>Category bases — rice n=253, tur dal n=241, red chilli n=164, makhana n=58. Makhana is reported as directional only. Every segment claim in this document rests on the full n=305 base, never on a category sub-base.</p>
         </div>
       </div>
-      <div class="reveal" style="--d:.15s">
-        <div class="kicker">Consumer profile</div>
-        <div class="profgrid">
-          <div class="prof"><b class="num" data-count="78" data-suffix="%">78%</b><span>have a child under 12 and/or an elderly member at home</span></div>
-          <div class="prof"><b class="num" data-count="82" data-suffix="%">82%</b><span>do the household grocery shopping entirely themselves</span></div>
-          <div class="prof"><b class="num" data-count="63" data-suffix="%">63%</b><span>earn ₹1–2.5 Lakh per month</span></div>
-          <div class="prof"><b class="num" data-count="58" data-suffix="%">58%</b><span>shop for groceries three or more times a week</span></div>
+      <div>
+        <h3 class="h3">Who answered</h3>
+        <div class="grid grid--4 profs">
+          <div class="prof rv"><b class="num" data-count="78" data-suffix="%">78%</b><span>have a child under 12 and/or an elderly member at home</span></div>
+          <div class="prof rv" style="--d:.05s"><b class="num" data-count="82" data-suffix="%">82%</b><span>do the household grocery shopping entirely themselves</span></div>
+          <div class="prof rv" style="--d:.1s"><b class="num" data-count="63" data-suffix="%">63%</b><span>earn ₹1–2.5 Lakh per month</span></div>
+          <div class="prof rv" style="--d:.15s"><b class="num" data-count="58" data-suffix="%">58%</b><span>shop for groceries three or more times a week</span></div>
         </div>
-        <div class="kicker kicker--sp">Where they shop <i>(% using, multi-select)</i></div>
+        <h3 class="h3 h3--sp">Where they shop</h3>
+        <p class="note">Percentage using each channel, multi-select.</p>
         <div id="chartChannels" class="chart" role="img" aria-label="Horizontal bar chart of shopping channels used"></div>
-        <div class="callout callout--blue">
-          A quick-commerce-first, metro sample — the exact cohort DHF already sells to, and the cohort that will decide whether the category forms and what shape it takes.
+        <div class="box box--blue rv">
+          <b>A quick-commerce-first, metro sample.</b>
+          <p>This is the exact cohort DHF already sells to — and the cohort that will decide whether the category forms and what shape it takes.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 09 · ANALYTICAL PIPELINE -->
-<section class="slide" data-chapter="The Consumer" data-title="Factor Analysis">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The analytical pipeline</div>
-    <h2 class="h2 reveal" style="--d:.05s">Factor analysis and <i>k</i>-means on 15 attitude statements.</h2>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">The analytical pipeline</p>
+    <h2 class="h2">Factor analysis and <i>k</i>-means on 15 attitude statements.</h2>
+    <p class="lead">Rather than segment on age or income — which the data shows are poor predictors — we let the attitudes group themselves. Fifteen statements collapsed into three underlying factors, and those factors sorted 305 people into four clusters.</p>
 
-    <div class="pipeline reveal" style="--d:.1s">
-      <div class="pipe"><b>1</b><span class="pipe__t">305 × 15 matrix</span><span class="pipe__d">Every respondent scored on 15 five-point attitude statements</span></div>
-      <div class="pipe"><b>2</b><span class="pipe__t">Exploratory factor analysis</span><span class="pipe__d">Principal-axis factoring with Varimax rotation</span></div>
-      <div class="pipe"><b>3</b><span class="pipe__t">3 latent factors retained</span><span class="pipe__d">Eigenvalues 5.55 · 1.50 · 1.03 — cumulative variance 42.6%</span></div>
-      <div class="pipe"><b>4</b><span class="pipe__t"><i>k</i>-means clustering (k=4)</span><span class="pipe__d">Run on standardised factor scores, n_init = 20</span></div>
-      <div class="pipe"><b>5</b><span class="pipe__t">4 archetypes</span><span class="pipe__d">Named, sized, and profiled on trigger, barrier and channel</span></div>
-    </div>
+    <ol class="pipe">
+      <li class="rv"><b>1</b><span class="pipe__t">305 × 15 matrix</span><span class="pipe__d">Every respondent scored on 15 five-point attitude statements</span></li>
+      <li class="rv" style="--d:.05s"><b>2</b><span class="pipe__t">Exploratory factor analysis</span><span class="pipe__d">Principal-axis factoring with Varimax rotation</span></li>
+      <li class="rv" style="--d:.1s"><b>3</b><span class="pipe__t">3 latent factors retained</span><span class="pipe__d">Eigenvalues 5.55 · 1.50 · 1.03 — cumulative variance 42.6%</span></li>
+      <li class="rv" style="--d:.15s"><b>4</b><span class="pipe__t"><i>k</i>-means clustering (k=4)</span><span class="pipe__d">Run on standardised factor scores, n_init = 20</span></li>
+      <li class="rv" style="--d:.2s"><b>5</b><span class="pipe__t">4 archetypes</span><span class="pipe__d">Named, sized, and profiled on trigger, barrier and channel</span></li>
+    </ol>
 
-    <div class="adequacy reveal" style="--d:.16s">
-      <span class="adequacy__lbl">Adequacy — both tests passed before extraction</span>
-      <div class="adequacy__row">
-        <div class="adq"><span>KMO</span><b>0.886</b><i>"meritorious"</i></div>
-        <div class="adq"><span>Bartlett</span><b>p &lt; 0.001</b><i>sphericity rejected</i></div>
-        <div class="adq"><span>Silhouette</span><b>0.347</b><i>highest at k=4</i></div>
+    <div class="adeq rv">
+      <span class="adeq__l">Adequacy — both tests passed before extraction</span>
+      <div class="adeq__r">
+        <div><span>KMO</span><b>0.886</b><i>"meritorious"</i></div>
+        <div><span>Bartlett</span><b>p &lt; 0.001</b><i>sphericity rejected</i></div>
+        <div><span>Silhouette</span><b>0.347</b><i>highest at k=4</i></div>
       </div>
     </div>
 
-    <div class="kicker reveal" style="--d:.2s">The three factors — and their defining statements</div>
-    <div class="factors">
-      <article class="factor factor--f1 reveal" style="--d:.22s">
+    <h3 class="h3">The three factors, and the statements that define them</h3>
+    <p class="note">The number beside each statement is its loading on that factor — how strongly it pulls in that direction.</p>
+    <div class="grid grid--3">
+      <article class="fct fct--1 rv">
         <b>F1 — Social &amp; experiential trust</b>
         <p>Trust is earned through people and events, not systems and symbols.</p>
-        <ul class="loadings">
+        <ul class="load">
           <li><span>Stopped buying after a news story</span><b>0.68</b><i style="--l:68%"></i></li>
           <li><span>A doctor beats any pack logo</span><b>0.62</b><i style="--l:62%"></i></li>
           <li><span>I trust a farmer I know by name</span><b>0.59</b><i style="--l:59%"></i></li>
           <li><span>I prefer smaller brands</span><b>0.53</b><i style="--l:53%"></i></li>
         </ul>
       </article>
-      <article class="factor factor--f2 reveal" style="--d:.26s">
+      <article class="fct fct--2 rv" style="--d:.06s">
         <b>F2 — System distrust &amp; premium intent</b>
         <p>The system is corrupt, and I will pay to exit it. This is the financial engine of premium food brands.</p>
-        <ul class="loadings">
+        <ul class="load">
           <li><span>Factories cannot be genuinely clean</span><b>0.65</b><i style="--l:65%"></i></li>
           <li><span>Some adulteration is unavoidable</span><b>0.50</b><i style="--l:50%"></i></li>
           <li><span>I would pay 20–30% more</span><b>0.48</b><i style="--l:48%"></i></li>
           <li><span>The problem is proof, not cost</span><b>0.47</b><i style="--l:47%"></i></li>
         </ul>
       </article>
-      <article class="factor factor--f3 reveal" style="--d:.3s">
+      <article class="fct fct--3 rv" style="--d:.12s">
         <b>F3 — Proof-demanding vigilance</b>
         <p>I will check it myself. Show me the evidence.</p>
-        <ul class="loadings">
+        <ul class="load">
           <li><span>I will pay only if a test is shown</span><b>0.64</b><i style="--l:64%"></i></li>
           <li><span>I need to verify proof myself</span><b>0.60</b><i style="--l:60%"></i></li>
           <li><span>I can spot a genuine claim</span><b>0.55</b><i style="--l:55%"></i></li>
@@ -418,304 +432,318 @@
         </ul>
       </article>
     </div>
-    <div class="callout callout--green reveal" style="--d:.34s">
-      The statistics didn't create these groups; they revealed groups already in the data. At k=3, Guardians and Trusters merge into one unusable segment.
+    <div class="box box--green rv">
+      <b>These groups were found, not invented.</b>
+      <p>The statistics didn't create them; they revealed groups already present in the data. At k=3, Guardians and Trusters merge into one segment you cannot sell to differently.</p>
     </div>
   </div>
 </section>
 
-<!-- 10 · SEGMENTS -->
-<section class="slide" data-chapter="The Consumer" data-title="Four Segments">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Segmentation output</div>
-    <h2 class="h2 reveal" style="--d:.05s">Four customer segments emerged from the research.</h2>
+<section class="sec sec--alt" id="segments">
+  <div class="wrap">
+    <p class="eyebrow">Segmentation output</p>
+    <h2 class="h2">Four customer segments emerged from the research.</h2>
+    <p class="lead">Read the factor columns as distances from the average shopper: positive means more of that trait than the sample mean, negative means less. Guardians are the only cluster positive on all three at once — which is what makes them both the largest and the most valuable.</p>
 
-    <div class="tablewrap reveal" style="--d:.1s">
-      <table class="segtable">
+    <div class="scroller rv">
+      <table class="tbl">
         <thead><tr><th>Segment</th><th>n (%)</th><th>F1 Social</th><th>F2 Distrust</th><th>F3 Vigilance</th><th>Trust in cert. claim</th><th>Would pay 11%+</th></tr></thead>
         <tbody>
-          <tr class="seg--g"><td><b>Proof-Hungry Guardians</b></td><td>109 <i>(36%)</i></td><td class="pos">+0.46</td><td class="pos">+0.47</td><td class="pos">+0.69</td><td>4.4 / 5</td><td><b>54%</b></td></tr>
-          <tr class="seg--t"><td><b>Social Trusters</b></td><td>62 <i>(20%)</i></td><td class="pos">+0.65</td><td class="pos">+0.17</td><td class="neg">−0.89</td><td>3.6 / 5</td><td><b>34%</b></td></tr>
-          <tr class="seg--d"><td><b>Passive Defaulters</b></td><td>80 <i>(26%)</i></td><td class="neg">−0.39</td><td class="neg">−1.05</td><td class="neg">−0.34</td><td>3.5 / 5</td><td><b>6%</b></td></tr>
-          <tr class="seg--f"><td><b>System Fatalists</b></td><td>54 <i>(18%)</i></td><td class="neg">−1.09</td><td class="pos">+0.41</td><td class="pos">+0.13</td><td>3.6 / 5</td><td><b>22%</b></td></tr>
+          <tr class="sg sg--g"><td><b>Proof-Hungry Guardians</b></td><td>109 <i>(36%)</i></td><td class="pos">+0.46</td><td class="pos">+0.47</td><td class="pos">+0.69</td><td>4.4 / 5</td><td><b>54%</b></td></tr>
+          <tr class="sg sg--t"><td><b>Social Trusters</b></td><td>62 <i>(20%)</i></td><td class="pos">+0.65</td><td class="pos">+0.17</td><td class="neg">−0.89</td><td>3.6 / 5</td><td><b>34%</b></td></tr>
+          <tr class="sg sg--d"><td><b>Passive Defaulters</b></td><td>80 <i>(26%)</i></td><td class="neg">−0.39</td><td class="neg">−1.05</td><td class="neg">−0.34</td><td>3.5 / 5</td><td><b>6%</b></td></tr>
+          <tr class="sg sg--f"><td><b>System Fatalists</b></td><td>54 <i>(18%)</i></td><td class="neg">−1.09</td><td class="pos">+0.41</td><td class="pos">+0.13</td><td>3.6 / 5</td><td><b>22%</b></td></tr>
         </tbody>
       </table>
-      <p class="fine">Factor scores are standardised — 0 is the sample mean. Guardians are the only cluster positive on all three factors simultaneously.</p>
     </div>
 
-    <div class="split split--42 gap-lg">
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">% of segment willing to pay 11%+</div>
-        <div id="chartWTP" class="chart" role="img" aria-label="Bar chart of willingness to pay 11% or more by segment"></div>
-        <div class="callout callout--gold">
+    <div class="cols cols--4258">
+      <div>
+        <h3 class="h3">Willingness to pay 11%+</h3>
+        <div id="chartWTP" class="chart" role="img" aria-label="Bar chart of willingness to pay 11 percent or more by segment"></div>
+        <div class="box box--gold rv">
           <b>Premium willingness does not track income.</b>
-          It peaks in the ₹60K–1L band (71%) and falls to 32% in ₹1–1.5L. Geographically it runs from Delhi NCR at 64% down to Ahmedabad at 33% — which makes Delhi NCR the launch market on belief, not on affluence.
+          <p>It peaks in the ₹60K–1L band at 71% and falls to 32% in ₹1–1.5L. Geographically it runs from Delhi NCR at 64% down to Ahmedabad at 33% — which makes Delhi NCR the launch market on belief, not on affluence.</p>
         </div>
       </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="kicker">The trust wall, not the wallet wall</div>
-        <ul class="bigbullets">
-          <li>Roughly <b>half</b> of every category's buyers say they would pay nothing extra — and give the reason: they do not trust the claims.</li>
-          <li><b>44%</b> sit inside a +10–20% corridor; only <b>5%</b> accept 21–30%.</li>
-          <li>Yet <b>60%</b> say they would pay 20–30% more if someone they trusted had independently verified it.</li>
+      <div>
+        <h3 class="h3">The trust wall, not the wallet wall</h3>
+        <p class="note">This is the single most important finding in the consumer work.</p>
+        <ul class="bullets">
+          <li class="rv">Roughly <b>half</b> of every category's buyers say they would pay nothing extra — and volunteer the reason: they do not trust the claims.</li>
+          <li class="rv" style="--d:.05s"><b>44%</b> sit inside a +10–20% corridor; only <b>5%</b> accept 21–30%.</li>
+          <li class="rv" style="--d:.1s">Yet <b>60%</b> say they would pay 20–30% more if someone they trusted had independently verified it.</li>
         </ul>
-        <div class="verdict">Stated willingness to pay under distrust is a floor, not a ceiling.</div>
+        <p class="verdict rv">Stated willingness to pay under distrust is a floor, not a ceiling. Fix the proof and the ceiling moves.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 11 · PERSONAS -->
-<section class="slide" data-chapter="The Consumer" data-title="The Buyer Personas">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The buyer personas</div>
-    <h2 class="h2 reveal" style="--d:.05s">Four people, four different definitions of proof.</h2>
-    <p class="lede reveal" style="--d:.09s"><span class="hint hint--inline">Select a persona to open the full profile</span></p>
+<section class="sec" id="personas">
+  <div class="wrap">
+    <p class="eyebrow">The buyer personas</p>
+    <h2 class="h2">Four people, four different definitions of proof.</h2>
+    <p class="lead">Each cluster was given a face, a household and a purchase story, so a marketer, a category manager and a farmer can all picture the same person. Select one to open the full profile.</p>
 
-    <div class="personas" id="personaTabs">
-      <button class="ptab is-active" data-p="0"><span class="ptab__av" data-init="V"></span><b>Vandana Iyer</b><i>The Verifier · 36%</i></button>
-      <button class="ptab" data-p="1"><span class="ptab__av" data-init="M"></span><b>Meera Nair</b><i>The Believer · 20%</i></button>
-      <button class="ptab" data-p="2"><span class="ptab__av" data-init="K"></span><b>Karan Mehta</b><i>The Cruise-Controller · 26%</i></button>
-      <button class="ptab" data-p="3"><span class="ptab__av" data-init="S"></span><b>Sanjay Deshpande</b><i>The Sceptic · 18%</i></button>
+    <div class="ptabs" id="ptabs" role="tablist">
+      <button class="ptab is-on" data-p="0" role="tab"><span class="ptab__av">V</span><b>Vandana Iyer</b><i>The Verifier · 36%</i></button>
+      <button class="ptab" data-p="1" role="tab"><span class="ptab__av">M</span><b>Meera Nair</b><i>The Believer · 20%</i></button>
+      <button class="ptab" data-p="2" role="tab"><span class="ptab__av">K</span><b>Karan Mehta</b><i>The Cruise-Controller · 26%</i></button>
+      <button class="ptab" data-p="3" role="tab"><span class="ptab__av">S</span><b>Sanjay Deshpande</b><i>The Sceptic · 18%</i></button>
     </div>
-    <div class="personapanel" id="personaPanel"></div>
+    <div class="ppanel" id="ppanel"></div>
 
-    <div class="callout callout--green reveal" style="--d:.3s">
-      Guardians convert fast on facts. Trusters need a voice of assurance. Defaulters need shelf presence and price parity. Fatalists need to be shown the imperfections to win their trust.
+    <div class="box box--green rv">
+      <b>Four different jobs, one standard behind them.</b>
+      <p>Guardians convert fast on facts. Trusters need a voice of assurance. Defaulters need shelf presence and price parity. Fatalists need to be shown the imperfections before they will believe the perfections.</p>
     </div>
   </div>
 </section>
 
-<!-- 12 · TARGETING -->
-<section class="slide" data-chapter="The Consumer" data-title="Where to Play First">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The targeting decision</div>
-    <h2 class="h2 reveal" style="--d:.05s">Where do we play first?</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">The targeting decision</p>
+    <h2 class="h2">Where do we play first?</h2>
+    <p class="lead">Four segments, but not four campaigns. Sequencing matters more than coverage: win the segment that responds to proof, and their verification becomes the social proof that unlocks the next one.</p>
 
-    <div class="targets reveal" style="--d:.1s">
-      <article class="target target--1"><span class="target__tag">Primary</span><b class="target__pct">36%</b><span class="target__nm">Proof-Hungry Guardians</span><p>Largest segment, highest willingness to pay, and the only one that responds to the proof DHF already generates.</p></article>
-      <article class="target target--2"><span class="target__tag">Secondary</span><b class="target__pct">20%</b><span class="target__nm">Social Trusters</span><p>Activated by the Guardians' verification becoming social proof. Doctor endorsement bridges both segments at once.</p></article>
-      <article class="target target--3"><span class="target__tag">Defer</span><b class="target__pct">26%</b><span class="target__nm">Passive Defaulters</span><p>Proof-heavy messaging misfires. Capture cheaply in phase two, once the category feels default.</p></article>
-      <article class="target target--4"><span class="target__tag">Sequence last</span><b class="target__pct">18%</b><span class="target__nm">System Fatalists</span><p>Smallest and hardest. Needs a separate radical-transparency, farmer/founder-direct playbook.</p></article>
+    <div class="grid grid--4 targets">
+      <article class="tg tg--1 rv"><span class="tg__tag">Primary</span><b class="tg__pct">36%</b><span class="tg__nm">Proof-Hungry Guardians</span><p>Largest segment, highest willingness to pay, and the only one that responds to the proof DHF already generates.</p></article>
+      <article class="tg tg--2 rv" style="--d:.05s"><span class="tg__tag">Secondary</span><b class="tg__pct">20%</b><span class="tg__nm">Social Trusters</span><p>Activated when the Guardians' verification becomes social proof. Doctor endorsement bridges both segments at once.</p></article>
+      <article class="tg tg--3 rv" style="--d:.1s"><span class="tg__tag">Defer</span><b class="tg__pct">26%</b><span class="tg__nm">Passive Defaulters</span><p>Proof-heavy messaging misfires here. Capture cheaply in phase two, once the category already feels default.</p></article>
+      <article class="tg tg--4 rv" style="--d:.15s"><span class="tg__tag">Sequence last</span><b class="tg__pct">18%</b><span class="tg__nm">System Fatalists</span><p>Smallest and hardest. Needs a separate radical-transparency, farmer- and founder-direct playbook.</p></article>
     </div>
 
-    <div class="split split--48 gap-lg">
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">What would make you try a new brand? <i>(% naming it the single top driver)</i></div>
+    <div class="cols cols--5050">
+      <div>
+        <h3 class="h3">What would make you try a new brand?</h3>
+        <p class="note">Percentage naming it as the single top driver.</p>
         <div id="chartTriggers" class="chart" role="img" aria-label="Ranked bar chart of the single top driver for trying a new brand"></div>
       </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="callout callout--clay callout--lg">
+      <div>
+        <div class="box box--clay box--lg rv">
           <b>The uncomfortable finding</b>
-          DHF leads with the claim only <b>6%</b> find convincing, and barely uses the endorsement <b>44%</b> name first. Doctor endorsement wins in every segment — 55% of Trusters, 56% of Defaulters, 50% of Fatalists. Only Guardians rank the QR lab report first.
+          <p>DHF leads with the claim only <b class="in">6%</b> find convincing, and barely uses the endorsement <b class="in">44%</b> name first. Doctor endorsement wins in every segment — 55% of Trusters, 56% of Defaulters, 50% of Fatalists. Only Guardians rank the QR lab report first.</p>
         </div>
-        <div class="playbox">
-          <span class="playbox__tag">The play</span>
+        <div class="play rv">
+          <span class="play__tag">The play</span>
           <p>Win Guardians with proof → convert their advocacy into the social proof that activates Trusters → ride the combined <b>56%</b> into default category leadership.</p>
         </div>
-        <div class="verdict verdict--green">Guardians are 36% of decision-makers but hold roughly 60% of all stated premium-rupee intent.</div>
+        <p class="verdict rv">Guardians are 36% of decision-makers but hold roughly 60% of all stated premium-rupee intent.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 13 · SHELF NOISE -->
-<section class="slide" data-chapter="Brand &amp; Proof" data-title="Claim Clutter">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The shelf today</div>
-    <h2 class="h2 reveal" style="--d:.05s">With every shelf using a different, often unverifiable claim, generic language only adds to the noise.</h2>
+<!-- ══════════ PART 04 — BRAND & PROOF ══════════ -->
+<section class="band" id="brand">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/kv-honestly-better.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 04</p>
+    <h2 class="band__t">Brand &amp; Proof</h2>
+    <p class="band__s">Turning a back-end quality system into the thing a shopper can actually check.</p>
+  </div>
+</section>
 
-    <div class="split split--50 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">GT &amp; MT shelves are flooded with claims</div>
-        <div class="claimcloud">
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">The shelf today</p>
+    <h2 class="h2">Every shelf uses a different, often unverifiable claim.</h2>
+    <p class="lead">Walk a modern trade aisle and count the trust signals. They contradict each other, none can be checked, and the shopper responds the only way she can — by discounting all of them equally. Generic language does not add trust; it adds noise.</p>
+
+    <div class="cols cols--5050">
+      <div>
+        <h3 class="h3">The claims already on shelf</h3>
+        <div class="cloud">
           <span>Farmer-face labelling</span><span>Naturally grown</span><span>Unpolished</span>
           <span>Certification seal</span><span>Direct from farmer</span><span>100% Natural</span>
           <span>Personal provenance</span><span>Chemical-free</span><span>Farm fresh</span>
         </div>
-        <p class="fine">Each sends a different trust signal to the same shopper — which is why none of them lands.</p>
-        <div class="callout callout--green callout--lg">
+        <p class="note">Each sends a different trust signal to the same shopper — which is precisely why none of them lands.</p>
+        <div class="shelfrow">
+          <figure class="rv"><img src="assets/shelf-jars.jpg" alt="Honest Farms jars on shelf with farmer faces on the labels" loading="lazy"><figcaption>Farmer faces, already on shelf</figcaption></figure>
+          <figure class="rv" style="--d:.05s"><img src="assets/shelf-poha.jpg" alt="First Brothers ragi and bajra poha packs" loading="lazy"><figcaption>Provenance challengers</figcaption></figure>
+          <figure class="rv" style="--d:.1s"><img src="assets/shelf-twobrothers.jpg" alt="Two Brothers Khapli vermicelli on shelf" loading="lazy"><figcaption>Heritage grain claims</figcaption></figure>
+          <figure class="rv" style="--d:.15s"><img src="assets/shelf-tribalveda.jpg" alt="Tribalveda products on shelf" loading="lazy"><figcaption>Tribal-sourcing stories</figcaption></figure>
+          <figure class="rv" style="--d:.2s"><img src="assets/shelf-ingress.jpg" alt="Ingress herbal infusion on shelf" loading="lazy"><figcaption>Clean-label infusions</figcaption></figure>
+        </div>
+        <div class="box box--green box--lg rv">
           <b>DHF's edge is specific.</b>
-          A verifiable <b>proof mechanism</b> — QR + test data — not another claim in the pile.
+          <p>Not another adjective — a verifiable <b class="in">proof mechanism</b>: a QR code, a batch, and a lab result the shopper can open in three seconds.</p>
         </div>
       </div>
-      <div class="reveal" style="--d:.15s">
-        <div class="kicker">Media is building the case for verified proof</div>
-        <div class="newsgrid">
-          <figure><img src="assets/news-ndtv.jpg" alt="NDTV report on the organic shift and India's $10 billion clean-eating market" loading="lazy"><figcaption>Market growth, affordability gap</figcaption></figure>
-          <figure><img src="assets/news-ccpa.jpg" alt="Times of India report on CCPA cracking down on false 100% natural claims" loading="lazy"><figcaption>Regulatory crackdown</figcaption></figure>
-          <figure><img src="assets/news-b.jpg" alt="Press coverage of pesticide safety concerns" loading="lazy"><figcaption>Pesticide safety alarm</figcaption></figure>
-          <figure><img src="assets/news-3.jpg" alt="Press coverage of policy and certification landscape" loading="lazy"><figcaption>Policy &amp; certification</figcaption></figure>
-          <figure><img src="assets/news-c.jpg" alt="Press coverage of celebrity and consumer validation" loading="lazy"><figcaption>Celebrity &amp; consumer validation</figcaption></figure>
-          <figure><img src="assets/news-2.jpg" alt="Press coverage building the case for verified proof" loading="lazy"><figcaption>The case for verified proof</figcaption></figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 14 · MANIFESTO -->
-<section class="slide dark slide--manifesto" data-chapter="Brand &amp; Proof" data-title="Brand Manifesto">
-  <div class="slide__bgimg" style="background-image:url('assets/wheat.jpg')"></div>
-  <div class="slide__inner">
-    <div class="eyebrow eyebrow--light reveal">Brand manifesto</div>
-    <h2 class="h2 h2--light reveal" style="--d:.05s">We believe</h2>
-    <p class="manifesto reveal" style="--d:.1s">The future of food isn't claimed on a label; it's <b>proven in the field</b>. Every seed we recommend, every practice we track, and every farmer we name is how we turn honesty into something you can <b>verify</b>, not just believe.</p>
-
-    <div class="kicker kicker--light reveal" style="--d:.16s">We stand for <span class="hint">select a value</span></div>
-    <div class="values" id="values">
-      <button class="value is-active" data-v="0"><b>Resilience</b><p>We meet uncertainty with patience and grit, learning from the land and adapting so farmers can thrive through seasons and shocks.</p></button>
-      <button class="value" data-v="1"><b>Integrity</b><p>Transparency is a mechanism, not a promise to be broken. You can check batch data, farmer names, and practices. They are not claims you're asked to believe.</p></button>
-      <button class="value" data-v="2"><b>Simplicity</b><p>We turn complex agri-data into one clear signal, so farmers can act with confidence and consumers can trust what they see instantly.</p></button>
-      <button class="value" data-v="3"><b>Progress</b><p>Not progress for its own sake, but progress powered by DeHaat's own agri-tech, in service of tradition — not instead of it.</p></button>
-      <button class="value" data-v="4"><b>Education &amp; empowerment</b><p>We bridge Krishi wisdom and modern methods, so farming becomes more productive, profitable and sustainable — and young people see agriculture as a modern opportunity.</p></button>
-      <button class="value" data-v="5"><b>Connection</b><p>The farmer isn't a sourcing story we tell; they're the name on the batch, accountable and credited. When farmers prosper, supply is reliable.</p></button>
-    </div>
-
-    <p class="signoff reveal" style="--d:.3s">We are Honest Farms. <b>Verified in the fields, honest on the shelves.</b></p>
-  </div>
-</section>
-
-<!-- 15 · PURPOSE -->
-<section class="slide slide--purpose" data-chapter="Brand &amp; Proof" data-title="Brand Purpose">
-  <div class="slide__inner slide__inner--center">
-    <div class="eyebrow reveal">Brand purpose</div>
-    <p class="purpose reveal" style="--d:.08s">To nurture <span>soil</span> and <span>skills</span>, to do business honestly, and to <span>prove it</span> — batch by batch, farmer by farmer.</p>
-    <figure class="purpose__img reveal" style="--d:.18s">
-      <img src="assets/sapling.jpg" alt="A young sapling in tilled soil, lit by morning sun" loading="lazy">
-    </figure>
-    <p class="fine fine--center reveal" style="--d:.24s">A promise about the value delivered to the customer — not a claim about the company.</p>
-  </div>
-</section>
-
-<!-- 16 · QR FLIP -->
-<section class="slide" data-chapter="Brand &amp; Proof" data-title="Farmers in the Spotlight">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Making back-end agri-tech rigour visible</div>
-    <h2 class="h2 reveal" style="--d:.05s">Flip the script on QR traceability: put the <b class="hl">farmer</b> in the spotlight.</h2>
-
-    <div class="split split--62 gap-lg">
       <div>
-        <div class="mechs">
-          <article class="mech reveal" style="--d:.1s"><b>QR to farmer</b><p>Scan the pack and land on that farmer's own microsite — village, harvest date, daily life, consumer messages, and a downloadable pesticide-free certificate.</p></article>
-          <article class="mech reveal" style="--d:.13s"><b>Village / farm clusters on pack</b><p>Like wine — Bordeaux, Nice, Nashik, Napa Valley. Provenance proves itself.</p></article>
-          <article class="mech reveal" style="--d:.16s"><b>Farmers as content creators</b><p>Unscripted reels, voice notes and live harvest streams. Rougher and less polished than a typical ad — which is exactly what signals "real" to a sceptical buyer.</p></article>
-          <article class="mech reveal" style="--d:.19s"><b>Hand-written farmer letters in pack</b><p>Rotating, handwritten notes from the actual farmer of that batch.</p></article>
-          <article class="mech reveal" style="--d:.22s"><b>Farmers send the audit invitation</b><p>No advance notice needed. This is what wins the "prove me wrong" archetype.</p></article>
-          <article class="mech reveal" style="--d:.25s"><b>Farmer-led sampling</b><p>The farmers — not agency promoters — run demos at flea markets and housing societies to drive trial.</p></article>
-          <article class="mech reveal" style="--d:.28s"><b>Consumer-to-farmer feedback loop</b><p>Consumers review the farmer and their field's produce, instead of the product they bought.</p></article>
+        <h3 class="h3">Media is building the case for verified proof</h3>
+        <p class="note">Six months of coverage pointing the same direction: regulators cracking down on unverifiable claims, and consumers reading about residue.</p>
+        <div class="news">
+          <figure class="rv"><img src="assets/news-ndtv.jpg" alt="NDTV report on the organic shift and India's 10 billion dollar clean-eating market" loading="lazy"><figcaption>Market growth, affordability gap</figcaption></figure>
+          <figure class="rv" style="--d:.05s"><img src="assets/news-ccpa.jpg" alt="Times of India report on CCPA cracking down on false 100 percent natural claims" loading="lazy"><figcaption>Regulatory crackdown on false claims</figcaption></figure>
+          <figure class="rv" style="--d:.1s"><img src="assets/news-b.jpg" alt="Press coverage of pesticide safety concerns" loading="lazy"><figcaption>Pesticide safety alarm</figcaption></figure>
+          <figure class="rv" style="--d:.15s"><img src="assets/news-3.jpg" alt="Press coverage of the policy and certification landscape" loading="lazy"><figcaption>Policy &amp; certification landscape</figcaption></figure>
+          <figure class="rv" style="--d:.2s"><img src="assets/news-c.jpg" alt="Press coverage of celebrity and consumer validation" loading="lazy"><figcaption>Celebrity &amp; consumer validation</figcaption></figure>
+          <figure class="rv" style="--d:.25s"><img src="assets/news-2.jpg" alt="Press coverage building the case for verified proof" loading="lazy"><figcaption>The case for verified proof</figcaption></figure>
         </div>
       </div>
-      <div class="reveal" style="--d:.14s">
-        <figure class="figure figure--sm"><img src="assets/qr-scan.jpg" alt="A shopper scanning a DeHaat Honest Farms pack QR code, with the microsite opening on their phone" loading="lazy"><figcaption>Scan → farmer microsite → batch certificate.</figcaption></figure>
-        <figure class="figure figure--sm"><img src="assets/pack-range.jpg" alt="Meet the Producer — the Honest Farms range with farmer faces on pack" loading="lazy"><figcaption>Real farmers, real fields, real stories in every pack.</figcaption></figure>
-        <div class="callout callout--gold">
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark sec--manifesto">
+  <div class="sec__bg" data-para="0.12" style="background-image:url('assets/spices-flatlay.jpg')"></div>
+  <div class="wrap">
+    <p class="eyebrow eyebrow--l">Brand manifesto</p>
+    <h2 class="h2 h2--l">We believe</h2>
+    <p class="manifesto rv">The future of food isn't claimed on a label; it's <b>proven in the field</b>. Every seed we recommend, every practice we track, and every farmer we name is how we turn honesty into something you can <b>verify</b>, not just believe.</p>
+
+    <h3 class="h3 h3--l">We stand for</h3>
+    <div class="grid grid--3 values">
+      <div class="val rv"><b>Resilience</b><p>We meet uncertainty with patience and grit, learning from the land and adapting so farmers can thrive through seasons and shocks.</p></div>
+      <div class="val rv" style="--d:.05s"><b>Integrity</b><p>Transparency is a mechanism, not a promise to be broken. You can check batch data, farmer names and practices. They are not claims you're asked to believe.</p></div>
+      <div class="val rv" style="--d:.1s"><b>Simplicity</b><p>We turn complex agri-data into one clear signal, so farmers can act with confidence and consumers can trust what they see instantly.</p></div>
+      <div class="val rv" style="--d:.15s"><b>Progress</b><p>Not progress for its own sake, but progress powered by DeHaat's own agri-tech, in service of tradition — not instead of it.</p></div>
+      <div class="val rv" style="--d:.2s"><b>Education &amp; empowerment</b><p>We bridge Krishi wisdom and modern methods, so farming becomes more productive, profitable and sustainable — and young people see agriculture as a modern opportunity.</p></div>
+      <div class="val rv" style="--d:.25s"><b>Connection</b><p>The farmer isn't a sourcing story we tell; they're the name on the batch, accountable and credited. When farmers prosper, supply is reliable.</p></div>
+    </div>
+
+    <p class="signoff rv">We are Honest Farms. <b>Verified in the fields, honest on the shelves.</b></p>
+  </div>
+</section>
+
+<section class="sec sec--purpose">
+  <div class="wrap wrap--narrow center">
+    <p class="eyebrow">Brand purpose</p>
+    <p class="purpose rv">To nurture <em>soil</em> and <em>skills</em>, to do business honestly, and to <em>prove it</em> — batch by batch, farmer by farmer.</p>
+    <figure class="purpose__img rv"><img src="assets/sapling.jpg" alt="A young sapling in tilled soil, lit by morning sun" loading="lazy"></figure>
+    <p class="note note--c">A promise about the value delivered to the customer — not a claim about the company.</p>
+  </div>
+</section>
+
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">Making back-end rigour visible</p>
+    <h2 class="h2">Flip the script on QR traceability: put the <b>farmer</b> in the spotlight.</h2>
+    <p class="lead">Most traceability QR codes lead to a certificate — a document nobody reads. Ours should lead to a person. Seven mechanics turn a compliance feature into the most persuasive asset the brand has.</p>
+
+    <div class="cols cols--6238">
+      <div class="grid grid--2 mechs">
+        <article class="mech rv"><b>QR to farmer</b><p>Scan the pack and land on that farmer's own microsite — village, harvest date, daily life, consumer messages, and a downloadable pesticide-free certificate.</p></article>
+        <article class="mech rv" style="--d:.04s"><b>Village &amp; farm clusters on pack</b><p>Like wine — Bordeaux, Nice, Nashik, Napa Valley. Provenance that proves itself by being specific.</p></article>
+        <article class="mech rv" style="--d:.08s"><b>Farmers as content creators</b><p>Unscripted reels, voice notes and live harvest streams. Rougher and less polished than a typical ad — which is exactly what signals "real" to a sceptical buyer.</p></article>
+        <article class="mech rv" style="--d:.12s"><b>Hand-written farmer letters in pack</b><p>Rotating, handwritten notes from the actual farmer of that batch.</p></article>
+        <article class="mech rv" style="--d:.16s"><b>Farmers send the audit invitation</b><p>No advance notice needed. This is what wins the "prove me wrong" archetype.</p></article>
+        <article class="mech rv" style="--d:.2s"><b>Farmer-led sampling</b><p>The farmers — not agency promoters — run demos at flea markets and housing societies to drive trial.</p></article>
+        <article class="mech rv" style="--d:.24s"><b>Consumer-to-farmer feedback loop</b><p>Consumers review the farmer and their field's produce, instead of the product they bought.</p></article>
+      </div>
+      <div>
+        <figure class="fig rv"><img src="assets/qr-scan.jpg" alt="A shopper scanning a DeHaat Honest Farms pack QR code, with the microsite opening on their phone" loading="lazy"><figcaption>Scan → farmer microsite → batch certificate.</figcaption></figure>
+        <figure class="fig rv" style="--d:.06s"><img src="assets/pack-range.jpg" alt="Meet the Producer — the Honest Farms range with farmer faces on pack" loading="lazy"><figcaption>Real farmers, real fields, real stories in every pack.</figcaption></figure>
+        <div class="box box--gold rv">
           <b>4% → 22% full trust</b>
-          when the pesticide-free claim carries an independent certificate — a 5× uplift, the largest of any claim tested.
+          <p>when the pesticide-free claim carries an independent certificate. A 5× uplift — the largest of any claim tested.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 17 · BRAND ARCHITECTURE -->
-<section class="slide" data-chapter="Brand &amp; Proof" data-title="Brand Architecture">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Brand architecture</div>
-    <h2 class="h2 reveal" style="--d:.05s">The only food brand in India that consumers <b class="hl">verify</b>, not just trust.</h2>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Brand architecture</p>
+    <h2 class="h2">The only food brand in India that consumers <b>verify</b>, not just trust.</h2>
+    <p class="lead">Positioning at the top, benefits in the middle, and a specific meaning for each stakeholder at the bottom — so the same promise survives translation from the boardroom to the field.</p>
 
-    <div class="split split--46 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="archi">
-          <div class="archi__row"><span>Positioning</span><b>The only food brand in India that consumers verify, not just trust.</b></div>
-          <div class="archi__row"><span>Promise</span><b>Verified in the fields. Honest on the shelves.</b></div>
-          <div class="archi__row"><span>Role</span><b>An honest guide that leads with transparency, answers with proof, and never preaches.</b></div>
-          <div class="archi__row"><span>Belief</span><b>Progress moves from seed to plate, and every hand that touches it is named, not hidden.</b></div>
+    <div class="cols cols--4654">
+      <div>
+        <div class="arch">
+          <div class="arch__r rv"><span>Positioning</span><b>The only food brand in India that consumers verify, not just trust.</b></div>
+          <div class="arch__r rv" style="--d:.05s"><span>Promise</span><b>Verified in the fields. Honest on the shelves.</b></div>
+          <div class="arch__r rv" style="--d:.1s"><span>Role</span><b>An honest guide that leads with transparency, answers with proof, and never preaches.</b></div>
+          <div class="arch__r rv" style="--d:.15s"><span>Belief</span><b>Progress moves from seed to plate, and every hand that touches it is named, not hidden.</b></div>
         </div>
-        <div class="benefits">
-          <div class="benefit"><span>Functional</span><b>Verified safety.</b><p>No detectable residue.</p></div>
-          <div class="benefit"><span>Emotional</span><b>Relief.</b><p>You're no longer the only one keeping watch.</p></div>
-          <div class="benefit"><span>Experiential</span><b>Honest progress.</b><p>With every basket, from seed to plate.</p></div>
+        <div class="grid grid--3 bens">
+          <div class="ben rv"><span>Functional</span><b>Verified safety.</b><p>No detectable residue.</p></div>
+          <div class="ben rv" style="--d:.05s"><span>Emotional</span><b>Relief.</b><p>You're no longer the only one keeping watch.</p></div>
+          <div class="ben rv" style="--d:.1s"><span>Experiential</span><b>Honest progress.</b><p>With every basket, from seed to plate.</p></div>
         </div>
       </div>
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">What the promise means to each stakeholder</div>
-        <div class="stakes">
-          <article class="stake"><b>Farmers / FPOs</b><p>DeHaat trains farmers for productivity, profitability and sustainability, with simplified agri-tech data that gives clear signals to consumers. Trust won with no hidden stories and no shortcuts.</p></article>
-          <article class="stake"><b>Q-comm, e-comm &amp; modern trade</b><p>Made to win Honest Farms' brand trust by showing superiority in back-end agri-tech — not just another category claim on apps and shelves.</p></article>
-          <article class="stake"><b>Consumers</b><p>Empowered to verify every batch, farmer and agri practice before they add to cart and put food on the table.</p></article>
-          <article class="stake"><b>Employees</b><p>Hired and trained to demonstrate the spirit of progress — bringing Krishi wisdom and modern methods to make farming more productive, profitable and sustainable.</p></article>
+      <div>
+        <h3 class="h3">What the promise means to each stakeholder</h3>
+        <div class="grid grid--2 stakes">
+          <article class="stk rv"><b>Farmers / FPOs</b><p>DeHaat trains farmers for productivity, profitability and sustainability, with simplified agri-tech data that gives clear signals to consumers. Trust won with no hidden stories and no shortcuts.</p></article>
+          <article class="stk rv" style="--d:.05s"><b>Q-comm, e-comm &amp; modern trade</b><p>Made to win Honest Farms' brand trust by showing superiority in back-end agri-tech — not just another category claim on apps and shelves.</p></article>
+          <article class="stk rv" style="--d:.1s"><b>Consumers</b><p>Empowered to verify every batch, farmer and agri practice before they add to cart and put food on the table.</p></article>
+          <article class="stk rv" style="--d:.15s"><b>Employees</b><p>Hired and trained to demonstrate the spirit of progress — bringing Krishi wisdom and modern methods to make farming more productive, profitable and sustainable.</p></article>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 18 · NORTH STAR -->
-<section class="slide dark slide--north" data-chapter="Brand &amp; Proof" data-title="The North Star">
-  <div class="slide__inner">
-    <div class="eyebrow eyebrow--light reveal">The North Star</div>
-    <h2 class="northstar reveal" style="--d:.06s">Be the only food brand in India that consumers <span>verify</span>, not just trust.</h2>
+<section class="sec sec--dark sec--north" id="northstar">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--l">The North Star</p>
+    <h2 class="north rv">Be the only food brand in India that consumers <em>verify</em>, not just trust.</h2>
 
-    <div class="metricband reveal" style="--d:.14s">
-      <span class="metricband__lbl">How do we measure success?</span>
-      <p><b>Verified Purchase Rate</b> — the % of purchases where a consumer engages a real proof point (batch QR scan, farmer profile, lab report) before or after buying the product.</p>
+    <div class="metric rv">
+      <span class="metric__l">How do we measure success?</span>
+      <p><b>Verified Purchase Rate</b> — the percentage of purchases where a consumer engages a real proof point (a batch QR scan, a farmer profile, a lab report) before or after buying the product.</p>
     </div>
 
-    <div class="vpr">
-      <article class="vprcard reveal" style="--d:.2s"><span class="vprcard__av">V</span><b>Vandana · The Verifier</b><p>Scans the batch QR; visits the microsite to engage with farmers.</p></article>
-      <article class="vprcard reveal" style="--d:.24s"><span class="vprcard__av">M</span><b>Meera · The Believer</b><p>Confirms it with her doctor or her circle of influence.</p></article>
-      <article class="vprcard reveal" style="--d:.28s"><span class="vprcard__av">K</span><b>Karan · The Cruise-Controller</b><p>Notices it's already on his app; repeat-buys anyway.</p></article>
-      <article class="vprcard reveal" style="--d:.32s"><span class="vprcard__av">S</span><b>Sanjay · The Sceptic</b><p>Watches unscripted farm content; takes up an audit invite from the farmer.</p></article>
+    <h3 class="h3 h3--l">What "verified" looks like for each buyer</h3>
+    <div class="grid grid--4 vpr">
+      <article class="vp rv"><span class="vp__av">V</span><b>Vandana · The Verifier</b><p>Scans the batch QR; visits the microsite to engage with farmers.</p></article>
+      <article class="vp rv" style="--d:.05s"><span class="vp__av">M</span><b>Meera · The Believer</b><p>Confirms it with her doctor or her circle of influence.</p></article>
+      <article class="vp rv" style="--d:.1s"><span class="vp__av">K</span><b>Karan · The Cruise-Controller</b><p>Notices it's already on his app; repeat-buys anyway.</p></article>
+      <article class="vp rv" style="--d:.15s"><span class="vp__av">S</span><b>Sanjay · The Sceptic</b><p>Watches unscripted farm content; takes up an audit invite from the farmer.</p></article>
     </div>
 
-    <div class="whybox reveal" style="--d:.36s">
+    <div class="why rv">
       <ul>
         <li>It is the only metric that goes down if the proof mechanism breaks — brand awareness would not.</li>
         <li>It is measurable from day one without a tracker study: scans, microsite sessions, report downloads, audit sign-ups.</li>
         <li>It is the one number a professor, a retailer and a farmer would all read the same way.</li>
       </ul>
-      <p class="whybox__foot">Revenue and share are outcomes. Verified Purchase Rate is the lever that sales, product and marketing continuously optimise.</p>
+      <p class="why__f">Revenue and share are outcomes. Verified Purchase Rate is the lever that sales, product and marketing continuously optimise.</p>
     </div>
   </div>
 </section>
 
-<!-- 19 · PROOF ARCHITECTURE -->
-<section class="slide" data-chapter="Brand &amp; Proof" data-title="Proof Architecture">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Proof architecture</div>
-    <h2 class="h2 reveal" style="--d:.05s">One standard, four communication deliveries.</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">Proof architecture</p>
+    <h2 class="h2">One standard, four communication deliveries.</h2>
+    <p class="lead">The standard behind the pack never changes. What changes is who delivers the proof, through which channel, and how fast it converts. Four buyers, four routes to the same truth.</p>
 
-    <div class="deliveries" id="deliveries">
-      <article class="delivery reveal" style="--d:.1s" data-seg="g">
+    <div class="grid grid--4 delivs">
+      <article class="dl dl--g rv">
         <header><b>Vandana — The Verifier</b><span>Proof-Hungry Guardians · 36%</span></header>
-        <p class="delivery__line">"Scan the pack. See exactly what's inside."</p>
-        <div class="delivery__sec"><span>The mechanism</span><ul><li>QR to the batch-level lab report and the farmer</li><li>Doctor or dietitian citation on pack, beside the farmer's view</li><li>Certification carrying a live verification link</li></ul></div>
-        <div class="delivery__meta"><div><span>Channel</span><b>QR code · D2C · Modern trade</b></div><div><span>Conversion speed</span><b>Fast, once proof is visible</b></div></div>
+        <p class="dl__line">"Scan the pack. See exactly what's inside."</p>
+        <div class="dl__s"><span>The mechanism</span><ul><li>QR to the batch-level lab report and the farmer</li><li>Doctor or dietitian citation on pack, beside the farmer's view</li><li>Certification carrying a live verification link</li></ul></div>
+        <div class="dl__m"><div><span>Channel</span><b>QR code · D2C · Modern trade</b></div><div><span>Conversion speed</span><b>Fast, once proof is visible</b></div></div>
       </article>
-      <article class="delivery reveal" style="--d:.14s" data-seg="t">
+      <article class="dl dl--t rv" style="--d:.05s">
         <header><b>Meera — The Believer</b><span>Social Trusters · 20%</span></header>
-        <p class="delivery__line">"Ask your doctor. Then ask your sister. They've approved us."</p>
-        <div class="delivery__sec"><span>The mechanism</span><ul><li>Doctor and dietitian partnership programme</li><li>Referral incentive for existing customers</li><li>Testimonials from families she recognises</li></ul></div>
-        <div class="delivery__meta"><div><span>Channel</span><b>Clinic tie-ups · Community WhatsApp · WOM</b></div><div><span>Conversion speed</span><b>Medium — needs one or two trusted validators</b></div></div>
+        <p class="dl__line">"Ask your doctor. Then ask your sister. They've approved us."</p>
+        <div class="dl__s"><span>The mechanism</span><ul><li>Doctor and dietitian partnership programme</li><li>Referral incentive for existing customers</li><li>Testimonials from families she recognises</li></ul></div>
+        <div class="dl__m"><div><span>Channel</span><b>Clinic tie-ups · Community WhatsApp · WOM</b></div><div><span>Conversion speed</span><b>Medium — needs one or two trusted validators</b></div></div>
       </article>
-      <article class="delivery reveal" style="--d:.18s" data-seg="d">
+      <article class="dl dl--d rv" style="--d:.1s">
         <header><b>Karan — The Cruise-Controller</b><span>Passive Defaulters · 26%</span></header>
-        <p class="delivery__line">"Same taste. Same price. Honestly, better choice."</p>
-        <div class="delivery__sec"><span>The mechanism</span><ul><li>Priority placement in quick-commerce search</li><li>Price parity with the brand he already buys</li><li>Taste-forward sampling, never health-forward</li></ul></div>
-        <div class="delivery__meta"><div><span>Channel</span><b>Quick commerce · Modern trade endcaps</b></div><div><span>Conversion speed</span><b>Fast to trial, low loyalty</b></div></div>
+        <p class="dl__line">"Same taste. Same price. Honestly, better choice."</p>
+        <div class="dl__s"><span>The mechanism</span><ul><li>Priority placement in quick-commerce search</li><li>Price parity with the brand he already buys</li><li>Taste-forward sampling, never health-forward</li></ul></div>
+        <div class="dl__m"><div><span>Channel</span><b>Quick commerce · Modern trade endcaps</b></div><div><span>Conversion speed</span><b>Fast to trial, low loyalty</b></div></div>
       </article>
-      <article class="delivery reveal" style="--d:.22s" data-seg="f">
+      <article class="dl dl--f rv" style="--d:.15s">
         <header><b>Sanjay — The Sceptic</b><span>System Fatalists · 18%</span></header>
-        <p class="delivery__line">"We'll show you the parts no brand talks about."</p>
-        <div class="delivery__sec"><span>The mechanism</span><ul><li>Unscripted farmer and founder video content</li><li>Open invitations to audit or visit the farm</li><li>Independent verification nobody paid for</li></ul></div>
-        <div class="delivery__meta"><div><span>Channel</span><b>Farmer-direct platforms · Founder-led content</b></div><div><span>Conversion speed</span><b>Slowest — but becomes a vocal advocate</b></div></div>
+        <p class="dl__line">"We'll show you the parts no brand talks about."</p>
+        <div class="dl__s"><span>The mechanism</span><ul><li>Unscripted farmer and founder video content</li><li>Open invitations to audit or visit the farm</li><li>Independent verification nobody paid for</li></ul></div>
+        <div class="dl__m"><div><span>Channel</span><b>Farmer-direct platforms · Founder-led content</b></div><div><span>Conversion speed</span><b>Slowest — but becomes a vocal advocate</b></div></div>
       </article>
     </div>
 
-    <div class="kicker reveal" style="--d:.26s">Trust is multi-dimensional for each archetype</div>
-    <div class="tablewrap reveal" style="--d:.28s">
-      <table class="segtable segtable--matrix">
+    <h3 class="h3">Trust is multi-dimensional for each archetype</h3>
+    <div class="scroller rv">
+      <table class="tbl tbl--matrix">
         <thead><tr><th></th><th>Vandana</th><th>Meera</th><th>Karan</th><th>Sanjay</th></tr></thead>
         <tbody>
           <tr><th>Trust lever</th><td>Verified data (QR + lab)</td><td>Human endorsement</td><td>Familiarity, shelf presence</td><td>Radical transparency</td></tr>
@@ -727,260 +755,276 @@
   </div>
 </section>
 
-<!-- 20 · FOUNDATION -->
-<section class="slide dark slide--divider" data-chapter="The Growth Engine" data-title="Growth Engine">
-  <div class="slide__bgimg" style="background-image:url('assets/factory.jpg')"></div>
-  <div class="slide__inner slide__inner--center">
-    <div class="divider__num reveal">Part V</div>
-    <h2 class="divider__title reveal" style="--d:.08s">Laying the foundation for growth over the next five years</h2>
-    <p class="divider__sub reveal" style="--d:.16s">Where to sell it. What to sell. What it costs. What defends it.</p>
-    <div class="divider__chips reveal" style="--d:.24s">
-      <span>Portfolio reality</span><span>₹748 Cr trajectory</span><span>Category mix</span><span>Distribution</span><span>The moat</span><span>The ask</span>
-    </div>
+<!-- ══════════ PART 05 — THE GROWTH ENGINE ══════════ -->
+<section class="band" id="growth">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/factory.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 05</p>
+    <h2 class="band__t">The Growth Engine</h2>
+    <p class="band__s">Where to sell it, what to sell, and what it costs to get there.</p>
   </div>
 </section>
 
-<!-- 21 · PORTFOLIO REALITY -->
-<section class="slide" data-chapter="The Growth Engine" data-title="Portfolio Reality">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Internal diagnosis</div>
-    <h2 class="h2 reveal" style="--d:.05s">Strategy says accessible-premium food brand. The portfolio says <b class="hl hl--clay">commodities</b>.</h2>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Internal diagnosis</p>
+    <h2 class="h2">Strategy says accessible-premium food brand. The portfolio says <b class="clay">commodities</b>.</h2>
+    <p class="lead">Before designing the growth engine we audited eight half-years of actual revenue. The business is growing, but growing fastest in the block it talks about least — and depending on a single platform for a quarter of its income.</p>
 
-    <div class="statrow reveal" style="--d:.1s">
-      <div class="stat"><b class="num" data-count="90.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹90.9 Cr</b><span>Cumulative revenue audited across eight half-years; FY26 ≈ ₹53 Cr, up ≈30% YoY</span></div>
-      <div class="stat stat--green"><b class="num" data-count="219" data-prefix="+" data-suffix="%">+219%</b><span>Growth of the value-added block (makhana, jaggery, honey) — 29% of revenue, the real engine</span></div>
-      <div class="stat stat--clay"><b class="num" data-count="24" data-suffix="%">24%</b><span>Of revenue from a single account, Zepto — one rupee in four is at platform mercy</span></div>
-      <div class="stat stat--clay"><b class="num" data-count="33" data-prefix="≈" data-suffix="%">≈33%</b><span>Of revenue (≈₹30 Cr) has no channel attribution at all</span></div>
+    <div class="grid grid--4 stats">
+      <div class="stat rv"><b class="num" data-count="90.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹90.9 Cr</b><span>Cumulative revenue audited across eight half-years; FY26 ≈ ₹53 Cr, up roughly 30% YoY</span></div>
+      <div class="stat stat--green rv" style="--d:.05s"><b class="num" data-count="219" data-prefix="+" data-suffix="%">+219%</b><span>Growth of the value-added block — makhana, jaggery, honey — now 29% of revenue and the real engine</span></div>
+      <div class="stat stat--clay rv" style="--d:.1s"><b class="num" data-count="24" data-suffix="%">24%</b><span>Of revenue from a single account, Zepto. One rupee in four sits at platform mercy.</span></div>
+      <div class="stat stat--clay rv" style="--d:.15s"><b class="num" data-count="33" data-prefix="≈" data-suffix="%">≈33%</b><span>Of revenue, roughly ₹30 Cr, has no channel attribution at all</span></div>
     </div>
 
-    <div class="split split--52 gap-lg">
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">Portfolio mix vs portfolio growth <i>(cumulative ₹ Cr, growth %)</i></div>
+    <div class="cols cols--5248">
+      <div>
+        <h3 class="h3">Portfolio mix versus portfolio growth</h3>
+        <p class="note">Cumulative revenue in ₹ Cr, with growth rate beside it.</p>
         <div id="chartPortfolio" class="chart" role="img" aria-label="Portfolio mix by cumulative revenue and growth rate"></div>
       </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="kicker">Three tension points that decide the strategy</div>
+      <div>
+        <h3 class="h3">Three tension points that decide the strategy</h3>
         <div class="tensions tensions--clay">
-          <div class="tension"><b>01 · Revenue is anchored in the slowest-growing, lowest-margin block</b><p>Pulses are 56% of revenue and grow below the portfolio average.</p></div>
-          <div class="tension"><b>02 · Realisation is falling while volume rises</b><p>Revenue per MT fell 4.3% in FY26-H2 — a margin warning masked by tonnage.</p></div>
-          <div class="tension"><b>03 · Proof is asserted, not demonstrated</b><p>Seven simultaneous taglines, no hierarchy, and "230+ quality checks" stated but never explained.</p></div>
+          <div class="tn rv"><b><i>01</i>Revenue is anchored in the slowest, lowest-margin block</b><p>Pulses are 56% of revenue and grow below the portfolio average. The base is heavy where the money is thinnest.</p></div>
+          <div class="tn rv" style="--d:.05s"><b><i>02</i>Realisation is falling while volume rises</b><p>Revenue per MT fell 4.3% in FY26-H2 — a margin warning masked by tonnage growth.</p></div>
+          <div class="tn rv" style="--d:.1s"><b><i>03</i>Proof is asserted, not demonstrated</b><p>Seven simultaneous taglines, no hierarchy, and "230+ quality checks" stated but never explained.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 22 · REVENUE TRAJECTORY -->
-<section class="slide" data-chapter="The Growth Engine" data-title="₹748 Cr by FY31">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The growth ambition</div>
-    <h2 class="h2 reveal" style="--d:.05s"><b class="hl">₹53 Cr</b> today. <b class="hl">₹748 Cr</b> by FY31.</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">The growth ambition</p>
+    <h2 class="h2"><b>₹53 Cr</b> today. <b>₹748 Cr</b> by FY31.</h2>
+    <p class="lead">Fourteen times the base in five years. That is aggressive, but it is built bottom-up from SKU, channel and city plans rather than a top-down multiple — and it turns EBITDA-positive in year three.</p>
 
-    <div class="split split--62 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">Net revenue, ₹ Cr <span class="hint">hover a year</span></div>
-        <div id="chartRevenue" class="chart chart--rev" role="img" aria-label="Revenue trajectory from ₹53 Cr in FY26 to ₹748 Cr in FY31"></div>
+    <div class="cols cols--6238">
+      <div>
+        <figure class="chartfig rv">
+          <figcaption class="chartfig__cap">Net revenue, ₹ Cr <span class="tag">hover a year</span></figcaption>
+          <div id="chartRevenue" class="chart" role="img" aria-label="Revenue trajectory from 53 crore in FY26 to 748 crore in FY31"></div>
+        </figure>
       </div>
-      <div class="reveal" style="--d:.16s">
-        <div class="bigstats">
-          <div class="bigstat"><b class="num" data-count="14.1" data-suffix="×" data-dec="1">14.1×</b><span>On the FY26 base of ₹53 Cr</span></div>
-          <div class="bigstat"><b class="num" data-count="64" data-suffix="%">64%</b><span>Net revenue CAGR, FY27 to FY31</span></div>
-          <div class="bigstat"><b class="num" data-count="5.8" data-prefix="+" data-suffix="pp" data-dec="1">+5.8pp</b><span>Gross margin, 37.5% → 43.3%</span></div>
+      <div>
+        <div class="bigs">
+          <div class="big rv"><b class="num" data-count="14.1" data-suffix="×" data-dec="1">14.1×</b><span>On the FY26 base of ₹53 Cr</span></div>
+          <div class="big rv" style="--d:.05s"><b class="num" data-count="64" data-suffix="%">64%</b><span>Net revenue CAGR, FY27 to FY31</span></div>
+          <div class="big rv" style="--d:.1s"><b class="num" data-count="5.8" data-prefix="+" data-suffix="pp" data-dec="1">+5.8pp</b><span>Gross margin expansion, 37.5% → 43.3%</span></div>
         </div>
-        <figure class="figure"><img src="assets/value-added.jpg" alt="Makhana, jaggery and honey — the value-added block driving growth" loading="lazy"><figcaption>The value-added block — makhana, jaggery, honey — grew +219% and now carries the mix.</figcaption></figure>
+        <figure class="fig rv"><img src="assets/value-added.jpg" alt="Makhana, jaggery and honey — the value-added block driving growth" loading="lazy"><figcaption>The value-added block — makhana, jaggery, honey — grew +219% and now carries the mix.</figcaption></figure>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 23 · CATEGORY MIX -->
-<section class="slide" data-chapter="The Growth Engine" data-title="Spices Carry the Margin">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Portfolio design</div>
-    <h2 class="h2 reveal" style="--d:.05s">Pulses hold the volume base. <b class="hl">Spices carry the margin.</b></h2>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio design</p>
+    <h2 class="h2">Pulses hold the volume base. <b>Spices carry the margin.</b></h2>
+    <p class="lead">The revenue plan and the margin plan are two different stories. Pulses stay the largest line, but almost the entire margin expansion comes from spices — a category DHF barely sells today.</p>
 
-    <div class="split split--58 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">Revenue by category, ₹ Cr <span class="hint">toggle the year</span></div>
-        <div class="toggle" id="mixToggle" role="tablist">
-          <button class="toggle__b is-active" data-year="0" role="tab">FY27</button>
-          <button class="toggle__b" data-year="1" role="tab">FY31</button>
-          <button class="toggle__b" data-year="2" role="tab">Both</button>
-        </div>
-        <div id="chartMix" class="chart" role="img" aria-label="Revenue by category comparing FY27 and FY31"></div>
+    <div class="cols cols--5842">
+      <div>
+        <figure class="chartfig rv">
+          <figcaption class="chartfig__cap">Revenue by category, ₹ Cr</figcaption>
+          <div class="toggle" id="mixToggle" role="tablist">
+            <button class="toggle__b is-on" data-year="0" role="tab">FY27</button>
+            <button class="toggle__b" data-year="1" role="tab">FY31</button>
+          </div>
+          <div id="chartMix" class="chart" role="img" aria-label="Revenue by category comparing FY27 and FY31"></div>
+        </figure>
+        <figure class="fig rv"><img src="assets/spices-flatlay.jpg" alt="Whole and ground Indian spices arranged in bowls" loading="lazy"><figcaption>Four ground spice powders that do not exist today are worth ₹95.5 Cr in the FY31 plan.</figcaption></figure>
       </div>
-      <div class="reveal" style="--d:.16s">
-        <div class="bigstats bigstats--col">
-          <div class="bigstat"><b class="num" data-count="11.2" data-suffix="×" data-dec="1">11.2×</b><span>Spices, FY27 → FY31. Mix moves from 17% to 27% of revenue, at 51–58% gross margin.</span></div>
-          <div class="bigstat"><b class="num" data-count="99.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹99.9 Cr</b><span>Makhana — the single largest SKU in the FY31 plan, and a realisation play, not a tonnage play.</span></div>
-          <div class="bigstat"><b class="num" data-count="95.5" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹95.5 Cr</b><span>From four ground spice powders that do not exist today. Pure NPD, from a zero base.</span></div>
+      <div>
+        <div class="bigs">
+          <div class="big rv"><b class="num" data-count="11.2" data-suffix="×" data-dec="1">11.2×</b><span>Spices, FY27 → FY31. Mix moves from 17% to 27% of revenue, at 51–58% gross margin.</span></div>
+          <div class="big rv" style="--d:.05s"><b class="num" data-count="99.9" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹99.9 Cr</b><span>Makhana — the single largest SKU in the FY31 plan, and a realisation play, not a tonnage play.</span></div>
+          <div class="big rv" style="--d:.1s"><b class="num" data-count="95.5" data-prefix="₹" data-suffix=" Cr" data-dec="1">₹95.5 Cr</b><span>From four ground spice powders that do not exist today. Pure NPD, from a zero base.</span></div>
         </div>
-        <div class="verdict verdict--clay">Spices deliver the entire +5.8pp of margin expansion. A slipped spice launch is a slipped P&amp;L.</div>
+        <p class="verdict verdict--clay rv">Spices deliver the entire +5.8pp of margin expansion. A slipped spice launch is a slipped P&amp;L.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 24 · DISTRIBUTION -->
-<section class="slide" data-chapter="The Growth Engine" data-title="Distribution Roadmap">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The distribution roadmap</div>
-    <h2 class="h2 reveal" style="--d:.05s">Earn the shelf. Then densify it.</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">The distribution roadmap</p>
+    <h2 class="h2">Earn the shelf. Then densify it.</h2>
+    <p class="lead">Thirteen and a half times the selling points at five times the revenue — which means the plan does not need better stores, it needs many more of them, opened faster than revenue per store dilutes.</p>
 
-    <div class="statrow statrow--3 reveal" style="--d:.1s">
-      <div class="stat"><b class="num" data-count="22628">22,628</b><span>Selling points by FY31, from 1,672 today</span></div>
-      <div class="stat"><b class="num" data-count="110">110</b><span>Offline cities, from 22 today</span></div>
-      <div class="stat"><b class="num" data-count="40" data-suffix="%">40%</b><span>The ceiling on any single channel's share of revenue</span></div>
+    <div class="grid grid--3 stats">
+      <div class="stat rv"><b class="num" data-count="22628">22,628</b><span>Selling points by FY31, from 1,672 today</span></div>
+      <div class="stat rv" style="--d:.05s"><b class="num" data-count="110">110</b><span>Offline cities, from 22 today</span></div>
+      <div class="stat rv" style="--d:.1s"><b class="num" data-count="40" data-suffix="%">40%</b><span>The hard ceiling on any single channel's share of revenue</span></div>
     </div>
 
-    <div class="split split--52 gap-lg">
-      <div class="reveal" style="--d:.16s">
-        <div class="kicker">Channel mix at FY31, ₹ Cr</div>
+    <div class="cols cols--5248">
+      <div>
+        <h3 class="h3">Channel mix at FY31</h3>
         <div id="chartChannelMix" class="chart" role="img" aria-label="Revenue by channel at FY31"></div>
-        <div class="callout callout--blue">No single channel above 40% — the ceiling is what stops the plan becoming a bet on one platform.</div>
+        <div class="box box--blue rv">
+          <b>No single channel above 40%.</b>
+          <p>The ceiling is what stops the plan from becoming a bet on one platform — the mistake the current 24% Zepto concentration already warns about.</p>
+        </div>
       </div>
-      <div class="reveal" style="--d:.2s">
-        <div class="kicker">The sequence</div>
-        <ol class="sequence">
-          <li><b>Earn the metro shelf</b><span>Prove velocity where the Guardians already shop.</span></li>
-          <li><b>Ride quick commerce into Tier 2 &amp; 3</b><span>Distribution without the fixed cost of feet on street.</span></li>
-          <li><b>Convert regional chains, state by state</b><span>Regional &amp; premium offline is the second-largest pool at ₹263 Cr.</span></li>
-          <li><b>Densify what is already open</b><span>13.5× the selling points at 5× the revenue.</span></li>
+      <div>
+        <h3 class="h3">The sequence</h3>
+        <ol class="seq">
+          <li class="rv"><b>Earn the metro shelf</b><span>Prove velocity where the Guardians already shop, and use that data to open doors.</span></li>
+          <li class="rv" style="--d:.05s"><b>Ride quick commerce into Tier 2 &amp; 3</b><span>Distribution reach without the fixed cost of feet on street.</span></li>
+          <li class="rv" style="--d:.1s"><b>Convert regional chains, state by state</b><span>Regional and premium offline is the second-largest pool at ₹263 Cr.</span></li>
+          <li class="rv" style="--d:.15s"><b>Densify what is already open</b><span>Adding SKUs per store is cheaper than adding stores, and protects realisation.</span></li>
         </ol>
-        <div class="verdict">The plan does not need better stores. It needs more of them, faster than the dilution.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 25 · THE MOAT -->
-<section class="slide" data-chapter="The Moat &amp; The Ask" data-title="The Moat">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Competitive defence</div>
-    <h2 class="h2 reveal" style="--d:.05s">We don't test the harvest. <b class="hl">We control the input.</b></h2>
+<!-- ══════════ PART 06 — THE MOAT & THE ASK ══════════ -->
+<section class="band" id="moat">
+  <div class="band__media"><div class="band__img" data-para="0.18" style="background-image:url('assets/team-field.jpg')"></div></div>
+  <div class="band__in wrap">
+    <p class="band__n">Part 06</p>
+    <h2 class="band__t">The Moat &amp; The Ask</h2>
+    <p class="band__s">What DHF controls, how long it survives imitation, and what it costs to build.</p>
+  </div>
+</section>
 
-    <div class="statrow statrow--3 reveal" style="--d:.1s">
-      <div class="stat stat--green"><b class="numplain">10 Mn+</b><span>Farmers on the DeHaat network</span></div>
-      <div class="stat stat--green"><b class="num" data-count="8">8</b><span>Sourcing clusters owned end to end</span></div>
-      <div class="stat stat--green"><b class="num" data-count="230" data-suffix="+">230+</b><span>Pesticide checks on every batch</span></div>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Competitive defence</p>
+    <h2 class="h2">We don't test the harvest. <b>We control the input.</b></h2>
+    <p class="lead">Every competitor can buy a certificate or commission a lab. None of them can decide what a farmer plants and sprays — because none of them run the agritech network the farmer already uses. That is the difference between a claim and a moat.</p>
+
+    <div class="grid grid--3 stats">
+      <div class="stat stat--green rv"><b class="plain">10 Mn+</b><span>Farmers on the DeHaat network</span></div>
+      <div class="stat stat--green rv" style="--d:.05s"><b class="num" data-count="8">8</b><span>Sourcing clusters owned end to end</span></div>
+      <div class="stat stat--green rv" style="--d:.1s"><b class="num" data-count="230" data-suffix="+">230+</b><span>Pesticide checks on every batch</span></div>
     </div>
 
-    <div class="kicker reveal" style="--d:.16s">The five steps behind the claim</div>
-    <div class="steps reveal" style="--d:.18s">
-      <div class="step"><b>1</b><span>Clean cultivation</span></div>
-      <div class="step"><b>2</b><span>Direct sourcing</span></div>
-      <div class="step"><b>3</b><span>230+ checks</span></div>
-      <div class="step"><b>4</b><span>Controlled processing</span></div>
-      <div class="step"><b>5</b><span>Traceable to source</span></div>
-    </div>
-    <p class="fine reveal" style="--d:.22s">Bihar makhana · Uttarakhand jaggery · Gujarat Java peanut · and five more, owned end to end.</p>
+    <h3 class="h3">The five steps behind the claim</h3>
+    <p class="note">Bihar makhana · Uttarakhand jaggery · Gujarat Java peanut · and five more, owned end to end.</p>
+    <ol class="steps">
+      <li class="rv"><b>1</b><span>Clean cultivation</span></li>
+      <li class="rv" style="--d:.05s"><b>2</b><span>Direct sourcing</span></li>
+      <li class="rv" style="--d:.1s"><b>3</b><span>230+ checks</span></li>
+      <li class="rv" style="--d:.15s"><b>4</b><span>Controlled processing</span></li>
+      <li class="rv" style="--d:.2s"><b>5</b><span>Traceable to source</span></li>
+    </ol>
 
-    <div class="split split--52 gap-lg">
-      <div class="reveal" style="--d:.26s">
-        <div class="kicker">The moat has to be visible by FY29 <span class="hint">select a layer</span></div>
+    <div class="cols cols--5248">
+      <div>
+        <h3 class="h3">The moat has to be visible by FY29</h3>
+        <p class="note">Five layers of defensibility, ordered by how long each survives a determined competitor.</p>
         <div class="ladder" id="ladder">
-          <button class="rung rung--l4 is-active" data-r="4"><span class="rung__l">L4</span><b>Farmer-direct transparency</b><i>structural</i></button>
-          <button class="rung rung--l3" data-r="3"><span class="rung__l">L3</span><b>DeHaat input control</b><i>5.5 yrs to copy</i></button>
-          <button class="rung rung--l2" data-r="2"><span class="rung__l">L2</span><b>NPOP certification</b><i>parity</i></button>
-          <button class="rung rung--l1 is-here" data-r="1"><span class="rung__l">L1</span><b>QR to the batch lab report</b><i>1.2 yrs to copy</i></button>
-          <button class="rung rung--l0" data-r="0"><span class="rung__l">L0</span><b>A label claim</b><i>0.3 yrs to copy</i></button>
+          <button class="rung rung--4 is-on" data-r="4"><span class="rung__l">L4</span><b>Farmer-direct transparency</b><i>structural</i></button>
+          <button class="rung rung--3" data-r="3"><span class="rung__l">L3</span><b>DeHaat input control</b><i>5.5 yrs to copy</i></button>
+          <button class="rung rung--2" data-r="2"><span class="rung__l">L2</span><b>NPOP certification</b><i>parity</i></button>
+          <button class="rung rung--1 is-here" data-r="1"><span class="rung__l">L1</span><b>QR to the batch lab report</b><i>1.2 yrs to copy</i></button>
+          <button class="rung rung--0" data-r="0"><span class="rung__l">L0</span><b>A label claim</b><i>0.3 yrs to copy</i></button>
         </div>
-        <p class="fine"><b>DHF sits at L1.</b> Only L3 and L4 survive imitation.</p>
+        <p class="note"><b>DHF sits at L1.</b> Only L3 and L4 survive imitation.</p>
       </div>
-      <div class="reveal" style="--d:.3s">
-        <figure class="figure"><img src="assets/team-field.jpg" alt="The team at a makhana pond during field research" loading="lazy"><figcaption>Field research at the makhana clusters — the sourcing control that cannot be contracted for.</figcaption></figure>
-        <div class="callout callout--clay callout--lg">
+      <div>
+        <figure class="fig rv"><img src="assets/team-field.jpg" alt="The team at a makhana pond during field research" loading="lazy"><figcaption>Field research at the makhana clusters — the sourcing control that cannot be contracted for.</figcaption></figure>
+        <div class="box box--clay box--lg rv">
           <b>Roughly two years to build it before it is worth attacking.</b>
-          ITC bought 24 Mantra; Wingreens bought Safe Harvest. DHF has to build, certify and make this moat consumer-visible before ₹274 Cr makes it a target.
+          <p>ITC bought 24 Mantra. Wingreens bought Safe Harvest. DHF has to build, certify and make this moat consumer-visible before ₹274 Cr of revenue makes it a target.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 26 · THE ASK -->
-<section class="slide" data-chapter="The Moat &amp; The Ask" data-title="The Scale Blueprint">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">The scale blueprint</div>
-    <h2 class="h2 reveal" style="--d:.05s"><b class="hl">₹105 Cr</b> buys breakeven by FY29.</h2>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <p class="eyebrow">The scale blueprint</p>
+    <h2 class="h2"><b>₹105 Cr</b> buys breakeven by FY29.</h2>
+    <p class="lead">Losses for two years, then positive. Investment intensity falls from 38% to 30% of revenue — which means breakeven is not won by cutting, it is won by spreading the same rupees over far more revenue.</p>
 
-    <div class="split split--56 gap-lg">
-      <div class="reveal" style="--d:.1s">
-        <div class="kicker">The path to breakeven, ₹ Cr</div>
-        <div class="tablewrap">
+    <div class="cols cols--5644">
+      <div>
+        <h3 class="h3">The path to breakeven</h3>
+        <p class="note">All figures ₹ Cr.</p>
+        <div class="scroller rv">
           <table class="pnl">
             <thead><tr><th></th><th>FY27</th><th>FY28</th><th>FY29</th></tr></thead>
             <tbody>
               <tr><th>Revenue</th><td>104</td><td>168</td><td>274</td></tr>
               <tr><th>Investable margin</th><td>27.6</td><td>50.2</td><td>86.6</td></tr>
-              <tr class="pnl__ebitda"><th>EBITDA</th><td class="neg">−12.4</td><td class="neg">−7.9</td><td class="pos">+4.7</td></tr>
+              <tr class="pnl__e"><th>EBITDA</th><td class="neg">−12.4</td><td class="neg">−7.9</td><td class="pos">+4.7</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="fine">Investment intensity falls from 38% to 30% of revenue. Breakeven is not efficiency — it is the same rupees spread over more revenue.</p>
-        <div class="callout callout--gold callout--lg">
-          DHF clears breakeven at ₹274 Cr only because a 43.1% gross margin buys ₹38 Cr that Farmley's 29% does not. <b>No Indian clean-label brand between ₹75 Cr and ₹400 Cr is EBITDA-positive today.</b>
+        <div class="box box--gold box--lg rv">
+          <b>Why the margin matters more than the cost line</b>
+          <p>DHF clears breakeven at ₹274 Cr only because a 43.1% gross margin buys ₹38 Cr that Farmley's 29% does not. No Indian clean-label brand between ₹75 Cr and ₹400 Cr is EBITDA-positive today.</p>
         </div>
       </div>
-      <div class="reveal" style="--d:.16s">
-        <div class="askcard">
-          <span class="askcard__lbl">The funding ask</span>
-          <b class="askcard__v"><span class="num" data-count="105" data-prefix="₹" data-suffix=" Cr">₹105 Cr</span></b>
-          <ul class="askcard__split">
+      <div>
+        <div class="ask rv">
+          <span class="ask__l">The funding ask</span>
+          <b class="ask__v"><span class="num" data-count="105" data-prefix="₹" data-suffix=" Cr">₹105 Cr</span></b>
+          <ul class="ask__s">
             <li><span>Operating losses</span><b>₹20.3 Cr</b></li>
             <li><span>Capex</span><b>₹29.5 Cr</b></li>
             <li><span>Working capital</span><b>₹37.3 Cr</b></li>
             <li><span>Contingency</span><b>₹17.4 Cr</b></li>
           </ul>
-          <p class="askcard__foot">Below every comparable in the set.</p>
+          <p class="ask__f">Below every comparable in the set.</p>
         </div>
-        <div class="bigstat bigstat--wide"><b class="numplain">22 → 98</b><span>People, FY26 to FY29, across six functions. Revenue per head reaches ₹2.80 Cr.</span></div>
+        <div class="big big--wide rv"><b class="plain">22 → 98</b><span>People, FY26 to FY29, across six functions. Revenue per head reaches ₹2.80 Cr.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 27 · CATEGORY LEADERSHIP -->
-<section class="slide" data-chapter="The Moat &amp; The Ask" data-title="Category Leadership">
-  <div class="slide__inner">
-    <div class="eyebrow reveal">Category leadership</div>
-    <h2 class="h2 reveal" style="--d:.05s">Open the category to make it a <b class="hl">proprietary eponym</b>.</h2>
-    <p class="lede reveal" style="--d:.1s">A category only becomes large if others are allowed in. DeHaat Honest Farms wins not by owning the words, but by owning the standard, the proof, and the relevance in consumers' lives.</p>
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow">Category leadership</p>
+    <h2 class="h2">Open the category to make it a <b>proprietary eponym</b>.</h2>
+    <p class="lead">A category only becomes large if others are allowed in. DeHaat Honest Farms wins not by owning the words, but by owning the standard, the proof, and the relevance in consumers' lives — so that when anyone says pesticide-free, they mean this.</p>
 
-    <div class="pillars">
-      <article class="pillar reveal" style="--d:.14s">
-        <span class="pillar__n">01</span>
+    <div class="grid grid--3 pillars">
+      <article class="pl rv">
+        <span class="pl__n">01</span>
         <b>Educate what pesticide-free means</b>
         <ul>
-          <li>Pesticide-free call-out with QR to the farmer, carrying the Jaivik Bharat logo, on the front of pack</li>
+          <li>Pesticide-free call-out with a QR to the farmer, carrying the Jaivik Bharat logo, on the front of pack</li>
           <li>Invite parents, teachers and children to the farm to see the process and meet the farmers</li>
           <li>Bring the 56% core audience into cook-off sessions after the visit; give the 18% sceptics firsthand access</li>
           <li>Webinars and podcasts led by farmers and doctors — the two voices the research says are believed</li>
           <li>On-ground activation in schools and colleges, and with GPs, gastro specialists and nutritionists</li>
         </ul>
       </article>
-      <article class="pillar reveal" style="--d:.18s">
-        <span class="pillar__n">02</span>
+      <article class="pl rv" style="--d:.06s">
+        <span class="pl__n">02</span>
         <b>Out-proof everyone: certification visible</b>
         <ul>
-          <li>Quick-commerce platforms — Zepto, Amazon — showcase the pesticide-free certificate for every product on the app, the way Nykaa does</li>
-          <li>The copycat test: when an incumbent prints "pesticide-free", DeHaat Honest Farms asks publicly — <i>where is the batch certificate?</i></li>
+          <li>Quick-commerce platforms — Zepto, Amazon — showcase the pesticide-free certificate for every product on the app, the way Nykaa surfaces ingredient data</li>
+          <li>The copycat test: when an incumbent prints "pesticide-free", DeHaat Honest Farms asks publicly — <em>where is the batch certificate?</em></li>
         </ul>
       </article>
-      <article class="pillar reveal" style="--d:.22s">
-        <span class="pillar__n">03</span>
+      <article class="pl rv" style="--d:.12s">
+        <span class="pl__n">03</span>
         <b>Vertical sourcing control: farm to fork</b>
         <ul>
           <li>Own the input decision, not just the output test. Control at sowing is what a competitor cannot contract for</li>
-          <li>Embed the brand in Indian routine until the habit forms — <i>think pesticide-free, think Honest Farms</i></li>
+          <li>Embed the brand in the Indian routine until the habit forms — <em>think pesticide-free, think Honest Farms</em></li>
         </ul>
       </article>
     </div>
 
-    <div class="kicker reveal" style="--d:.26s">Guardrails for communication, in line with industry bodies</div>
-    <div class="guardrails">
-      <div class="guard guard--say reveal" style="--d:.28s">
-        <span class="guard__h"><i>✓</i> What we say</span>
+    <h3 class="h3">Guardrails for communication</h3>
+    <p class="note">In line with FSSAI and ASCI requirements. The standard only holds if the language never overreaches.</p>
+    <div class="guards">
+      <div class="gd gd--say rv">
+        <span class="gd__h"><i>✓</i>What we say</span>
         <ul>
           <li>"Tested for 230+ pesticides. None detected."</li>
           <li>"No detectable pesticide residue, verified batch by batch."</li>
@@ -988,8 +1032,8 @@
           <li>"Stronger residue testing than the organic standard requires."</li>
         </ul>
       </div>
-      <div class="guard guard--dont reveal" style="--d:.32s">
-        <span class="guard__h"><i>✕</i> What we never say</span>
+      <div class="gd gd--dont rv" style="--d:.06s">
+        <span class="gd__h"><i>✕</i>What we never say</span>
         <ul>
           <li>"100% pesticide-free" — or any absolute</li>
           <li>"Chemical-free", "toxin-free", "100% pure"</li>
@@ -998,7 +1042,7 @@
           <li>Never win by attacking organic or conventional</li>
         </ul>
       </div>
-      <div class="guard__logos reveal" style="--d:.36s">
+      <div class="gd__logos rv" style="--d:.12s">
         <img src="assets/jaivik.png" alt="Jaivik Bharat" loading="lazy">
         <img src="assets/fssai.png" alt="FSSAI" loading="lazy">
         <img src="assets/asci.png" alt="ASCI" loading="lazy">
@@ -1007,46 +1051,27 @@
   </div>
 </section>
 
-<!-- 28 · CLOSE -->
-<section class="slide dark slide--close" data-chapter="The Moat &amp; The Ask" data-title="Thank You">
-  <div class="slide__bgimg" style="background-image:url('assets/team-field.jpg')"></div>
-  <div class="slide__inner slide__inner--center">
-    <p class="close__dhanyavaad reveal">धन्यवाद</p>
-    <p class="close__line reveal" style="--d:.1s">Verified in the fields. Honest on the shelves.</p>
-    <img src="assets/logo.png" alt="DeHaat Honest Farms" class="close__logo reveal" style="--d:.18s">
-    <div class="close__team reveal" style="--d:.26s">
-      <span>Team 1 · ISB CGMO Cohort II</span>
-      <b>Sabika Mirza · Sharon Batliwalla · Syed Kashif Ali · Sonu Adarsh · Abhishek Nandan</b>
-    </div>
+<!-- ═══════════ CLOSE ═══════════ -->
+<section class="close">
+  <div class="close__media"><div class="close__img" data-para="0.14" style="background-image:url('assets/team-field.jpg')"></div></div>
+  <div class="wrap center close__in">
+    <p class="close__hi rv">धन्यवाद</p>
+    <p class="close__line rv" style="--d:.08s">Verified in the fields. Honest on the shelves.</p>
+    <img class="close__logo rv" style="--d:.16s" src="assets/logo.png" alt="DeHaat Honest Farms">
+    <p class="close__team rv" style="--d:.24s"><b>Team 1 · ISB CGMO Cohort II</b><span>Sabika Mirza · Sharon Batliwalla · Syed Kashif Ali · Sonu Adarsh · Abhishek Nandan</span></p>
   </div>
 </section>
 
 </main>
 
-<!-- ══════════ OVERLAYS ══════════ -->
-<div class="overlay" id="gridOverlay" hidden>
-  <div class="overlay__head">
-    <b>All slides</b>
-    <button class="iconbtn iconbtn--close" id="btnGridClose" aria-label="Close overview">✕</button>
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <span>DeHaat Honest Farms — Category Creation &amp; Scale Acceleration</span>
+    <span>Business Leadership Challenge · ISB CGMO Cohort II</span>
   </div>
-  <div class="overlay__grid" id="gridItems"></div>
-</div>
+</footer>
 
-<div class="overlay overlay--help" id="helpOverlay" hidden>
-  <div class="helpcard">
-    <b>Navigation</b>
-    <ul>
-      <li><kbd>→</kbd> <kbd>↓</kbd> <kbd>Space</kbd><span>Next slide</span></li>
-      <li><kbd>←</kbd> <kbd>↑</kbd><span>Previous slide</span></li>
-      <li><kbd>G</kbd><span>Slide overview</span></li>
-      <li><kbd>Home</kbd> / <kbd>End</kbd><span>First / last slide</span></li>
-      <li><kbd>?</kbd><span>This panel</span></li>
-      <li><kbd>Esc</kbd><span>Close overlays</span></li>
-    </ul>
-    <p>Charts, personas, values and the moat ladder are all interactive — hover or click.</p>
-    <button class="btn" id="btnHelpClose">Got it</button>
-  </div>
-</div>
+<button class="totop" id="totop" aria-label="Back to top">↑</button>
 
 <script src="app.js"></script>
 </body>
