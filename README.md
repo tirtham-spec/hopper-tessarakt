@@ -78,15 +78,45 @@ npm run serve       # http://localhost:8080
 
 ## Deploying to Cloudflare
 
+### Option A — connect this repo in the dashboard (auto-deploys on push)
+
+Cloudflare dashboard → **Compute (Workers)** → **Create** → **Workers** →
+**Import a repository**, then:
+
+| Field | Value |
+|---|---|
+| Repository | `tirtham-spec/hopper-tessarakt` |
+| Branch | `claude/honest-farms-ppt-design-l0mql0` |
+| Project name | `sabika-dhf-project` |
+| Root directory | `/` |
+| Build command | *(leave empty — there is no build step)* |
+| Deploy command | `npx wrangler deploy` |
+
+`wrangler.toml` at the repo root supplies the rest: it names the Worker
+`sabika-dhf-project` and serves `site/` as static assets. Every push to the
+branch redeploys.
+
+Result: `https://sabika-dhf-project.<your-subdomain>.workers.dev`
+
+### Option B — deploy from your machine
+
 ```bash
-export CLOUDFLARE_API_TOKEN=...      # needs "Edit Cloudflare Workers"
+npm install
+export CLOUDFLARE_API_TOKEN=...      # "Edit Cloudflare Workers" template
 export CLOUDFLARE_ACCOUNT_ID=...
 npm run deploy
 ```
 
-This publishes to `https://sabika-dhf-project.<your-subdomain>.workers.dev`.
-`wrangler.toml` serves `site/` as static assets — there is no Worker script to
-maintain.
+## Single-file export
+
+```bash
+node tools/bundle.mjs honest-farms-deck.html
+```
+
+Inlines the CSS, JS, fonts and images as data URIs and escapes every
+non-ASCII character, producing one ~4 MB HTML file that renders identically
+from a file:// path, an email attachment, or a host with a strict CSP. Useful
+as a presenting fallback when there's no wifi in the room.
 
 ## Source
 
