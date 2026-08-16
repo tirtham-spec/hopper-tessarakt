@@ -1,0 +1,7 @@
+# Cloudflare Worker — static asset hosting for the DHF strategy deck
+name = "sabika-dhf-project"
+compatibility_date = "2026-08-01"
+
+[assets]
+directory = "./site"
+not_found_handling = "single-page-application"
