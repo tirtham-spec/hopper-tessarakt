@@ -3,7 +3,12 @@ name: Deploy to Cloudflare Workers
 # Deploys site/ (the long-form page at / and the slide deck at /deck/) to the
 # Worker named in wrangler.toml: sabika-dhf-project.
 #
-# Needs one repository secret, added under
+# This workflow is OPTIONAL. If the Worker is connected to this repository
+# through Cloudflare's own Git integration, Cloudflare builds and deploys on
+# every push and nothing here is needed — the job below simply reports that it
+# is unconfigured and finishes green.
+#
+# To deploy from GitHub instead, add one repository secret under
 #   Settings → Secrets and variables → Actions → New repository secret
 #
 #   CLOUDFLARE_API_TOKEN   a token from the "Edit Cloudflare Workers" template
@@ -23,19 +28,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check the Cloudflare credential is present
+      - name: Is a Cloudflare credential configured?
+        id: guard
         run: |
           if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
-            echo "::error title=No Cloudflare API token::The repository secret CLOUDFLARE_API_TOKEN is not set, so wrangler has nothing to authenticate with. Add it under Settings → Secrets and variables → Actions, using a token from Cloudflare's 'Edit Cloudflare Workers' template, then re-run this workflow."
-            exit 1
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Deploy skipped::No CLOUDFLARE_API_TOKEN secret, so this workflow has nothing to authenticate with. That is expected if Cloudflare deploys this repo through its own Git integration. To deploy from GitHub instead, add the secret under Settings → Secrets and variables → Actions."
+            {
+              echo "### Deploy skipped"
+              echo ""
+              echo "No \`CLOUDFLARE_API_TOKEN\` secret is set, so this workflow did not call wrangler."
+              echo "That is expected if Cloudflare builds this repository through its own Git integration."
+              echo "See [DEPLOY.md](../blob/${GITHUB_REF_NAME}/DEPLOY.md) for the three ways to publish."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
           fi
-          echo "CLOUDFLARE_API_TOKEN is set — deploying."
 
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.configured == 'true'
         with:
           node-version: 22
 
       - name: Publish sabika-dhf-project
+        if: steps.guard.outputs.configured == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -44,8 +60,11 @@ jobs:
           command: deploy
 
       - name: Where it landed
+        if: steps.guard.outputs.configured == 'true'
         run: |
-          echo "### Deployed :rocket:" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Slide deck: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/deck/\`" >> $GITHUB_STEP_SUMMARY
-          echo "- Long-form page: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/\`" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "### Deployed"
+            echo ""
+            echo "- Slide deck: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/deck/\`"
+            echo "- Long-form page: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/\`"
+          } >> "$GITHUB_STEP_SUMMARY"

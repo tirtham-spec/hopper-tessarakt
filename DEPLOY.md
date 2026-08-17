@@ -50,8 +50,10 @@ on manual dispatch. It needs one repository secret:
    Add `CLOUDFLARE_ACCOUNT_ID` too if that token spans several accounts.
 3. Push anything, or re-run the workflow from the Actions tab.
 
-Until the secret exists the workflow stops at its first step and says so in one
-line on the run summary, rather than failing deep inside a wrangler log.
+Until the secret exists the workflow **skips the deploy and finishes green**,
+with a note on the run summary saying why — so it stays quiet if Cloudflare is
+already building the repo through its own Git integration, instead of filling
+the Actions tab with red runs.
 
 ---
 
