@@ -132,6 +132,59 @@ from the original presentation.
 
 ---
 
+## HTML slide deck
+
+```bash
+node tools/build-html-deck.js                     # site/deck/index.html
+node tools/shoot-deck.js  out/                    # screenshot + fit check
+node tools/check-scroll.js                        # navigation smoke test
+node tools/bundle-deck.mjs DHF-Honest-Farms-Deck.html   # one self-contained file
+```
+
+The same 28 slides as the .pptx, in the browser. The stage is 1280×720 —
+96px to the inch — so every measure carries straight across from the PowerPoint
+build and the two stay in step.
+
+**It scrolls.** One long page with CSS scroll-snap: a slide at a time, snapped
+to the viewport centre, driven by the wheel, the trackpad, a swipe, the arrow
+keys or the space bar. `G` opens a contact sheet of all 28; click one to jump.
+`F` is fullscreen, `?` lists the keys. The slide number lives in the URL hash,
+so `#12` is a shareable link to slide 12.
+
+**It's editable.** `E` turns on edit mode and every heading, paragraph, bullet,
+table cell and chart label becomes editable in place — 811 text nodes. Edits
+save to the browser as you type and survive a refresh; the download button
+writes a copy with the edits baked in, and Reset restores the original wording.
+Nothing leaves the page.
+
+Charts are HTML and CSS — bars are divs with a width or height percentage, so
+they inherit the type and colour tokens and stay editable like everything else.
+Photography, the logo and the certification marks are the ones from the source
+presentation.
+
+### Hosting it on Cloudflare
+
+`wrangler.toml` already serves `site/` as static assets under the Worker
+`sabika-dhf-project`, so the deck is at **`/deck/`** once the project deploys.
+Cloudflare's API is unreachable from the build sandbox, so deploy from the
+dashboard or your own machine:
+
+| Field | Value |
+|---|---|
+| Repository | `tirtham-spec/hopper-tessarakt` |
+| Branch | `claude/honest-farms-ppt-design-l0mql0` |
+| Project name | `sabika-dhf-project` |
+| Build command | *(none)* |
+| Deploy command | `npx wrangler deploy` |
+
+Result: `https://sabika-dhf-project.<your-subdomain>.workers.dev/deck/`
+
+`tools/bundle-deck.mjs` also emits a single ~7.6 MB HTML file with the fonts,
+images, CSS and JS inlined as data URIs — one file to email or open from a USB
+stick, no assets folder required.
+
+---
+
 ## Editable slide deck (PowerPoint / Canva / Google Slides)
 
 ```bash
