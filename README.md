@@ -132,32 +132,38 @@ from the original presentation.
 
 ---
 
-## Editable slide deck (Canva / PowerPoint / Google Slides)
+## Editable slide deck (PowerPoint / Canva / Google Slides)
 
 ```bash
 node tools/build-deck.js DHF-Honest-Farms-Deck.pptx
 python3 tools/check-deck.py DHF-Honest-Farms-Deck.pptx    # layout QA
 ```
 
-42 slides at 16:9, carrying the same content, palette and typefaces as the
-website. Every chart is drawn from native shapes — rectangles, lines and text
-boxes — rather than an embedded chart object or a picture, so the bars stay
-selectable and editable after a Canva import.
+**28 slides at 16:9, mapped one-to-one onto the 28 slides of
+`14TH_AUG_DHF_BLC_DECK.pptx`.** Same slide count, same order, same content —
+redrawn in the Honest Farms brand system. No slide was added, split, merged or
+invented: slide 7 here is slide 7 there.
+
+Every figure was diffed against the source before shipping. All 266 numeric
+tokens in the original are carried over; every chart value, factor loading,
+segment score and financial line reconciles to the source deck's text, tables
+and cached chart XML. Prose is the deck's own — where a sentence was shortened
+it is a strict subset of the original, never a rewrite. Speaker notes stay
+speaker notes (slides 15, 16 and 18).
 
 Design system:
 
 - The blue banner from the logo lockup is the section marker on every content
   slide — the deck's one repeated motif, taken from the mark itself.
-- **Ten breaker slides.** Six full-bleed chapter openers carry baked cover art
-  (cropped to 16:9, softened, desaturated and pre-graded into the ink so type
-  always lands on solid ground). Four statement breakers sit at the chapter
-  seams, each carrying a line already in the deck at display size.
 - **No strokes.** Panels are edgeless tinted planes with a soft shadow; stats
   are a rule, a number and a caption rather than a bordered card. A zero-width
   line in OOXML lets the theme's default outline through, so every panel paints
   its stroke in its own fill colour instead.
 - Brand mark top-right throughout; the footer carries a hairline, the chapter
   and a display page number.
+- Every chart is drawn from native shapes — rectangles, lines and text boxes —
+  rather than an embedded chart object or a picture, so the bars stay
+  selectable and editable after a Canva import.
 
 **Importing into Canva:** Canva home → **Create a design** → **Import file** →
 choose the `.pptx`. Canva converts it into a normal, fully editable Canva
@@ -174,7 +180,8 @@ python3 tools/render-deck.py DHF-Honest-Farms-Deck.pptx out/ # visual render
 ```
 
 `check-deck.py` measures shapes falling outside the page, text that cannot fit
-its box at the stated point size, and overlapping text boxes.
+its box at the stated point size, and overlapping text boxes. The shipped deck
+reports 0 / 0 / 0.
 
 `render-deck.py` rasterises the deck with Pillow using the real brand fonts —
 honouring fills, transparency, corner radii, images with alpha, per-run type,
