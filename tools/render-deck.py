@@ -30,6 +30,7 @@ FILES = {
     ('__ext', False, False): 'NunitoSans-normal-latin-ext.ttf',
     ('__ext', True, False): 'NunitoSans-normal-latin-ext.ttf',
     ('__dev', False, False): 'NotoSansDevanagari-normal-devanagari.ttf',
+    ('__sys', False, False): '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
 }
 _cache = {}
 
@@ -40,6 +41,13 @@ def font(name, size_pt, bold=False, italic=False):
         return _cache[key]
     fn = FILES.get((name, bold, italic)) or FILES.get((name, False, False)) \
         or 'NunitoSans-normal-latin.ttf'
+    if fn.startswith('/'):
+        try:
+            f = ImageFont.truetype(fn, max(5, int(round(size_pt * SCALE / 72.0))))
+            _cache[key] = f
+            return f
+        except Exception:
+            pass
     px = max(5, int(round(size_pt * SCALE / 72.0)))
     try:
         f = ImageFont.truetype(os.path.join(FONTDIR, fn), px)
@@ -80,7 +88,7 @@ def has_glyph(f, ch):
 def runs_with_fallback(txt, f, size):
     """Split text into (chunk, font) pairs, swapping in a fallback face for
     characters the primary font does not carry — what PowerPoint does."""
-    chain = [FALLBACK(size, True), FALLBACK_DEV(size)]
+    chain = [FALLBACK(size, True), FALLBACK_DEV(size), font('__sys', size)]
     out, cur, curf = [], '', None
     for ch in txt:
         use = f

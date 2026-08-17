@@ -36,7 +36,7 @@ pres.author = 'Team 1 — ISB CGMO Cohort II';
 pres.company = 'DeHaat Honest Farms';
 pres.title = 'Category Creation & Scale Acceleration';
 
-const shadow = () => ({ type: 'outer', color: '101C2C', opacity: 0.09, blur: 14, offset: 3, angle: 90 });
+const shadow = () => ({ type: 'outer', color: '0C1A2B', opacity: 0.07, blur: 18, offset: 2, angle: 90 });
 
 /* ═══════════ helpers ═══════════ */
 
@@ -100,13 +100,35 @@ function foot(s, chapter, light) {
     line: { color: light ? 'FFFFFF' : LINE, width: 0.75, transparency: light ? 84 : 0 }
   });
   s.addText((chapter || '').toUpperCase(), {
-    x: M, y: H - 0.40, w: 9.6, h: 0.26, fontFace: FB, fontSize: 8, bold: true,
+    x: M, y: H - 0.40, w: 5.6, h: 0.26, fontFace: FB, fontSize: 8, bold: true,
     color: light ? TXL2 : TX3, charSpacing: 1.4, margin: 0, valign: 'middle'
   });
   s.addText(n, {
     x: W - M - 1.0, y: H - 0.42, w: 1.0, h: 0.3, fontFace: FD, fontSize: 11,
     color: light ? GREEN3 : GREEN, align: 'right', margin: 0, valign: 'middle'
   });
+}
+
+/** a full-bleed statement, used to break between chapters */
+function statement(s, kicker, text, tail) {
+  s.background = { color: INK };
+  s.addImage({ path: A('logo.png'), x: W - M - 1.5, y: 0.5, w: 1.5, h: 0.55 });
+  s.addShape(pres.ShapeType.rect, { x: M, y: 2.42, w: 1.1, h: 0.07, fill: { color: GREEN3 }, line: { color: GREEN3, width: 0.5 } });
+  s.addText(kicker.toUpperCase(), {
+    x: M, y: 2.66, w: 8, h: 0.28, fontFace: FB, fontSize: 9.5, bold: true,
+    color: GREEN3, charSpacing: 2.6, margin: 0, valign: 'middle'
+  });
+  s.addText(text, {
+    x: M, y: 3.05, w: 10.4, h: 2.1, fontFace: FD, fontSize: 30, color: WHITE,
+    margin: 0, valign: 'top', lineSpacingMultiple: 1.06
+  });
+  if (tail) {
+    s.addText(tail, {
+      x: M, y: 5.3, w: 8.6, h: 0.5, fontFace: FB, fontSize: 12, color: TXL2,
+      margin: 0, valign: 'top', lineSpacingMultiple: 1.12
+    });
+  }
+  pageNo += 1;
 }
 
 /** full-bleed chapter opener */
@@ -141,10 +163,12 @@ function divider(s, part, title, sub, img, contents) {
 /** a card panel */
 function card(s, x, y, w, h, opt) {
   opt = opt || {};
+  const stroked = opt.line !== undefined;
   s.addShape(pres.ShapeType.roundRect, {
-    x, y, w, h, rectRadius: opt.r === undefined ? 0.09 : opt.r,
+    x, y, w, h, rectRadius: opt.r === undefined ? 0.1 : opt.r,
     fill: { color: opt.fill || WHITE },
-    line: { color: opt.line || LINE, width: opt.lw === undefined ? 0.75 : opt.lw },
+    line: stroked ? { color: opt.line, width: opt.lw === undefined ? 1.25 : opt.lw }
+                  : { color: opt.fill || WHITE, width: 0.5 },
     shadow: opt.flat ? undefined : shadow()
   });
 }
@@ -155,14 +179,15 @@ function stat(s, x, y, w, value, label, opt) {
   const h = opt.h || 1.35;
   const vs = opt.vs || 25;
   const vh = vs * 1.24 / 72 + 0.04;
-  card(s, x, y, w, h, { fill: opt.fill || WHITE, line: opt.line || LINE });
+  s.addShape(pres.ShapeType.line, { x, y, w, h: 0,
+    line: { color: opt.rule || (opt.color || BLUE), width: 2 } });
   s.addText(value, {
-    x: x + 0.2, y: y + 0.12, w: w - 0.4, h: vh, fontFace: FD,
+    x, y: y + 0.16, w, h: vh, fontFace: FD,
     fontSize: vs, color: opt.color || BLUE, margin: 0, valign: 'top'
   });
   s.addText(label, {
-    x: x + 0.2, y: y + 0.14 + vh, w: w - 0.4, h: h - vh - 0.22, fontFace: FB, fontSize: 8.5,
-    color: TX2, margin: 0, valign: 'top', lineSpacingMultiple: 1.1
+    x, y: y + 0.2 + vh, w: w - 0.15, h: h - vh - 0.26, fontFace: FB, fontSize: 8.5,
+    color: TX2, margin: 0, valign: 'top', lineSpacingMultiple: 1.14
   });
 }
 
@@ -174,7 +199,7 @@ function box(s, x, y, w, h, title, body, tone) {
     plain: [WHITE, LINE, INK]
   };
   const [fill, ln, tc] = map[tone || 'plain'];
-  card(s, x, y, w, h, { fill, line: ln });
+  card(s, x, y, w, h, { fill, flat: true });
   let ty = y + 0.13;
   if (title) {
     const th = title.length > 40 ? 0.44 : 0.24;
@@ -432,7 +457,10 @@ divider(newSlide(INK), 'Part 02', 'The Category', 'A market with real demand, re
   box(s, rx, cy + 2.02, rw, 1.0, 'Belief is the bottleneck.',
     'Indian shoppers will pay ~20% more for low-impact products — the highest of eleven countries surveyed. Yet ~60% fear greenwashing and only ~29% trust corporate environmental claims.', 'green');
 
-  foot(s, 'Part 02 · The Category  ·  Sources: Technopak 2022–23 · PwC Voice of the Consumer 2025 · FSSAI surveillance data');
+  foot(s, 'Part 02 · The Category');
+  s.addText('Sources: Technopak 2022–23 · PwC Voice of the Consumer 2025 · FSSAI surveillance data', {
+    x: 6.4, y: H - 0.40, w: 4.6, h: 0.26, fontFace: FB, fontSize: 7, color: TX3,
+    align: 'right', margin: 0, valign: 'middle' });
 }
 
 /* ═══════════ 05 · PRICE LADDER ═══════════ */
@@ -585,6 +613,11 @@ divider(newSlide(INK), 'Part 02', 'The Category', 'A market with real demand, re
     'DHF\'s shelf price is inconsistent across platforms. The accessible-premium corridor is only defensible if the price is coherent everywhere the shopper looks.', 'clay');
   foot(s, 'Part 02 · The Category');
 }
+
+/* ═══════════ BREAKER ═══════════ */
+statement(newSlide(INK), 'The gap in Part 02',
+  'DHF generates more proof than anyone in the set, and communicates the least of it.',
+  'The one gap that is entirely self-inflicted — and the fastest to close.');
 
 /* ═══════════ DIVIDER · PART 03 ═══════════ */
 divider(newSlide(INK), 'Part 03', 'The Consumer', 'Thirty-one conversations and 305 surveys, turned into four people you can sell to.',
@@ -915,6 +948,11 @@ const PERSONAS = [
   foot(s, 'Part 03 · The Consumer');
 }
 
+/* ═══════════ BREAKER ═══════════ */
+statement(newSlide(INK), 'The finding in Part 03',
+  'Stated willingness to pay under distrust is a floor, not a ceiling.',
+  'Roughly half of buyers say they would pay nothing extra, and give the reason: they do not trust the claims. Yet 60% would pay 20\u201330% more if someone they trusted had independently verified it.');
+
 /* ═══════════ DIVIDER · PART 04 ═══════════ */
 divider(newSlide(INK), 'Part 04', 'Brand & Proof', 'Turning a back-end quality system into the thing a shopper can actually check.',
   'div-04.jpg', ['The manifesto, the purpose, the positioning', 'Farmers in the spotlight, not the certificate', 'One standard, four communication deliveries']);
@@ -1183,6 +1221,11 @@ divider(newSlide(INK), 'Part 04', 'Brand & Proof', 'Turning a back-end quality s
   foot(s, 'Part 04 · Brand & Proof');
 }
 
+/* ═══════════ BREAKER ═══════════ */
+statement(newSlide(INK), 'The promise in Part 04',
+  'Verified in the fields. Honest on the shelves.',
+  'The only food brand in India that consumers verify, not just trust.');
+
 /* ═══════════ DIVIDER · PART 05 ═══════════ */
 divider(newSlide(INK), 'Part 05', 'The Growth Engine', 'Where to sell it, what to sell, and what it costs to get there.',
   'div-05.jpg', ['Strategy says premium. Portfolio says commodities.', '\u20B953 Cr today. \u20B9748 Cr by FY31.', 'Earn the shelf, then densify it']);
@@ -1330,6 +1373,11 @@ divider(newSlide(INK), 'Part 05', 'The Growth Engine', 'Where to sell it, what t
   });
   foot(s, 'Part 05 · The Growth Engine');
 }
+
+/* ═══════════ BREAKER ═══════════ */
+statement(newSlide(INK), 'The lever in Part 05',
+  'Spices deliver the entire +5.8pp of margin expansion.',
+  'So a slipped spice launch is a slipped P&L.');
 
 /* ═══════════ DIVIDER · PART 06 ═══════════ */
 divider(newSlide(INK), 'Part 06', 'The Moat & The Ask', 'What DHF controls, how long it survives imitation, and what it costs to build.',

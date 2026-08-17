@@ -139,16 +139,25 @@ node tools/build-deck.js DHF-Honest-Farms-Deck.pptx
 python3 tools/check-deck.py DHF-Honest-Farms-Deck.pptx    # layout QA
 ```
 
-38 slides at 16:9, carrying the same content, palette and typefaces as the
+42 slides at 16:9, carrying the same content, palette and typefaces as the
 website. Every chart is drawn from native shapes — rectangles, lines and text
 boxes — rather than an embedded chart object or a picture, so the bars stay
 selectable and editable after a Canva import.
 
-Design system: the blue banner from the logo lockup is reused as the section
-marker on every content slide; six full-bleed chapter openers carry baked cover
-art (cropped, softened and pre-graded to the ink so type always sits on solid
-ground); the brand mark sits top-right throughout; and the footer carries a
-hairline, the chapter and a display page number.
+Design system:
+
+- The blue banner from the logo lockup is the section marker on every content
+  slide — the deck's one repeated motif, taken from the mark itself.
+- **Ten breaker slides.** Six full-bleed chapter openers carry baked cover art
+  (cropped to 16:9, softened, desaturated and pre-graded into the ink so type
+  always lands on solid ground). Four statement breakers sit at the chapter
+  seams, each carrying a line already in the deck at display size.
+- **No strokes.** Panels are edgeless tinted planes with a soft shadow; stats
+  are a rule, a number and a caption rather than a bordered card. A zero-width
+  line in OOXML lets the theme's default outline through, so every panel paints
+  its stroke in its own fill colour instead.
+- Brand mark top-right throughout; the footer carries a hairline, the chapter
+  and a display page number.
 
 **Importing into Canva:** Canva home → **Create a design** → **Import file** →
 choose the `.pptx`. Canva converts it into a normal, fully editable Canva
