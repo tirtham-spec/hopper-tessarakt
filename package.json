@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "npx wrangler dev",
     "deploy": "npx wrangler deploy",
-    "serve": "npx http-server ./site -p 8080 -c-1"
+    "serve": "npx http-server ./site -p 8080 -c-1",
+    "check": "node tools/shoot-deck.js /tmp/deckshots && node tools/check-crops.js && node tools/check-scroll.js",
+    "build:deck": "node tools/build-html-deck.js && node tools/bundle-deck.mjs DHF-Honest-Farms-Deck.html"
   },
   "devDependencies": {
-    "playwright": "^1.62.1",
-    "wrangler": "^4"
+    "playwright": "^1.62.1"
+  },
+  "dependencies": {
+    "wrangler": "^4.123.0"
   }
 }

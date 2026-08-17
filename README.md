@@ -203,20 +203,15 @@ amount appears anywhere it does not appear in the source.
 
 ### Hosting it on Cloudflare
 
-`wrangler.toml` already serves `site/` as static assets under the Worker
-`sabika-dhf-project`, so the deck is at **`/deck/`** once the project deploys.
-Cloudflare's API is unreachable from the build sandbox, so deploy from the
-dashboard or your own machine:
+`wrangler.toml` serves `site/` as static assets on the Worker
+`sabika-dhf-project`, putting the deck at **`/deck/`** and the long-form page at
+`/`. Verified against the real Workers runtime with `wrangler dev`, and
+`wrangler deploy --dry-run` reads all 81 assets cleanly.
 
-| Field | Value |
-|---|---|
-| Repository | `tirtham-spec/hopper-tessarakt` |
-| Branch | `claude/honest-farms-ppt-design-l0mql0` |
-| Project name | `sabika-dhf-project` |
-| Build command | *(none)* |
-| Deploy command | `npx wrangler deploy` |
-
-Result: `https://sabika-dhf-project.<your-subdomain>.workers.dev/deck/`
+Three ways to publish it — Cloudflare building the repo itself (no secret
+anywhere), GitHub Actions (one repository secret), or one command locally — are
+written out in **[DEPLOY.md](DEPLOY.md)**, along with why the Claude session
+itself could not reach Cloudflare.
 
 `tools/bundle-deck.mjs` also emits a single ~7.6 MB HTML file with the fonts,
 images, CSS and JS inlined as data URIs — one file to email or open from a USB
