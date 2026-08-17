@@ -46,20 +46,37 @@ function newSlide(bg) {
   return s;
 }
 
+/** The banner from the logo lockup, reused as the section marker. */
+function banner(s, x, y, text, opt) {
+  opt = opt || {};
+  const t = text.toUpperCase();
+  const w = t.length * 0.098 + 0.5;
+  const h = 0.30;
+  s.addShape(pres.ShapeType.roundRect, {
+    x, y, w, h, rectRadius: 0.07,
+    fill: { color: opt.fill || BLUE }, line: { width: 0 }
+  });
+  s.addText(t, {
+    x, y, w, h, fontFace: FB, fontSize: 9, bold: true, color: opt.color || WHITE,
+    align: 'center', charSpacing: 1.6, margin: 0, valign: 'middle'
+  });
+  return w;
+}
+
 /** eyebrow + title + optional lead. Returns the y where content may start. */
 function head(s, eyebrow, title, lead, opt) {
   opt = opt || {};
   const light = !!opt.light;
-  let y = 0.36;
-  s.addText(eyebrow.toUpperCase(), {
-    x: M, y, w: CW, h: 0.22, fontFace: FB, fontSize: 9.5, bold: true,
-    color: light ? GREEN3 : GREEN, charSpacing: 2.4, margin: 0, valign: 'middle'
-  });
-  y += 0.26;
-  const tSize = opt.titleSize || 24;
+  let y = 0.34;
+  banner(s, M, y, eyebrow, light ? { fill: GREEN3, color: INK } : {});
+  y += 0.38;
+  if (!opt.noMark) {
+    s.addImage({ path: A('logo.png'), x: W - M - 1.25, y: 0.32, w: 1.25, h: 0.46 });
+  }
+  const tSize = opt.titleSize || 25;
   const tH = opt.titleH || 0.86;
   s.addText(title, {
-    x: M, y, w: opt.titleW || CW, h: tH, fontFace: FD, fontSize: tSize,
+    x: M, y, w: opt.titleW || (CW - 1.5), h: tH, fontFace: FD, fontSize: tSize,
     color: light ? WHITE : INK, margin: 0, valign: 'top', lineSpacingMultiple: 1.02
   });
   y += tH + 0.06;
@@ -78,14 +95,47 @@ let pageNo = 0;
 function foot(s, chapter, light) {
   pageNo += 1;
   const n = String(pageNo).padStart(2, '0');
-  s.addText(chapter || '', {
-    x: M, y: H - 0.46, w: 8, h: 0.26, fontFace: FB, fontSize: 8.5, bold: true,
-    color: light ? TXL2 : TX3, charSpacing: 1.6, margin: 0, valign: 'middle'
+  s.addShape(pres.ShapeType.line, {
+    x: M, y: H - 0.44, w: CW, h: 0,
+    line: { color: light ? 'FFFFFF' : LINE, width: 0.75, transparency: light ? 84 : 0 }
+  });
+  s.addText((chapter || '').toUpperCase(), {
+    x: M, y: H - 0.40, w: 9.6, h: 0.26, fontFace: FB, fontSize: 8, bold: true,
+    color: light ? TXL2 : TX3, charSpacing: 1.4, margin: 0, valign: 'middle'
   });
   s.addText(n, {
-    x: W - M - 1.2, y: H - 0.46, w: 1.2, h: 0.26, fontFace: FB, fontSize: 8.5, bold: true,
-    color: light ? TXL2 : TX3, align: 'right', margin: 0, valign: 'middle'
+    x: W - M - 1.0, y: H - 0.42, w: 1.0, h: 0.3, fontFace: FD, fontSize: 11,
+    color: light ? GREEN3 : GREEN, align: 'right', margin: 0, valign: 'middle'
   });
+}
+
+/** full-bleed chapter opener */
+function divider(s, part, title, sub, img, contents) {
+  s.background = { color: INK };
+  s.addImage({ path: A(img), x: 0, y: 0, w: W, h: H, sizing: { type: 'cover', w: W, h: H } });
+  s.addImage({ path: A('logo.png'), x: W - M - 1.5, y: 0.5, w: 1.5, h: 0.55 });
+  s.addText(part.toUpperCase(), {
+    x: M, y: 3.5, w: 6, h: 0.3, fontFace: FB, fontSize: 10, bold: true,
+    color: GREEN3, charSpacing: 3.2, margin: 0, valign: 'middle'
+  });
+  s.addText(title, {
+    x: M, y: 3.86, w: 9.4, h: 1.05, fontFace: FD, fontSize: 40, color: WHITE,
+    margin: 0, valign: 'top'
+  });
+  s.addText(sub, {
+    x: M, y: 4.98, w: 8.2, h: 0.5, fontFace: FB, fontSize: 13, color: TXL2,
+    margin: 0, valign: 'top', lineSpacingMultiple: 1.14
+  });
+  if (contents && contents.length) {
+    contents.forEach((t, i) => {
+      const x = M + i * (CW / contents.length);
+      s.addShape(pres.ShapeType.line, { x, y: 5.92, w: CW / contents.length - 0.4, h: 0,
+        line: { color: 'FFFFFF', width: 0.75, transparency: 72 } });
+      s.addText(t, { x, y: 6.0, w: CW / contents.length - 0.4, h: 0.5, fontFace: FB,
+        fontSize: 9.5, bold: true, color: TXL, margin: 0, valign: 'top', lineSpacingMultiple: 1.06 });
+    });
+  }
+  pageNo += 1;
 }
 
 /** a card panel */
@@ -95,7 +145,7 @@ function card(s, x, y, w, h, opt) {
     x, y, w, h, rectRadius: opt.r === undefined ? 0.09 : opt.r,
     fill: { color: opt.fill || WHITE },
     line: { color: opt.line || LINE, width: opt.lw === undefined ? 0.75 : opt.lw },
-    shadow: opt.shadow ? shadow() : undefined
+    shadow: opt.flat ? undefined : shadow()
   });
 }
 
@@ -184,7 +234,13 @@ function vBars(s, x, y, w, h, rows, max, opt) {
         fontFace: FB, fontSize: 8.5, bold: true, color: GOLD, charSpacing: 1.2, margin: 0, valign: 'middle' });
     }
   }
-  s.addShape(pres.ShapeType.line, { x, y: y + 0.3 + plotH, w, h: 0, line: { color: LINE, width: 0.75 } });
+  if (!opt.noGrid) {
+    for (let g = 1; g <= 4; g++) {
+      const gy = y + 0.3 + plotH * (1 - g / 4);
+      s.addShape(pres.ShapeType.line, { x, y: gy, w, h: 0, line: { color: LINE, width: 0.5, dashType: 'sysDot' } });
+    }
+  }
+  s.addShape(pres.ShapeType.line, { x, y: y + 0.3 + plotH, w, h: 0, line: { color: LINE, width: 1 } });
 
   rows.forEach((r, i) => {
     const bx = x + i * (bw + gap);
@@ -272,10 +328,14 @@ function vBars(s, x, y, w, h, rows, max, opt) {
   foot(s, 'The argument');
 }
 
+/* ═══════════ DIVIDER · PART 01 ═══════════ */
+divider(newSlide(INK), 'Part 01', 'The Mandate', 'What we were asked to do, and the evidence we built to answer it.',
+  'div-01.jpg', ['Scale DHF from \u20B953 Cr to \u20B9300+ Cr in three years', 'Four phases, from diagnosis to a funded blueprint', 'The evidence base behind every claim']);
+
 /* ═══════════ 03 · THE MANDATE ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 01 · The Mandate', 'Scale DHF from ₹53 Cr to ₹300+ Cr in three years.',
+  const y0 = head(s, 'The brief', 'Scale DHF from ₹53 Cr to ₹300+ Cr in three years.',
     'Not by outspending organic, but by creating and owning a category that does not yet formally exist. We broke that into four phases.');
   const phases = [
     ['01', 'Diagnose & Decode', 'Build a shared, fact-based understanding of category, competition and consumer.',
@@ -315,10 +375,14 @@ function vBars(s, x, y, w, h, rows, max, opt) {
   foot(s, 'Part 01 · The Mandate');
 }
 
+/* ═══════════ DIVIDER · PART 02 ═══════════ */
+divider(newSlide(INK), 'Part 02', 'The Category', 'A market with real demand, real money, and nobody holding the definition.',
+  'div-02.jpg', ['A \u20B948,000 Cr category with no owner', 'The price ladder and the empty corridor', 'Who can actually show their work']);
+
 /* ═══════════ 04 · THE WHITESPACE ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 02 · The Category', 'A ₹48,000 Cr category with no definition, no standard, and no owner.',
+  const y0 = head(s, 'The whitespace', 'A ₹48,000 Cr category with no definition, no standard, and no owner.',
     'The gap is regulatory and semantic before it is commercial. Consumers are worried about what is on their food and willing to pay to avoid it — but there is no agreed meaning of "pesticide-free", so the willingness has nowhere to land.',
     { titleH: 0.86, leadH: 0.66 });
 
@@ -522,10 +586,14 @@ function vBars(s, x, y, w, h, rows, max, opt) {
   foot(s, 'Part 02 · The Category');
 }
 
+/* ═══════════ DIVIDER · PART 03 ═══════════ */
+divider(newSlide(INK), 'Part 03', 'The Consumer', 'Thirty-one conversations and 305 surveys, turned into four people you can sell to.',
+  'div-03.jpg', ['Four tensions beneath the category', 'Factor analysis on 15 attitude statements', 'Four segments, four definitions of proof']);
+
 /* ═══════════ 10 · QUALITATIVE ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 03 · The Consumer', 'Shoppers care enormously. They just don\'t know what the words mean.',
+  const y0 = head(s, 'Qualitative research · 31 respondents, 6 cities', 'Shoppers care enormously. They just don\'t know what the words mean.',
     'Qualitative research by the team — 31 respondents across 6 cities. In-market intercepts, IDIs and ethnography, run before a single survey question was written.');
   const sw = (CW - 0.3 * 2) / 3;
   [['70%', 'of in-market shoppers could not distinguish "organic" from "pesticide-free"', CLAY],
@@ -613,8 +681,8 @@ function vBars(s, x, y, w, h, rows, max, opt) {
     { label: 'Amazon / JioMart', value: 30, display: '30%', color: BLUE2 },
     { label: 'Zepto', value: 29, display: '29%', color: BLUE },
     { label: 'Supermarkets', value: 10, display: '10%', color: GREY }
-  ], 60, { rowH: 0.36, barH: 0.12 });
-  box(s, rx, y0 + 4.36, rw, 0.62, null,
+  ], 60, { rowH: 0.34, barH: 0.12 });
+  box(s, rx, y0 + 4.18, rw, 0.6, null,
     'A quick-commerce-first, metro sample: the exact cohort DHF already sells to, and the cohort that will decide whether the category forms.', 'blue');
   foot(s, 'Part 03 · The Consumer');
 }
@@ -641,7 +709,7 @@ function vBars(s, x, y, w, h, rows, max, opt) {
     s.addText(d, { x: x + 0.2, y: y0 + 0.92, w: cw - 0.4, h: 0.3, fontFace: FB, fontSize: 7.5, color: TX2, margin: 0, valign: 'top', lineSpacingMultiple: 1.04 });
   });
 
-  const ay = y0 + 1.5;
+  const ay = y0 + 1.42;
   card(s, M, ay, CW, 0.7, { fill: INK, line: INK });
   s.addText('ADEQUACY — BOTH TESTS PASSED BEFORE EXTRACTION', { x: M + 0.25, y: ay, w: 4.4, h: 0.7, fontFace: FB, fontSize: 9, bold: true, color: GREEN3, charSpacing: 1.2, margin: 0, valign: 'middle' });
   [['KMO', '0.886', '"meritorious"'], ['BARTLETT', 'p < 0.001', 'sphericity rejected'], ['SILHOUETTE', '0.347', 'highest at k=4']].forEach(([k, v, n], i) => {
@@ -651,7 +719,7 @@ function vBars(s, x, y, w, h, rows, max, opt) {
     s.addText(n, { x: x + 1.2, y: ay + 0.3, w: 1.2, h: 0.32, fontFace: FB, fontSize: 7.5, italic: true, color: TXL2, margin: 0, valign: 'middle' });
   });
 
-  const fy = ay + 0.95;
+  const fy = ay + 0.86;
   label(s, M, fy, 6, 'The three factors — and their defining statements');
   const factors = [
     ['F1 — Social & experiential trust', 'Trust is earned through people and events, not systems and symbols.', BLUE,
@@ -664,12 +732,12 @@ function vBars(s, x, y, w, h, rows, max, opt) {
   const fw = (CW - 0.3 * 2) / 3;
   factors.forEach(([t, d, c, rows], i) => {
     const x = M + i * (fw + 0.3);
-    card(s, x, fy + 0.32, fw, 2.28);
+    card(s, x, fy + 0.32, fw, 2.16);
     s.addShape(pres.ShapeType.rect, { x, y: fy + 0.32, w: fw, h: 0.05, fill: { color: c }, line: { width: 0 } });
     s.addText(t, { x: x + 0.2, y: fy + 0.46, w: fw - 0.4, h: 0.24, fontFace: FB, fontSize: 10, bold: true, color: INK, margin: 0, valign: 'top' });
     s.addText(d, { x: x + 0.2, y: fy + 0.7, w: fw - 0.4, h: 0.4, fontFace: FB, fontSize: 8, italic: true, color: TX2, margin: 0, valign: 'top', lineSpacingMultiple: 1.06 });
     rows.forEach(([st, ld], k) => {
-      const y = fy + 1.14 + k * 0.34;
+      const y = fy + 1.1 + k * 0.31;
       s.addText(st, { x: x + 0.2, y, w: fw - 0.9, h: 0.2, fontFace: FB, fontSize: 8.5, color: TX2, margin: 0, valign: 'middle' });
       s.addText(ld, { x: x + fw - 0.7, y, w: 0.5, h: 0.2, fontFace: FB, fontSize: 8.5, bold: true, color: INK, align: 'right', margin: 0, valign: 'middle' });
       s.addShape(pres.ShapeType.roundRect, { x: x + 0.2, y: y + 0.2, w: fw - 0.4, h: 0.05, rectRadius: 0.025, fill: { color: SAND2 }, line: { width: 0 } });
@@ -797,7 +865,7 @@ const PERSONAS = [
     s.addShape(pres.ShapeType.line, { x: x + 0.25, y: y0 + 3.66, w: w - 0.5, h: 0, line: { color: LINE, width: 0.5, dashType: 'dash' } });
     s.addText(p[8] + '     |     ' + p[9], { x: x + 0.25, y: y0 + 3.72, w: w - 0.5, h: 0.32, fontFace: FB, fontSize: 8, bold: true, color: TX3, margin: 0, valign: 'middle' });
   });
-  box(s, M, y0 + 4.24, CW, 0.62, null,
+  box(s, M, y0 + 4.2, CW, 0.6, null,
     pi === 0 ? 'Guardians convert fast on facts. Trusters need a voice of assurance — and the doctor endorsement bridges both segments at once.'
              : 'Guardians are 36% of decision-makers but hold roughly 60% of all stated premium-rupee intent. Win them first; the rest follow.', 'green');
   foot(s, 'Part 03 · The Consumer');
@@ -847,10 +915,14 @@ const PERSONAS = [
   foot(s, 'Part 03 · The Consumer');
 }
 
+/* ═══════════ DIVIDER · PART 04 ═══════════ */
+divider(newSlide(INK), 'Part 04', 'Brand & Proof', 'Turning a back-end quality system into the thing a shopper can actually check.',
+  'div-04.jpg', ['The manifesto, the purpose, the positioning', 'Farmers in the spotlight, not the certificate', 'One standard, four communication deliveries']);
+
 /* ═══════════ 17 · CLAIM CLUTTER ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 04 · Brand & Proof', 'Every shelf uses a different, often unverifiable claim.',
+  const y0 = head(s, 'The shelf today', 'Every shelf uses a different, often unverifiable claim.',
     'They contradict each other, none can be checked, and the shopper responds the only way she can — by discounting all of them equally. Generic language does not add trust; it adds noise.');
 
   label(s, M, y0, 6, 'The claims already on shelf');
@@ -858,7 +930,7 @@ const PERSONAS = [
     '100% Natural', 'Personal provenance', 'Chemical-free', 'Farm fresh'];
   let cx = M, cy = y0 + 0.34;
   claims.forEach(t => {
-    const w = 0.13 * t.length + 0.42;
+    const w = 0.068 * t.length + 0.4;
     if (cx + w > M + 6.2) { cx = M; cy += 0.44; }
     s.addShape(pres.ShapeType.roundRect, { x: cx, y: cy, w, h: 0.36, rectRadius: 0.18,
       fill: { color: WHITE }, line: { color: LINE, width: 0.75, dashType: 'dash' } });
@@ -893,8 +965,7 @@ const PERSONAS = [
 /* ═══════════ 18 · MANIFESTO ═══════════ */
 {
   const s = newSlide(INK);
-  s.addImage({ path: A('spices-flatlay.jpg'), x: 9.4, y: 0, w: 3.933, h: H, sizing: { type: 'cover', w: 3.933, h: H } });
-  s.addShape(pres.ShapeType.rect, { x: 8.2, y: 0, w: 5.133, h: H, fill: { color: INK, transparency: 25 }, line: { width: 0 } });
+  s.addImage({ path: A('panel-spices.jpg'), x: 9.2, y: 0, w: 4.133, h: H });
   const y0 = head(s, 'Brand manifesto', 'We believe', null, { light: true, titleSize: 34, titleH: 0.85, titleW: 8 });
   s.addText('The future of food isn\'t claimed on a label; it\'s proven in the field. Every seed we recommend, every practice we track, and every farmer we name is how we turn honesty into something you can verify, not just believe.', {
     x: M, y: y0, w: 7.6, h: 1.05, fontFace: FB, fontSize: 15, color: TXL, margin: 0, valign: 'top', lineSpacingMultiple: 1.16 });
@@ -913,9 +984,9 @@ const PERSONAS = [
     const x = M + (i % 3) * (vw + 0.24);
     const y = y0 + 1.52 + Math.floor(i / 3) * 1.28;
     s.addShape(pres.ShapeType.roundRect, { x, y, w: vw, h: 1.16, rectRadius: 0.08,
-      fill: { color: WHITE, transparency: 94 }, line: { color: 'FFFFFF', width: 0.6, transparency: 82 } });
+      fill: { color: '17304A' }, line: { color: '2E5470', width: 0.75 } });
     s.addText(t, { x: x + 0.16, y: y + 0.1, w: vw - 0.32, h: 0.34, fontFace: FD, fontSize: 9.5, color: WHITE, margin: 0, valign: 'top', lineSpacingMultiple: 1.0 });
-    s.addText(d, { x: x + 0.16, y: y + 0.46, w: vw - 0.32, h: 0.62, fontFace: FB, fontSize: 7.5, color: TXL2, margin: 0, valign: 'top', lineSpacingMultiple: 1.08 });
+    s.addText(d, { x: x + 0.16, y: y + 0.46, w: vw - 0.32, h: 0.62, fontFace: FB, fontSize: 7.5, color: TXL, margin: 0, valign: 'top', lineSpacingMultiple: 1.08 });
   });
   s.addText([{ text: 'We are Honest Farms. ', options: { italic: true, color: TXL } },
              { text: 'Verified in the fields, honest on the shelves.', options: { bold: true, color: GREEN3 } }], {
@@ -1032,7 +1103,7 @@ const PERSONAS = [
   vpr.forEach(([i0, t, d], i) => {
     const x = M + i * (vw + 0.28);
     s.addShape(pres.ShapeType.roundRect, { x, y: vy, w: vw, h: 1.5, rectRadius: 0.08,
-      fill: { color: WHITE, transparency: 94 }, line: { color: 'FFFFFF', width: 0.6, transparency: 84 } });
+      fill: { color: '17304A' }, line: { color: '2E5470', width: 0.75 } });
     s.addShape(pres.ShapeType.ellipse, { x: x + 0.2, y: vy + 0.18, w: 0.42, h: 0.42, fill: { color: GREEN3 }, line: { width: 0 } });
     s.addText(i0, { x: x + 0.2, y: vy + 0.18, w: 0.42, h: 0.42, fontFace: FD, fontSize: 11, color: INK, align: 'center', margin: 0, valign: 'middle' });
     s.addText(t, { x: x + 0.2, y: vy + 0.68, w: vw - 0.4, h: 0.26, fontFace: FB, fontSize: 10, bold: true, color: WHITE, margin: 0, valign: 'top' });
@@ -1112,10 +1183,14 @@ const PERSONAS = [
   foot(s, 'Part 04 · Brand & Proof');
 }
 
+/* ═══════════ DIVIDER · PART 05 ═══════════ */
+divider(newSlide(INK), 'Part 05', 'The Growth Engine', 'Where to sell it, what to sell, and what it costs to get there.',
+  'div-05.jpg', ['Strategy says premium. Portfolio says commodities.', '\u20B953 Cr today. \u20B9748 Cr by FY31.', 'Earn the shelf, then densify it']);
+
 /* ═══════════ 24 · PORTFOLIO REALITY ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 05 · The Growth Engine', 'Strategy says accessible-premium food brand. Portfolio says commodities.',
+  const y0 = head(s, 'Internal diagnosis', 'Strategy says accessible-premium food brand. Portfolio says commodities.',
     'Eight half-years of audited revenue. The business is growing, but growing fastest in the block it talks about least — and depending on a single platform for a quarter of its income.');
   const sw = (CW - 0.26 * 3) / 4;
   [['₹90.9 Cr', 'Cumulative revenue audited across eight half-years; FY26 ≈ ₹53 Cr, up ~30% YoY', BLUE],
@@ -1173,7 +1248,7 @@ const PERSONAS = [
    ['+5.8pp', 'Gross margin, 37.5% → 43.3%']].forEach(([v, l], i) => {
     stat(s, rx, y0 + i * 1.15, rw, v, l, { color: GREEN, h: 1.02, vs: 22 });
   });
-  s.addImage({ path: A('value-added.jpg'), x: rx, y: y0 + 3.55, w: rw, h: 1.4, sizing: { type: 'cover', w: rw, h: 1.4 } });
+  s.addImage({ path: A('value-added.jpg'), x: rx, y: y0 + 3.5, w: rw, h: 1.16, sizing: { type: 'cover', w: rw, h: 1.16 } });
   foot(s, 'Part 05 · The Growth Engine');
 }
 
@@ -1256,10 +1331,14 @@ const PERSONAS = [
   foot(s, 'Part 05 · The Growth Engine');
 }
 
+/* ═══════════ DIVIDER · PART 06 ═══════════ */
+divider(newSlide(INK), 'Part 06', 'The Moat & The Ask', 'What DHF controls, how long it survives imitation, and what it costs to build.',
+  'div-06.jpg', ['We control the input, not the harvest test', 'Only L3 and L4 survive imitation', '\u20B9105 Cr buys breakeven by FY29']);
+
 /* ═══════════ 28 · THE MOAT — WHAT DHF CONTROLS ═══════════ */
 {
   const s = newSlide();
-  const y0 = head(s, 'Part 06 · The Moat & The Ask', 'We don\'t test the harvest. We control the input.',
+  const y0 = head(s, 'Competitive defence', 'We don\'t test the harvest. We control the input.',
     'Every competitor can buy a certificate or commission a lab. None of them can decide what a farmer plants and sprays — because none of them run the agritech network the farmer already uses.');
   const sw = (CW - 0.3 * 2) / 3;
   [['10 Mn+', 'Farmers on the DeHaat network'], ['8', 'Sourcing clusters owned end to end'], ['230+', 'Pesticide checks on every batch']]
@@ -1278,8 +1357,8 @@ const PERSONAS = [
   s.addText('BIHAR MAKHANA  ·  UTTARAKHAND JAGGERY  ·  GUJARAT JAVA PEANUT  ·  AND FIVE MORE, OWNED END-TO-END', {
     x: M, y: sy + 1.36, w: CW, h: 0.26, fontFace: FB, fontSize: 8.5, bold: true, color: TX3, charSpacing: 0.9, margin: 0, valign: 'middle' });
 
-  s.addImage({ path: A('team-field.jpg'), x: M, y: sy + 1.68, w: 7.4, h: 1.62, sizing: { type: 'cover', w: 7.4, h: 1.62 } });
-  box(s, M + 7.7, sy + 1.68, CW - 7.7, 1.62, 'Proof comes from procurement control.',
+  s.addImage({ path: A('team-field.jpg'), x: M, y: sy + 1.66, w: 7.4, h: 1.5, sizing: { type: 'cover', w: 7.4, h: 1.5 } });
+  box(s, M + 7.7, sy + 1.66, CW - 7.7, 1.5, 'Proof comes from procurement control.',
     'Not from holding a certificate. AgriTech-embedded input control, continuous quality intelligence across 2M farms, and a farmer economic ecosystem earning 30 to 50% better returns — none of it is contractable by a competitor.', 'green');
   foot(s, 'Part 06 · The Moat & The Ask');
 }
@@ -1309,8 +1388,8 @@ const PERSONAS = [
     'A label claim is copied in months. A QR to a lab report is copied in a year. Control of what a farmer plants takes five and a half — because it is a network, not a feature.', 'green');
   box(s, rx, y0 + 1.42, rw, 1.72, 'Roughly two years before it is worth attacking.',
     'The only asset that cannot be bought inside five years. ITC bought 24 Mantra; Wingreens bought Safe Harvest — DHF has roughly two years to build, certify and make this moat consumer-visible before ₹274 Cr makes it worth attacking.', 'clay');
-  s.addImage({ path: A('makhana-farm.jpg'), x: rx, y: y0 + 3.28, w: rw, h: 1.42, sizing: { type: 'cover', w: rw, h: 1.42 } });
-  s.addImage({ path: A('factory.jpg'), x: M, y: y0 + 3.44, w: 7.4, h: 1.26, sizing: { type: 'cover', w: 7.4, h: 1.26 } });
+  s.addImage({ path: A('makhana-farm.jpg'), x: rx, y: y0 + 3.26, w: rw, h: 1.18, sizing: { type: 'cover', w: rw, h: 1.18 } });
+  s.addImage({ path: A('factory.jpg'), x: M, y: y0 + 3.4, w: 7.4, h: 1.04, sizing: { type: 'cover', w: 7.4, h: 1.04 } });
   s.addText('Eight sourcing clusters, owned end to end — the layer competitors cannot contract for.', {
     x: M, y: y0 + 3.14, w: 7.4, h: 0.26, fontFace: FB, fontSize: 8.5, bold: true, color: TX3, charSpacing: 0.6, margin: 0, valign: 'middle' });
   foot(s, 'Part 06 · The Moat & The Ask');

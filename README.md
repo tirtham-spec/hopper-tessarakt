@@ -139,17 +139,37 @@ node tools/build-deck.js DHF-Honest-Farms-Deck.pptx
 python3 tools/check-deck.py DHF-Honest-Farms-Deck.pptx    # layout QA
 ```
 
-32 slides at 16:9, carrying the same content, palette and typefaces as the
+38 slides at 16:9, carrying the same content, palette and typefaces as the
 website. Every chart is drawn from native shapes — rectangles, lines and text
 boxes — rather than an embedded chart object or a picture, so the bars stay
 selectable and editable after a Canva import.
+
+Design system: the blue banner from the logo lockup is reused as the section
+marker on every content slide; six full-bleed chapter openers carry baked cover
+art (cropped, softened and pre-graded to the ink so type always sits on solid
+ground); the brand mark sits top-right throughout; and the footer carries a
+hairline, the chapter and a display page number.
 
 **Importing into Canva:** Canva home → **Create a design** → **Import file** →
 choose the `.pptx`. Canva converts it into a normal, fully editable Canva
 presentation. Archivo Black and Nunito Sans are both in Canva's font library,
 so the type maps across without substitution.
 
-`tools/check-deck.py` stands in for a visual render (LibreOffice is not
-available in this build environment). It measures three things per slide:
-shapes falling outside the page, text that cannot fit its box at the stated
-point size, and text boxes that overlap each other.
+### Seeing it without LibreOffice
+
+LibreOffice cannot run in this build environment, so two scripts stand in:
+
+```bash
+python3 tools/check-deck.py  DHF-Honest-Farms-Deck.pptx      # geometry QA
+python3 tools/render-deck.py DHF-Honest-Farms-Deck.pptx out/ # visual render
+```
+
+`check-deck.py` measures shapes falling outside the page, text that cannot fit
+its box at the stated point size, and overlapping text boxes.
+
+`render-deck.py` rasterises the deck with Pillow using the real brand fonts —
+honouring fills, transparency, corner radii, images with alpha, per-run type,
+alignment and wrapping with true metrics. It also does per-character font
+fallback the way PowerPoint does, which is how we found that Archivo Black
+carries no ₹ glyph: every rupee figure falls back to Nunito Sans, in the deck
+and in this preview alike.
