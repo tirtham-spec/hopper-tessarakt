@@ -108,7 +108,7 @@ body.editing #stage{scroll-snap-type:none}
 .body.stack > .split{flex:1; min-height:0}
 
 .foot{
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:flex-end; gap:16px;
   border-top:1px solid var(--line); padding-top:7px; margin-top:10px;
 }
 .dark .foot{border-top-color:rgba(255,255,255,.16)}
@@ -116,7 +116,7 @@ body.editing #stage{scroll-snap-type:none}
 .dark .foot-ch{color:var(--txl2)}
 .foot-n{font-family:var(--fd); font-size:14.5px; color:var(--green)}
 .dark .foot-n{color:var(--green3)}
-.foot-src{font-size:10px; color:var(--tx3); margin-left:auto; padding-right:22px}
+.foot-src{font-size:10px; color:var(--tx3); margin-right:auto}
 
 /* ── layout utilities ─────────────────────────────────────────── */
 .g2,.g3,.g4,.g5{display:grid; gap:16px}
@@ -199,6 +199,7 @@ body.editing #stage{scroll-snap-type:none}
 .pill.soft{background:var(--bluesoft); color:var(--blue)}
 .pill.g{background:var(--green)} .pill.gsoft{background:var(--greensoft); color:var(--green)}
 .pill.sq{border-radius:7px}
+.pill.g.sq:empty{width:14px; height:14px; border-radius:4px; margin-top:5px}
 
 ul{list-style:none}
 li{position:relative; padding-left:11px; margin-bottom:4px; color:var(--tx2); line-height:1.36}
@@ -220,7 +221,8 @@ ul.tight li{margin-bottom:2px}
 .hbars{display:flex; flex-direction:column; gap:7px}
 .hbar{display:grid; grid-template-columns:1fr auto; gap:3px 10px; align-items:baseline}
 .hbar .hl{font-size:11.5px; color:var(--tx2)}
-.hbar .hv{font-size:12.5px; font-weight:700; text-align:right}
+.hbar .hv{font-size:12.5px; font-weight:700; text-align:right; white-space:nowrap}
+.hbar .hv em{font-style:normal; opacity:.72; margin-left:7px}
 .hbar i{grid-column:1/-1; height:9px; border-radius:5px; background:var(--sand2); position:relative}
 .hbar i::after{content:''; position:absolute; inset:0 auto 0 0; width:var(--w); border-radius:5px; background:var(--c)}
 
@@ -307,6 +309,10 @@ figcaption{font-size:11px; color:var(--tx2); padding-top:6px; line-height:1.28}
   font:600 12px/1 var(--fb); padding:8px 10px; border-radius:8px; display:grid; place-items:center;
 }
 #hud button:hover{background:rgba(255,255,255,.12); color:#fff}
+#hud button.wide{grid-auto-flow:column; gap:7px; padding:8px 12px}
+#hud button.wide span{font:700 11.5px/1 var(--fb); letter-spacing:.04em}
+#hud #reset{font:700 11.5px/1 var(--fb); color:#f0b8a6}
+#hud #reset:hover{background:rgba(196,85,59,.28); color:#fff}
 #hud button.on{background:var(--green3); color:var(--ink)}
 #hud .count{font:700 12px/1 var(--fb); color:#8fa0b4; padding:0 9px; min-width:56px; text-align:center;
   font-variant-numeric:tabular-nums}

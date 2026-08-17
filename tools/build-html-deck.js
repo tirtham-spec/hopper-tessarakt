@@ -45,7 +45,7 @@ const fig = (src, cls = '', style = '') =>
   `<figure${cls ? ` class="${cls}"` : ''}${style ? ` style="${style}"` : ''}><img src="${A(src)}" alt=""></figure>`;
 
 const hbars = (rows, max) => `<div class="hbars">${rows.map(r => `
-          <div class="hbar"><span class="hl">${E(r.l)}</span><span class="hv ${r.t}">${E(r.d)}</span><i class="${r.t}" style="--w:${(r.v / max * 100).toFixed(1)}%"></i></div>`).join('')}
+          <div class="hbar"><span class="hl">${E(r.l)}</span><span class="hv ${r.t}">${E(r.d)}${r.d2 ? `<em>${E(r.d2)}</em>` : ''}</span><i class="${r.t}" style="--w:${(r.v / max * 100).toFixed(1)}%"></i></div>`).join('')}
         </div>`;
 
 const vbars = (rows, max, o = {}) => `<div class="chart" style="--ph:${o.h || 250}px${o.gap ? `;--gap:${o.gap}px` : ''}">
@@ -72,7 +72,6 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
         <p class="eyebrow">ISB CGMO Cohort II  ·  Business Leadership Challenge</p>
         <img class="logo" src="${A('logo.png')}" alt="DeHaat Honest Farms">
         <h1>DeHaat Honest Farms:<em>Category Creation &amp; Scale Acceleration</em></h1>
-        <p class="promise">Verified in the fields. Honest on the shelves.</p>
         <div class="team">
           <span class="badge">TEAM 1</span>
           <p>Sabika Mirza   ·   Sharon Batliwalla   ·   Syed Kashif Ali   ·   Sonu Adarsh   ·   Abhishek Nandan</p>
@@ -131,10 +130,10 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
     ['SOM', '₹300–350 Cr', 2.6, 'var(--green)', 'The three-year ambition — 2.2–2.6% of SAM, 0.6–0.7% of TAM. Five-year aspiration ₹700–800 Cr.']
   ];
   const reasons = [
-    ['01', 'No standard definition, "pesticide-free" is not a regulated term in India'],
-    ['02', 'Harder to prove than to claim; proof lives in back-end systems, not on pack'],
-    ['03', 'Awkward economics; trust-led cost structure at a mass-premium price'],
-    ['04', 'No player has codified or defended it; the term commoditizes before standards exist']
+    'No standard definition, "pesticide-free" is not a regulated term in India',
+    'Harder to prove than to claim; proof lives in back-end systems, not on pack',
+    'Awkward economics; trust-led cost structure at a mass-premium price',
+    'No player has codified or defended it; the term commoditizes before standards exist'
   ];
   slide({
     chapter: 'The category', src: 'Source: *Technopak Report 2022-23',
@@ -156,9 +155,9 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
           </div>
           <div>
             ${rule('Why the category has not formed yet')}
-            <div class="stack sm" style="margin-bottom:16px">${reasons.map(([n, t]) => `
-              <div style="display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start">
-                <span class="num" style="font-size:13px">${n}</span>
+            <div class="stack sm" style="margin-bottom:16px">${reasons.map(t => `
+              <div style="display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start">
+                <i style="width:7px;height:7px;border-radius:2px;background:var(--green);margin-top:5px"></i>
                 <p style="font-size:12.5px;color:var(--tx2);line-height:1.36">${E(t)}</p>
               </div>`).join('')}
             </div>
@@ -181,7 +180,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
   ];
   slide({
     chapter: 'The category',
-    html: head('The shelf', 'Category Structure: Laddering on pricing & claims') + `
+    html: head('The price ladder', 'Category Structure: Laddering on pricing & claims') + `
       <div class="body stack gap-lg spread">
         <div class="g5">${tiers.map(([img, t, a, b]) => card(`
             ${fig(img, 'contain', 'height:96px')}
@@ -199,7 +198,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
             { l: 'Organic Tattva', v: 255, d: '₹255', t: 't-green' },
             { l: 'Tata Sampann\nOrganic', v: 257, d: '₹257', t: 't-green' },
             { l: '24 Mantra\nOrganic', v: 306, d: '₹306', t: 't-green' }
-          ], 345, { h: 206, gap: 26, band: [150, 250], bandLabel: 'Accessible-premium · ₹150–250 / kg' })}
+          ], 345, { h: 206, gap: 26 })}
         </div>
       </div>`
   });
@@ -257,9 +256,9 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
 /* ═══════════════ 06 · SYSTEM-LED CHALLENGER ═══════════════ */
 {
   const advs = [
-    ['01', 'AgriTech-embedded input control', 'We prevent pesticide use at source, rather than testing for it afterward', 'near zero'],
-    ['02', 'Continuous quality intelligence across 2M farms', 'Quality trajectory is known before harvest, not after rejection', 'zero'],
-    ['03', 'Farmer economic ecosystem', 'Supply exclusivity earned through 30 to 50% better farmer returns', 'minimal']
+    ['AgriTech-embedded input control', 'We prevent pesticide use at source, rather than testing for it afterward'],
+    ['Continuous quality intelligence across 2M farms', 'Quality trajectory is known before harvest, not after rejection'],
+    ['Farmer economic ecosystem', 'Supply exclusivity earned through 30 to 50% better farmer returns']
   ];
   slide({
     chapter: 'The category',
@@ -267,16 +266,16 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
       <div class="body split s-62">
         <div>
           ${rule('Untapped opportunity for DeHaat Honest Farms.')}
-          <div class="stack sm">${advs.map(([n, t, d, u]) => card(`
+          <div class="stack sm">${advs.map(([t, d]) => card(`
               <div style="display:grid;grid-template-columns:34px 1fr;gap:13px;align-items:start">
-                <span class="pill g sq">${n}</span>
+                <span class="pill g sq" aria-hidden="true"></span>
                 <div>
                   <h4 style="font-size:14px;font-weight:800;color:var(--ink)">${E(t)}</h4>
-                  <p style="font-size:12px;color:var(--tx2);line-height:1.36;margin:4px 0 6px">${E(d)}</p>
-                  <span class="lbl c">Current utilization in brand communication: ${E(u)}</span>
+                  <p style="font-size:12px;color:var(--tx2);line-height:1.36;margin-top:5px">${E(d)}</p>
                 </div>
               </div>`)).join('')}
           </div>
+          <p class="lbl c" style="margin-top:11px">Current utilization in brand communication: near zero, zero, and minimal</p>
           <div style="margin-top:14px">${box(null, "Proof comes from controlling procurement and processing, not from holding a certificate. No brand occupies it today, and DHF's own Shelf Price is inconsistent across platforms.", 'blue')}</div>
         </div>
         <div class="stack">
@@ -449,7 +448,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
   const cell = c => c.startsWith('−') ? ` class="neg"` : c.startsWith('+') ? ` class="pos"` : '';
   slide({
     chapter: 'The consumer',
-    html: head('Segmentation output', 'Four Customer Segments emerged from Research') + `
+    html: head('Four Customer Segments', 'Four Customer Segments emerged from Research') + `
       <div class="body stack gap-lg spread">
         <div>
           <table>
@@ -562,7 +561,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
           </div>
           <div class="stack sm">
             ${box('THE UNCOMFORTABLE FINDING', 'DHF leads with the claim only 6% find convincing and barely uses the endorsement 44% name first. Doctor endorsement wins in every segment. 55% of Trusters, 56% of Defaulters, 50% of Fatalists. Only Guardians rank the QR lab report first.', 'clay')}
-            ${box('THE LARGEST SEGMENT IS THE MOST VALUABLE', 'Guardians are 36% of decision-makers but hold roughly 60% of all stated premium-rupee intent. They also do their own diligence, which means they generate the reviews, the doctor conversations and the proof trail that the next segment follows.', 'blue')}
+            ${box('THE LARGEST SEGMENT IS THE MOST VALUABLE', 'Guardians are 36% of decision-makers but hold roughly 60% of all stated premium-rupee intent. They are the only segment that responds to the asset DHF already owns — a verifiable, batch-level test result. They also do their own diligence, which means they generate the reviews, the doctor conversations and the proof trail that the next segment follows.', 'blue')}
             ${card(`${lbl('The play', 'g')}<p style="font-size:12px;color:var(--txl);line-height:1.42;padding-top:6px">Win Guardians with proof → convert their advocacy into the social proof that activates Trusters → ride the combined 56% into default category leadership.</p>`, 'ink')}
           </div>
         </div>
@@ -579,7 +578,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
     ['news-b.jpg', 'Pesticide safety alarm']];
   slide({
     chapter: 'Brand & proof',
-    html: head('The shelf today', 'With every shelf using a different, often unverifiable claim, generic language adds to the noise.', null, 'sm') + `
+    html: head('GT & MT shelves', 'With every shelf using a different, often unverifiable claim, generic language adds to the noise.', null, 'sm') + `
       <div class="body split">
         <div>
           ${rule('GT &amp; MT shelves are flooded with claims, sending diverse trust signals to consumers')}
@@ -604,7 +603,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
     ['Integrity', 'Transparency is a mechanism, not a promise to be broken. You can check batch data, farmer names, and practices. They are not the claims you’re asked to believe.'],
     ['Simplicity', 'We turn complex agri-data into one clear signal, so our farmers can take confident actions, and consumers can trust what they see instantly.'],
     ['Progress', 'Not progress for its own sake, but progress powered by DeHaat’s own agri-tech, in service of tradition, not instead of it.'],
-    ['Education and empowerment', 'We bridge Krishi wisdom and modern methods, so farming becomes more productive, profitable, and sustainable; inspiring young people to see agriculture as a modern opportunity.'],
+    ['Education and empowerment', 'We bridge Krishi wisdom and modern methods, so farming becomes more productive, profitable, and sustainable; inspiring young people to see agriculture as a modern opportunity, and equip our teams to listen, advise with real data, and deliver real value.'],
     ['Connection', 'The farmer isn’t a sourcing story we tell; they’re the name on the batch, accountable and credited. When farmers prosper, supply is reliable; when consumers can trace what they buy back to a real farm, honesty becomes provable, not just promised.']
   ];
   slide({
@@ -636,12 +635,12 @@ slide({
 {
   const mechs = [
     ['QR to farmer', 'Scan the pack and land on a unique microsite of that farmer - know his village, harvest date, daily life, growth, consumer connects &amp; download the Pesticide-Free Certificate.'],
-    ['Village / Farm clusters on pack', 'Like most wine brands across the world, Bordeaux, Nice, Nashik, Napa Valley - Prove provenance.'],
+    ['Village / Farm clusters on pack', 'Like most wine brands across the world, Bordeaux, Nice, Nashik, Napa Valley - Prove provenance'],
     ['Farmers as content creators', 'They play the lead role with unscripted reels, voice notes, and live harvest streams. Rougher, less polished than a typical ad, which is exactly what signals "real" to a sceptical buyer.'],
-    ['Hand-written Farmer Letters in pack', 'Rotating, handwritten-style notes from the actual farmer of that batch.'],
-    ['Farmers send audit invitation', 'No need to give advance notice. Wins the prove me wrong archetype.'],
-    ['Farmer-Led sampling', 'The farmers, not agency promoters, make demos at flea markets or housing societies to drive trials.'],
-    ['Consumer-to-farmer feedback loop', 'Get consumers to review the farmers and their fields’ produce, instead of the product purchased.']
+    ['Hand-written Farmer Letters in pack', 'Rotating, handwritten-style notes from the actual farmer of that batch'],
+    ['Farmers send audit invitation', 'No need to give advance notice. Wins the prove me wrong archetype'],
+    ['Farmer-Led sampling', 'The farmers, not agency promoters, make demos at flea markets or housing societies to drive trials'],
+    ['Consumer-to-farmer feedback loop', 'Get consumers to review the farmers and their fields’ produce, instead of the product purchased']
   ];
   slide({
     chapter: 'Brand & proof',
@@ -685,7 +684,6 @@ slide({
           ${card(`${lbl('Promise:', 'g')}<p style="font-family:var(--fd);font-weight:400;font-size:16px;color:#fff;padding-top:7px">Verified in the fields, Honest on the shelves.</p>`, 'ink nogrow')}
         </div>
         <div>
-          ${rule('What the promise means to each stakeholder')}
           <div class="g2" style="gap:13px">${stakes.map(([t, d]) => card(`
               ${lbl(t, 'b')}<p style="font-size:11.5px;color:var(--tx2);line-height:1.42;padding-top:7px">${d}</p>`, 'fill')).join('')}
           </div>
@@ -726,10 +724,10 @@ slide({
     ['Meera — The Believer', 'SOCIAL TRUSTERS  ·  20%', 'var(--green)', '“Ask your doctor. Then ask your sister. They\'ve approved us.”',
       ['Doctor and dietitian partnership programme', 'Referral incentive for existing customers', 'Testimonials from families she recognises'],
       'Clinic tie-ups  ·  Community WhatsApp  ·  WOM', 'Medium. Needs one or two trusted validators, then sticks.'],
-    ['Karan — The Cruise-Controller', 'PASSIVE DEFAULTERS  ·  26%', 'var(--grey)', '“Same taste. Same price. Honestly, better choice.”',
+    ['Karan Mehta', 'THE CRUISE-CONTROLLER  ·  26%', 'var(--grey)', '“Same taste. Same price. Honestly, better choice.”',
       ['Priority placement in quick-commerce search', 'Price parity with the brand he already buys', 'Taste-forward sampling, never health-forward'],
       'Quick commerce  ·  Modern trade endcaps', 'Fast to trial, low loyalty. Needs habitual reinforcement.'],
-    ['Sanjay — The Sceptic', 'SYSTEM FATALISTS  ·  18%', 'var(--clay)', '“We\'ll show you the parts no brand talks about.”',
+    ['Sanjay Deshpande', 'THE SCEPTIC  ·  18%', 'var(--clay)', '“We\'ll show you the parts no brand talks about.”',
       ['Unscripted farmer and founder video content', 'Open invitations to audit or visit the farm', 'Independent verification nobody paid for'],
       'Farmer-direct platforms  ·  Founder-led content', 'Slowest — but becomes a vocal advocate once earned.']
   ];
@@ -782,7 +780,7 @@ slide({
   ];
   slide({
     chapter: 'The growth engine',
-    html: head('Internal diagnosis', 'DHFs Strategy says accessible - premium food brand. Portfolio says commodities.', null, 'sm') + `
+    html: head('Three tension points', 'DHFs Strategy says accessible - premium food brand. Portfolio says commodities.', null, 'sm') + `
       <div class="body stack gap-lg spread">
         <div class="g4">
           ${stat('₹90.9 Cr', 'Cumulative revenue audited across eight half-years; FY26 ≈ ₹53 Cr, up ~30% YoY', 't-blue', 'md')}
@@ -794,10 +792,10 @@ slide({
           <div>
             ${rule('Portfolio mix vs portfolio growth  (cumulative ₹ Cr, growth %)')}
             ${card(hbars([
-              { l: 'Pulses  ·  56% of revenue', v: 50.4, d: '₹50.4 Cr · +113%', t: 't-blue' },
-              { l: 'Value-Added  ·  29%', v: 26.0, d: '₹26.0 Cr · +219%', t: 't-green' },
-              { l: 'Spices  ·  12%', v: 10.9, d: '₹10.9 Cr · +185%', t: 't-gold' },
-              { l: 'Oil &amp; Ghee  ·  1%', v: 0.8, d: '₹0.8 Cr · NPD', t: 't-grey' }
+              { l: 'Pulses  ·  56% of revenue', v: 50.4, d: '₹50.4 Cr', d2: '+113%', t: 't-blue' },
+              { l: 'Value-Added  ·  29%', v: 26.0, d: '₹26.0 Cr', d2: '+219%', t: 't-green' },
+              { l: 'Spices  ·  12%', v: 10.9, d: '₹10.9 Cr', d2: '+185%', t: 't-gold' },
+              { l: 'Oil &amp; Ghee  ·  1%', v: 0.8, d: '₹0.8 Cr', d2: 'NPD', t: 't-grey' }
             ], 56))}
           </div>
           <div>
@@ -815,9 +813,9 @@ slide({
 /* ═══════════════ 22 · THE TRAJECTORY ═══════════════ */
 slide({
   chapter: 'The growth engine',
-  html: head('The growth ambition', '₹53 Cr today. ₹748 Cr by FY31.', 'Where to sell it. What to sell. What it costs.') + `
+  html: head('Growth engine design', '₹53 Cr today. ₹748 Cr by FY31.', 'Where to sell it. What to sell. What it costs.') + `
       <div class="body split s-66">
-        ${card(rule('Net revenue, ₹ Cr') + vbars([
+        ${card(rule('₹ Cr') + vbars([
           { l: 'FY26', v: 53, d: '₹53', t: 't-blue2' },
           { l: 'FY27', v: 104, d: '₹104', t: 't-blue2' },
           { l: 'FY28', v: 168, d: '₹168', t: 't-blue' },
@@ -836,9 +834,9 @@ slide({
 /* ═══════════════ 23 · CATEGORY MIX ═══════════════ */
 slide({
   chapter: 'The growth engine',
-  html: head('Portfolio design', 'Spices carry the margin.') + `
+  html: head('Growth engine design', 'Spices carry the margin.') + `
       <div class="body split s-62">
-        ${card(rule('Revenue by category, ₹ Cr — FY27 vs FY31') + gbars([
+        ${card(gbars([
           { l: 'Pulses', v: [43, 228], d: ['₹43', '₹228'] },
           { l: 'Spices', v: [18, 202], d: ['₹18', '₹202'] },
           { l: 'Value-Added', v: [32, 169], d: ['₹32', '₹169'] },
@@ -865,7 +863,6 @@ slide({
         </div>
         <div class="split s-53">
           <div>
-            ${rule('Channel mix at FY31, ₹ Cr')}
             ${card(hbars([
               { l: 'E-commerce &amp; quick commerce', v: 304, d: '₹304 Cr', t: 't-blue' },
               { l: 'Regional &amp; premium offline', v: 263, d: '₹263 Cr', t: 't-green' },
@@ -875,7 +872,6 @@ slide({
             <div style="margin-top:13px">${box(null, 'No single channel above 40% — the ceiling is what stops the plan becoming a bet on one platform.', 'blue')}</div>
           </div>
           <div>
-            ${rule('The sequence')}
             <div class="stack sm">${['Earn the metro shelf', 'Ride quick commerce into Tier 2 &amp; 3',
               'Convert regional chains, state by state', 'Densify what is already open'].map((t, i) => card(`
               <div style="display:flex;align-items:center;gap:13px"><span class="pill">${i + 1}</span><h4 style="font-size:13px;font-weight:800;color:var(--ink)">${t}</h4></div>`,
@@ -895,7 +891,7 @@ slide({
     ['L0', 'A label claim', '0.3 yrs to copy', 'var(--clay)', '#fff']];
   slide({
     chapter: 'The moat & the ask',
-    html: head('Competitive defence', 'What DHF controls, and how defensible it is.') + `
+    html: head('Growth engine design', 'What DHF controls, and how defensible it is.') + `
       <div class="body split s-58">
         <div>
           <div class="g3" style="margin-bottom:16px">
@@ -960,16 +956,16 @@ slide({
 /* ═══════════════ 27 · CATEGORY LEADERSHIP ═══════════════ */
 {
   const pillars = [
-    ['01', 'EDUCATE WHAT PESTICIDE-FREE MEANS',
+    ['EDUCATE WHAT PESTICIDE-FREE MEANS',
       ['Pesticide-free call-out with QR to the farmer, carrying the Jaivik Bharat logo, on the front of pack',
        'Invite parents, teachers and children to the farm to see the process and meet the farmers',
        'Bring the 56% core audience into cook-off sessions after the visit; give the 18% sceptics firsthand access',
        'Webinars and podcasts led by the farmers and doctors — the two voices the research says are believed',
        'On-ground activation in schools and colleges, and with GPs, gastro specialists and nutritionists. Catch them young']],
-    ['02', 'OUT-PROOF EVERYONE: CERTIFICATION VISIBLE',
+    ['OUT-PROOF EVERYONE: CERTIFICATION VISIBLE',
       ['Quick-commerce platforms like Zepto, Amazon — showcase the Pesticide-Free certificate for every product, on the app (Like Nykaa)',
        'The copycat test: when an incumbent prints "Pesticide-free", DeHaat Honest Farms asks publicly ” Where is the batch certificate?”']],
-    ['03', 'VERTICAL SOURCING CONTROL: FARM TO FORK',
+    ['VERTICAL SOURCING CONTROL: FARM TO FORK',
       ['Own the input decision, not just the output test. Control at sowing is what a competitor cannot contract for',
        'Embed the brand in Indian routine until the habit forms: Think Pesticide-free, Think Honest Farms']]
   ];
@@ -978,9 +974,9 @@ slide({
     html: head('Category leadership', 'Open the category to make it a Proprietary Eponym',
       'A category only becomes large if others are allowed in. DeHaat Honest Farms wins not by owning the words, but by owning the standard, the proof, and the relevance in consumers’ lives.') + `
       <div class="body stack gap-lg spread">
-        <div class="g3">${pillars.map(([n, t, b]) => card(`
-            <b class="num" style="font-size:19px;display:block">${n}</b>
-            <h4 style="font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:.02em;margin:6px 0 9px">${E(t)}</h4>
+        <div class="g3">${pillars.map(([t, b]) => card(`
+            <i style="display:block;width:26px;height:4px;border-radius:2px;background:var(--green)"></i>
+            <h4 style="font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:.02em;margin:10px 0 9px">${E(t)}</h4>
             ${ul(b, 'tight')}`, 'fill')).join('')}
         </div>
         <div>
@@ -1011,7 +1007,6 @@ slide({
       <div class="veil"><img src="${A('veil-radial.png')}" alt=""></div>
       <div class="closing">
         <p class="dhan">धन्यवाद</p>
-        <p class="promise">Verified in the fields. Honest on the shelves.</p>
         <img src="${A('logo.png')}" alt="DeHaat Honest Farms">
       </div>` });
 
@@ -1021,7 +1016,6 @@ const frames = SLIDES.map((s, i) => {
   if (!s.nofoot) page += 1;
   const foot = s.nofoot ? '' : `
       <footer class="foot">
-        <span class="foot-ch">${E(s.chapter || '')}</span>
         ${s.src ? `<span class="foot-src">${E(s.src)}</span>` : ''}
         <span class="foot-n">${String(page).padStart(2, '0')}</span>
       </footer>`;
@@ -1063,7 +1057,7 @@ ${frames}
   <button id="next" title="Next (→)"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   <span class="sep"></span>
   <button id="grid" title="All slides (G)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
-  <button id="edit" title="Edit text (E)"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></button>
+  <button id="edit" class="wide" title="Edit any text on the deck (E)"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span>Edit text</span></button>
   <button id="save" title="Download this deck as HTML"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></button>
   <button id="full" title="Fullscreen (F)"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3"/><path d="M16 3h3a2 2 0 012 2v3"/><path d="M16 21h3a2 2 0 002-2v-3"/><path d="M8 21H5a2 2 0 01-2-2v-3"/></svg></button>
   <button id="ask" title="Keyboard shortcuts (?)">?</button>
@@ -1079,7 +1073,7 @@ ${frames}
       <dt>↓ &nbsp;Space</dt><dd>Next slide</dd>
       <dt>↑</dt><dd>Previous slide</dd>
       <dt>G</dt><dd>All slides at a glance — click one to jump</dd>
-      <dt>E</dt><dd>Edit mode — click any text and type</dd>
+      <dt>E</dt><dd>Edit text — click any heading, bullet, table cell or chart label and type</dd>
       <dt>F</dt><dd>Fullscreen</dd>
       <dt>Home / End</dt><dd>First / last slide</dd>
       <dt>Esc</dt><dd>Close this, or leave edit mode</dd>

@@ -138,6 +138,8 @@ from the original presentation.
 node tools/build-html-deck.js                     # site/deck/index.html
 node tools/shoot-deck.js  out/                    # screenshot + fit check
 node tools/check-scroll.js                        # navigation smoke test
+node tools/dump-html-deck.js                      # per-slide text dump
+python3 tools/verify-fidelity.py <source.pptx>    # per-slide fidelity audit
 node tools/bundle-deck.mjs DHF-Honest-Farms-Deck.html   # one self-contained file
 ```
 
@@ -161,6 +163,26 @@ Charts are HTML and CSS — bars are divs with a width or height percentage, so
 they inherit the type and colour tokens and stay editable like everything else.
 Photography, the logo and the certification marks are the ones from the source
 presentation.
+
+### Fidelity audit
+
+`verify-fidelity.py` checks the deck slide by slide: every string rendered on
+HTML slide N has to be traceable to slide N of the source `.pptx` — its text
+frames, tables, chart categories, chart series names, cached chart values and
+speaker notes. Anything that is not is reported, and re-checked against the
+rest of the deck so a string borrowed from another slide is labelled rather
+than hidden.
+
+Current result: **28 slides, 693 of 696 strings traced to their own source
+slide.** The three exceptions are the section marker *Growth engine design* on
+slides 22, 23 and 25 — verbatim from the phase list on source slide 2, used
+where those slides carry no label of their own.
+
+Every digit on the deck is checked the same way. Beyond the page numbers, nine
+list markers remain: `01`–`04` on slide 7 and `01`–`03` on slide 21, where the
+source itself says "four tensions" and "three tension points", and `1`–`4` on
+slide 24's four-step sequence. No figure, chart value, percentage or currency
+amount appears anywhere it does not appear in the source.
 
 ### Hosting it on Cloudflare
 
