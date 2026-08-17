@@ -1,5 +1,14 @@
 name: Deploy to Cloudflare Workers
 
+# Deploys site/ (the long-form page at / and the slide deck at /deck/) to the
+# Worker named in wrangler.toml: sabika-dhf-project.
+#
+# Needs one repository secret, added under
+#   Settings → Secrets and variables → Actions → New repository secret
+#
+#   CLOUDFLARE_API_TOKEN   a token from the "Edit Cloudflare Workers" template
+#   CLOUDFLARE_ACCOUNT_ID  optional; only needed if the token spans several accounts
+
 on:
   push:
     branches:
@@ -14,6 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check the Cloudflare credential is present
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "::error title=No Cloudflare API token::The repository secret CLOUDFLARE_API_TOKEN is not set, so wrangler has nothing to authenticate with. Add it under Settings → Secrets and variables → Actions, using a token from Cloudflare's 'Edit Cloudflare Workers' template, then re-run this workflow."
+            exit 1
+          fi
+          echo "CLOUDFLARE_API_TOKEN is set — deploying."
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -23,4 +40,12 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.123.0'
           command: deploy
+
+      - name: Where it landed
+        run: |
+          echo "### Deployed :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Slide deck: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/deck/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Long-form page: \`https://sabika-dhf-project.<your-subdomain>.workers.dev/\`" >> $GITHUB_STEP_SUMMARY
