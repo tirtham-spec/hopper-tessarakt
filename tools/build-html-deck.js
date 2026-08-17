@@ -41,8 +41,23 @@ const stat = (v, l, tone = 't-blue', size = '') =>
 const ul = (arr, cls = '') =>
   `<ul${cls ? ` class="${cls}"` : ''}>${arr.map(t => `<li>${E(t)}</li>`).join('')}</ul>`;
 const lbl = (t, cls = '') => `<div class="lbl${cls ? ' ' + cls : ''}">${E(t)}</div>`;
+// every picture is placed at its own aspect ratio, so nothing is cropped
+const RATIO = {
+  's01-team-field.jpg': 1.776, 's06-honestly-better.jpg': 1, 's15-harvest.jpg': 1.776,
+  's16-meet-the-producer.jpg': 1, 's16-pack-toordal.jpg': 0.667, 's17-carton-phone.jpg': 1.5,
+  's20-warehouse.jpg': 1.776, 's21-value-added.jpg': 1.5, 's21-pulses.jpg': 1,
+  's22-wheat.jpg': 0.667, 's23-spices.jpg': 0.559, 's24-store.jpg': 1.779,
+  's28-sapling.jpg': 1.5,
+  'news-ccpa.jpg': 0.75, 'news-ndtv.jpg': 1.78, 'news-c.jpg': 1.78, 'news-3.jpg': 0.75,
+  'news-b.jpg': 1.78, 'shelf-jars.jpg': 1.93, 'shelf-poha.jpg': 1.664,
+  'shelf-twobrothers.jpg': 0.701, 'shelf-tribalveda.jpg': 0.69, 'shelf-ingress.jpg': 0.704,
+  'pk-vedaka.jpg': 0.643, 'pk-fortune.jpg': 0.912, 'pk-tatasampann.jpg': 0.789,
+  'pk-conscious.jpg': 0.834, 'pk-24mantra.jpg': 1
+};
+const band = (src, h, cls = '') =>
+  `<div class="pic" style="height:${h}px">${fig(src, cls, `height:${h}px;width:auto;max-width:100%`)}</div>`;
 const fig = (src, cls = '', style = '') =>
-  `<figure${cls ? ` class="${cls}"` : ''}${style ? ` style="${style}"` : ''}><img src="${A(src)}" alt=""></figure>`;
+  `<figure${cls ? ` class="${cls}"` : ''} style="${RATIO[src] ? `aspect-ratio:${RATIO[src]};` : ''}${style}"><img src="${A(src)}" alt=""></figure>`;
 
 const hbars = (rows, max) => `<div class="hbars">${rows.map(r => `
           <div class="hbar"><span class="hl">${E(r.l)}</span><span class="hv ${r.t}">${E(r.d)}${r.d2 ? `<em>${E(r.d2)}</em>` : ''}</span><i class="${r.t}" style="--w:${(r.v / max * 100).toFixed(1)}%"></i></div>`).join('')}
@@ -66,7 +81,7 @@ const gbars = (rows, max, legend, o = {}) => `<div class="chart" style="--ph:${o
 
 /* ═══════════════ 01 · TITLE ═══════════════ */
 slide({ bleed: true, dark: true, nofoot: true, html: `
-      <div class="bleed-img"><img src="${A('makhana-farm.jpg')}" alt=""></div>
+      <div class="bleed-img"><img src="${A('s01-team-field.jpg')}" alt=""></div>
       <div class="veil"><img src="${A('veil-h.png')}" alt=""></div>
       <div class="cover">
         <p class="eyebrow">ISB CGMO Cohort II  ·  Business Leadership Challenge</p>
@@ -183,7 +198,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
     html: head('The price ladder', 'Category Structure: Laddering on pricing & claims') + `
       <div class="body stack gap-lg spread">
         <div class="g5">${tiers.map(([img, t, a, b]) => card(`
-            ${fig(img, 'contain', 'height:96px')}
+            ${band(img, 96, 'white')}
             <h4 style="font-size:11px;font-weight:800;letter-spacing:.03em;line-height:1.28;margin:11px 0 7px;color:var(--ink)">${t}</h4>
             <p style="font-size:11px;color:var(--tx2);line-height:1.32">${a}</p>
             <p style="font-size:11px;color:var(--clay);font-weight:700;line-height:1.32;margin-top:4px">${b}</p>`, 'fill')).join('')}
@@ -222,7 +237,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
           <div class="g5">${brands.map(([n, chip, cc, d, dhf]) => card(`
               <h4 style="font-size:13px;font-weight:800;color:var(--ink);margin-bottom:8px">${E(n)}</h4>
               <span class="chip ${cc}">${E(chip)}</span>
-              <p style="font-size:10.5px;line-height:1.36;margin-top:8px;color:${dhf ? 'var(--clay)' : 'var(--tx2)'}">${E(d)}</p>`,
+              <p style="font-size:10.5px;line-height:1.32;margin-top:7px;color:${dhf ? 'var(--clay)' : 'var(--tx2)'}">${E(d)}</p>`,
             (dhf ? 'pick ' : '') + 'fill" style="padding:13px 15px')).join('')}
           </div>
         </div>
@@ -279,7 +294,7 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
           <div style="margin-top:14px">${box(null, "Proof comes from controlling procurement and processing, not from holding a certificate. No brand occupies it today, and DHF's own Shelf Price is inconsistent across platforms.", 'blue')}</div>
         </div>
         <div class="stack">
-          ${fig('pack-toordal.jpg', 'contain', 'height:250px;box-shadow:var(--shadow)')}
+          ${fig('s06-honestly-better.jpg', 'white', 'box-shadow:var(--shadow)')}
           ${box('Priced as Accessible - Premium @ ₹150 – ₹250 / kg (Tur Daal for instance)',
             'Value and mainstream brands sit at ₹136/- to 157/-; certified organic sits at ₹255/- to 306/-.\nThe corridor between them is empty of trust codes and is already being squeezed from below by BB Royal Organic at ₹157/-.', 'gold')}
         </div>
@@ -585,12 +600,12 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
           <div style="display:flex;flex-wrap:wrap;gap:7px">${claims.map(c => `
             <span style="font-size:11.5px;color:var(--tx2);border:1px dashed var(--line);background:#fff;border-radius:15px;padding:6px 12px">${E(c)}</span>`).join('')}
           </div>
-          <div class="g5 grow" style="gap:8px;margin-top:16px">${['shelf-jars.jpg', 'shelf-poha.jpg', 'shelf-twobrothers.jpg', 'shelf-tribalveda.jpg', 'shelf-ingress.jpg'].map(f => fig(f, '', 'height:100%')).join('')}</div>
+          <div class="g5" style="gap:8px;margin-top:16px">${['shelf-jars.jpg', 'shelf-poha.jpg', 'shelf-twobrothers.jpg', 'shelf-tribalveda.jpg', 'shelf-ingress.jpg'].map(f => band(f, 128)).join('')}</div>
           <div style="margin-top:16px">${box(null, 'DHF’s edge is a specific: Verifiable Proof Mechanism (QR + Test Data), not another claim in the pile.', 'green')}</div>
         </div>
         <div>
           ${rule('Media is building the case for verified proof')}
-          <div class="g3">${news.map(([f, cap]) => `<div>${fig(f, '', 'height:150px')}<figcaption>${cap}</figcaption></div>`).join('')}</div>
+          <div class="g3" style="align-content:start">${news.map(([f, cap]) => `<div>${band(f, 132)}<figcaption>${cap}</figcaption></div>`).join('')}</div>
         </div>
       </div>`
   });
@@ -607,13 +622,13 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
     ['Connection', 'The farmer isn’t a sourcing story we tell; they’re the name on the batch, accountable and credited. When farmers prosper, supply is reliable; when consumers can trace what they buy back to a real farm, honesty becomes provable, not just promised.']
   ];
   slide({
-    chapter: 'Brand & proof', dark: true, panel: 'panel-spices.jpg', panelW: 372,
+    chapter: 'Brand & proof', dark: true,
     html: head('Brand manifesto', 'We believe') + `
-      <div class="body stack" style="max-width:812px">
-        <p style="font-size:15.5px;color:var(--txl);line-height:1.5">The future of food isn’t claimed on a label; it’s proven in the field. Every seed we recommend, every practice we track, and every farmer we name is how we turn honesty into something you can verify, not just believe.</p>
+      <div class="body stack">
+        <p style="font-size:16px;color:var(--txl);line-height:1.52;max-width:1000px">The future of food isn’t claimed on a label; it’s proven in the field. Every seed we recommend, every practice we track, and every farmer we name is how we turn honesty into something you can verify, not just believe.</p>
         <div>
           ${rule('We stand for')}
-          <div class="g2" style="gap:11px">${values.map(([t, d]) => card(`
+          <div class="g3" style="gap:12px">${values.map(([t, d]) => card(`
               <h4 style="font-family:var(--fd);font-weight:400;font-size:13px;color:#fff">${E(t)}</h4>
               <p style="font-size:11px;color:var(--txl);line-height:1.38;margin-top:5px">${E(d)}</p>`, 'ink2 fill" style="padding:11px 13px')).join('')}
           </div>
@@ -624,12 +639,17 @@ slide({ bleed: true, dark: true, nofoot: true, html: `
 
 /* ═══════════════ 15 · BRAND PURPOSE ═══════════════ */
 slide({
-  chapter: 'Brand & proof', cls: 'sand', panel: 'sapling.jpg', panelW: 520,
+  bleed: true, dark: true, chapter: 'Brand & proof',
   html: `
-      <header class="head"><span class="banner">Brand purpose</span></header>
-      <div class="body" style="max-width:640px;display:flex;align-items:center">
-        <h2 style="font-family:var(--fd);font-weight:400;font-size:36px;line-height:1.2;color:var(--ink)">To nurture soil and skills, to do business honestly, and to prove it batch by batch, farmer by farmer.</h2>
-      </div>` });
+      <div class="bleed-img"><img src="${A('s15-harvest.jpg')}" alt=""></div>
+      <div class="veil"><img src="${A('veil-flat.png')}" alt=""></div>
+      <div class="veil"><img src="${A('veil-h.png')}" alt=""></div>
+      <img class="mark" src="${A('logo.png')}" alt="" style="position:absolute;right:53px;top:30px;width:120px">
+      <div class="statement">
+        <span class="banner">Brand purpose</span>
+        <h2>To nurture soil and skills, to do business honestly, and to prove it batch by batch, farmer by farmer.</h2>
+      </div>
+      <div class="bleed-foot"><span class="foot-n">__PAGE__</span></div>` });
 
 /* ═══════════════ 16 · FARMERS IN THE SPOTLIGHT ═══════════════ */
 {
@@ -653,8 +673,8 @@ slide({
           'tl fill" style="--c:var(--green);padding:11px 14px')).join('')}
         </div>
         <div class="stack sm">
-          ${fig('qr-scan.jpg', '', 'height:236px')}
-          ${fig('pack-range.jpg', '', 'height:222px')}
+          ${band('s16-meet-the-producer.jpg', 214, 'white')}
+          ${band('s16-pack-toordal.jpg', 246, 'white')}
         </div>
       </div>` });
 }
@@ -681,7 +701,10 @@ slide({
                ['EXPERIENTIAL BENEFIT:', 'Honest Progress with every basket,', 'from seed to plate.']]
               .map(([t, b, d]) => card(`${lbl(t, 'b')}<p style="font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.3;padding-top:6px">${E(b)}</p><p style="font-size:11.5px;color:var(--tx2);line-height:1.34;padding-top:3px">${E(d)}</p>`, 'sand fill')).join('')}
           </div>
-          ${card(`${lbl('Promise:', 'g')}<p style="font-family:var(--fd);font-weight:400;font-size:16px;color:#fff;padding-top:7px">Verified in the fields, Honest on the shelves.</p>`, 'ink nogrow')}
+          <div style="display:grid;grid-template-columns:1fr 232px;gap:14px" class="nogrow">
+            ${card(`${lbl('Promise:', 'g')}<p style="font-family:var(--fd);font-weight:400;font-size:16px;color:#fff;padding-top:7px">Verified in the fields, Honest on the shelves.</p>`, 'ink')}
+            ${band('s17-carton-phone.jpg', 96, 'white')}
+          </div>
         </div>
         <div>
           <div class="g2" style="gap:13px">${stakes.map(([t, d]) => card(`
@@ -797,6 +820,7 @@ slide({
               { l: 'Spices  ·  12%', v: 10.9, d: '₹10.9 Cr', d2: '+185%', t: 't-gold' },
               { l: 'Oil &amp; Ghee  ·  1%', v: 0.8, d: '₹0.8 Cr', d2: 'NPD', t: 't-grey' }
             ], 56))}
+            <div class="g2" style="gap:12px;margin-top:13px">${band('s21-value-added.jpg', 122)}${band('s21-pulses.jpg', 122)}</div>
           </div>
           <div>
             ${rule('Three tension points that decide the strategy')}
@@ -827,7 +851,7 @@ slide({
           ${stat('14.1×', 'On the FY26 base of ₹53 cr', 't-green', 'md')}
           ${stat('64%', 'Net revenue CAGR, FY27 to FY31', 't-green', 'md')}
           ${stat('+5.8pp', 'Gross margin, 37.5% → 43.3%', 't-green', 'md')}
-          ${fig('value-added.jpg', '', 'height:110px')}
+          ${band('s22-wheat.jpg', 112)}
         </div>
       </div>` });
 
@@ -848,6 +872,7 @@ slide({
           ${stat('₹99.9 Cr', 'Makhana — the single largest SKU in the FY31 plan, and a realisation play, not a tonnage play.', 't-green', 'sm')}
           ${stat('₹95.5 Cr', 'From four ground spice powders that do not exist today. Pure NPD, from a zero base.', 't-green', 'sm')}
           ${box(null, 'Pulses hold the volume base. Spices deliver the entire +5.8pp of margin expansion. So, a slipped spice launch is a slipped P&L.', 'clay')}
+          ${band('s23-spices.jpg', 86)}
         </div>
       </div>` });
 
@@ -862,22 +887,23 @@ slide({
           ${stat('40%', "the ceiling on any single channel's share of revenue", 't-blue')}
         </div>
         <div class="split s-53">
-          <div>
+          <div class="col-spread">
             ${card(hbars([
               { l: 'E-commerce &amp; quick commerce', v: 304, d: '₹304 Cr', t: 't-blue' },
               { l: 'Regional &amp; premium offline', v: 263, d: '₹263 Cr', t: 't-green' },
               { l: 'National modern trade', v: 129, d: '₹129 Cr', t: 't-blue2' },
               { l: 'Exports', v: 54, d: '₹54 Cr', t: 't-gold' }
-            ], 340))}
+            ], 340), 'grow')}
             <div style="margin-top:13px">${box(null, 'No single channel above 40% — the ceiling is what stops the plan becoming a bet on one platform.', 'blue')}</div>
           </div>
-          <div>
-            <div class="stack sm">${['Earn the metro shelf', 'Ride quick commerce into Tier 2 &amp; 3',
+          <div class="col-spread">
+            <div class="stack sm nogrow">${['Earn the metro shelf', 'Ride quick commerce into Tier 2 &amp; 3',
               'Convert regional chains, state by state', 'Densify what is already open'].map((t, i) => card(`
               <div style="display:flex;align-items:center;gap:13px"><span class="pill">${i + 1}</span><h4 style="font-size:13px;font-weight:800;color:var(--ink)">${t}</h4></div>`,
               '" style="padding:10px 14px')).join('')}
             </div>
             <div style="margin-top:13px">${box(null, '13.5× the selling points at 5× the revenue. The plan does not need better stores, it needs more of them, faster than the dilution.', 'gold')}</div>
+            <div class="nogrow" style="margin-top:13px">${band('s24-store.jpg', 104)}</div>
           </div>
         </div>
       </div>` });
@@ -908,7 +934,7 @@ slide({
             'fill" style="padding:11px 8px')).join('')}
           </div>
           <p class="lbl" style="margin:13px 0 10px">Bihar makhana · Uttarakhand jaggery · Gujarat java peanut · and five more, owned end-to-end</p>
-          ${fig('factory.jpg', '', 'height:136px')}
+
         </div>
         <div>
           ${rule('The moat has to be visible by FY29')}
@@ -1002,19 +1028,18 @@ slide({
 /* ═══════════════ 28 · CLOSE ═══════════════ */
 slide({
   bleed: true, dark: true, nofoot: true, html: `
-      <div class="bleed-img"><img src="${A('team-field.jpg')}" alt=""></div>
-      <div class="veil"><img src="${A('veil-flat.png')}" alt=""></div>
-      <div class="veil"><img src="${A('veil-radial.png')}" alt=""></div>
       <div class="closing">
+        ${fig('s28-sapling.jpg', 'plain', 'width:400px')}
         <p class="dhan">धन्यवाद</p>
-        <img src="${A('logo.png')}" alt="DeHaat Honest Farms">
+        <img class="mk" src="${A('logo.png')}" alt="DeHaat Honest Farms">
       </div>` });
 
 /* ═══════════════ assemble ═══════════════ */
 let page = 0;
 const frames = SLIDES.map((s, i) => {
   if (!s.nofoot) page += 1;
-  const foot = s.nofoot ? '' : `
+  const html = (s.html || '').replace('__PAGE__', String(page).padStart(2, '0'));
+  const foot = (s.nofoot || s.bleed) ? '' : `
       <footer class="foot">
         ${s.src ? `<span class="foot-src">${E(s.src)}</span>` : ''}
         <span class="foot-n">${String(page).padStart(2, '0')}</span>
@@ -1025,7 +1050,7 @@ const frames = SLIDES.map((s, i) => {
   const cls = ['slide', s.dark ? 'dark' : '', s.cls || '', s.bleed ? 'bleed' : ''].filter(Boolean).join(' ');
   return `  <div class="frame" data-i="${i}">
     <div class="fit"><div class="holder">
-      <section class="${cls}" data-notes="${s.notes ? E(s.notes.join(' — ')) : ''}">${panel}${s.html}${foot}
+      <section class="${cls}" data-notes="${s.notes ? E(s.notes.join(' — ')) : ''}">${panel}${html}${foot}
       </section>
     </div></div>
   </div>`;

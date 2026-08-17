@@ -138,6 +138,7 @@ from the original presentation.
 node tools/build-html-deck.js                     # site/deck/index.html
 node tools/shoot-deck.js  out/                    # screenshot + fit check
 node tools/check-scroll.js                        # navigation smoke test
+node tools/check-crops.js                         # picture cropping audit
 node tools/dump-html-deck.js                      # per-slide text dump
 python3 tools/verify-fidelity.py <source.pptx>    # per-slide fidelity audit
 node tools/bundle-deck.mjs DHF-Honest-Farms-Deck.html   # one self-contained file
@@ -161,8 +162,24 @@ Nothing leaves the page.
 
 Charts are HTML and CSS — bars are divs with a width or height percentage, so
 they inherit the type and colour tokens and stay editable like everything else.
-Photography, the logo and the certification marks are the ones from the source
-presentation.
+
+### Pictures
+
+Every photograph is the one the source deck carries **on that slide**, pulled
+from the `.pptx` at full resolution: the team at the pond on slide 1, the
+Honestly Better key visual on 6, the shelf strip and press clippings on 13, the
+harvest frame behind the purpose statement on 15, Meet the Producer and the
+toor dal pack on 16, the carton and phone on 17, the warehouse on 20, the
+value-added flat lay and the pulses grid on 21, wheat on 22, spices on 23, the
+store interior on 24, the sapling on 28.
+
+**Nothing is cropped.** Each figure is set to its picture's own aspect ratio and
+the picture is `object-fit: contain` inside it, so a row of mixed portrait and
+landscape shots lines up on a shared baseline without a single edge being cut.
+`check-crops.js` measures every placed picture and reports anything losing more
+than 1% of its frame, or upscaled past 1.6×. Current result: **63 pictures, no
+photograph cropped and none upscaled** — the only entries are the transparent
+gradient overlays on the three full-bleed slides, at 1.2% of a gradient.
 
 ### Fidelity audit
 

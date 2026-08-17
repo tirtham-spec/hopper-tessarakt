@@ -127,7 +127,7 @@ body.editing #stage{scroll-snap-type:none}
 /* every direct child of a split is a full-height column, and the blocks
    inside it share out whatever height is going spare */
 .split{display:grid; grid-template-columns:1fr 1fr; grid-template-rows:minmax(0,1fr); gap:26px; align-items:stretch}
-.split > *{display:flex; flex-direction:column; min-width:0}
+.split > *{display:flex; flex-direction:column; min-width:0; min-height:0}
 .split > * > .stack{flex:1; min-height:0}
 .split > .stack > *,
 .split > * > .stack > .card,
@@ -135,6 +135,8 @@ body.editing #stage{scroll-snap-type:none}
 .split > * > .g2,.split > * > .g3,.split > * > .g4,.split > * > .g5,
 .split > .g2,.split > .g3,.split > .g4,.split > .g5{display:grid; flex:1; min-height:0; grid-auto-rows:minmax(0,1fr)}
 .split .nogrow{flex:0 0 auto}
+.split > .col-spread{justify-content:space-between}
+.split > * > .grow{flex:1; min-height:0}
 .split .stack.spread{justify-content:space-between}
 .body > .grow{flex:1; min-height:0}
 .grow.g2,.grow.g3,.grow.g4,.grow.g5{grid-auto-rows:minmax(0,1fr)}
@@ -218,7 +220,7 @@ ul.tight li{margin-bottom:2px}
 .t-ink{--c:var(--ink); color:var(--ink)}
 
 /* ── charts ───────────────────────────────────────────────────── */
-.hbars{display:flex; flex-direction:column; gap:7px}
+.hbars{display:flex; flex-direction:column; gap:6px}
 .hbar{display:grid; grid-template-columns:1fr auto; gap:3px 10px; align-items:baseline}
 .hbar .hl{font-size:11.5px; color:var(--tx2)}
 .hbar .hv{font-size:12.5px; font-weight:700; text-align:right; white-space:nowrap}
@@ -265,10 +267,18 @@ table.matrix th{text-align:left}
 table.matrix td:first-child{border-left:0; color:var(--tx3); font-weight:700}
 
 /* ── imagery ──────────────────────────────────────────────────── */
-figure{margin:0; overflow:hidden; border-radius:8px}
-figure img{display:block; width:100%; height:100%; object-fit:cover}
-figure.contain{background:#fff; display:grid; place-items:center}
-figure.contain img{object-fit:contain}
+/* nothing is ever cropped: a figure is sized to its picture's own ratio and
+   the picture is contained inside it */
+figure{margin:0; overflow:hidden; border-radius:8px; background:var(--sand);
+  display:grid; place-items:center; min-height:0; min-width:0}
+figure img{display:block; width:100%; height:100%; object-fit:contain}
+figure.white{background:#fff}
+figure.plain{background:none}
+/* full-bleed slides use pictures already at the 16:9 of the stage */
+figure.bleed{border-radius:0; background:none}
+.pic{display:grid; place-items:center; min-width:0}
+.pic > figure{background:none}
+.pic > figure.white{background:#fff}
 figcaption{font-size:11px; color:var(--tx2); padding-top:6px; line-height:1.28}
 .bleed-img{position:absolute; inset:0}
 .bleed-img img{display:block; width:100%; height:100%; object-fit:cover}
@@ -287,10 +297,15 @@ figcaption{font-size:11px; color:var(--tx2); padding-top:6px; line-height:1.28}
 .cover .team .badge{background:var(--green3); color:var(--ink); font-size:11.5px; font-weight:700;
   letter-spacing:.14em; padding:6px 13px; border-radius:14px}
 .cover .team p{font-size:14px; color:var(--txl)}
-.closing{position:relative; height:100%; display:grid; place-content:center; justify-items:center; text-align:center; color:#fff}
-.closing .dhan{font-family:'Noto Sans Devanagari',var(--fb); font-size:66px; line-height:1.3; color:#fff}
-.closing .promise{font-size:21px; font-style:italic; color:var(--green3); margin-top:14px}
-.closing img{width:200px; margin-top:34px}
+.closing{position:relative; height:100%; display:grid; place-content:center; justify-items:center;
+  gap:26px; text-align:center; color:#fff}
+.closing .dhan{font-family:'Noto Sans Devanagari',var(--fb); font-size:60px; line-height:1.3; color:#fff}
+.closing img.mk{width:200px}
+/* a statement set over a full-bleed photograph */
+.statement{position:relative; height:100%; display:flex; flex-direction:column; justify-content:center;
+  gap:22px; align-items:flex-start; padding:0 53px; color:#fff}
+.statement h2{font-family:var(--fd); font-weight:400; font-size:40px; line-height:1.18; max-width:880px}
+.bleed-foot{position:absolute; right:53px; bottom:24px}
 .breaker{position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end;
   padding:0 53px 96px; color:#fff}
 .breaker h2{font-family:var(--fd); font-weight:400; font-size:46px; line-height:1.14; max-width:960px; margin-top:16px}
