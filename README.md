@@ -129,3 +129,27 @@ Rebuilt from `14TH_AUG_DHF_BLC_DECK.pptx`. Every figure, quote, factor loading
 and financial number in the web deck is carried over from that file; nothing
 was invented. Photography, the logo and the certification marks are extracted
 from the original presentation.
+
+---
+
+## Editable slide deck (Canva / PowerPoint / Google Slides)
+
+```bash
+node tools/build-deck.js DHF-Honest-Farms-Deck.pptx
+python3 tools/check-deck.py DHF-Honest-Farms-Deck.pptx    # layout QA
+```
+
+32 slides at 16:9, carrying the same content, palette and typefaces as the
+website. Every chart is drawn from native shapes — rectangles, lines and text
+boxes — rather than an embedded chart object or a picture, so the bars stay
+selectable and editable after a Canva import.
+
+**Importing into Canva:** Canva home → **Create a design** → **Import file** →
+choose the `.pptx`. Canva converts it into a normal, fully editable Canva
+presentation. Archivo Black and Nunito Sans are both in Canva's font library,
+so the type maps across without substitution.
+
+`tools/check-deck.py` stands in for a visual render (LibreOffice is not
+available in this build environment). It measures three things per slide:
+shapes falling outside the page, text that cannot fit its box at the stated
+point size, and text boxes that overlap each other.
